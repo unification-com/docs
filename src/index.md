@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: /assets/common/unification_icon.png
 tagline: Documentation for all Unification Projects
 actionText: Mainchain Quick Start →
 actionLink: /mainchain/
