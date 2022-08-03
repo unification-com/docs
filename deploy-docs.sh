@@ -17,4 +17,5 @@ git add -A
 
 git commit -m 'deploy'
 
+# note - git still uses master, not main
 git push -f git@github.com:unification-com/docs.git master:gh-pages
