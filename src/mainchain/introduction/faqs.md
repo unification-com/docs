@@ -8,9 +8,9 @@
 
 Unification is a scalable master blockchain for Enterprise.
 
-1. WRKChains can be considered similar to side-chains which allow scaling processing power and cost metrics for 
+1. WrkChains can be considered similar to side-chains which allow scaling processing power and cost metrics for 
    enterprises who need an immutable blockchain without being directly on a public blockchain
-2. Mainchain  is the master 100% public blockchain which WRKChains consume FUND to submit their block header hashes to 
+2. Mainchain  is the master 100% public blockchain which WrkChains consume FUND to submit their block header hashes to 
    Mainchain for public immutability.
 
 See [About Mainchain](about-mainchain.md) for further details.
@@ -26,13 +26,13 @@ See [About Mainchain](about-mainchain.md) for further details.
 
 ## 2. Where can I find the main API documents?
 
-- `und` (server) command reference: [und commands](../software/und_cmd/und.md)
+- `und` command reference: [und commands](../software/und_cmd/und.md)
 - Public REST API:  
 **MainNet** - [https://rest.unification.io/swagger/](https://rest.unification.io/swagger/)  
-**TestNet** - [https://rest.unification.io/swagger/](https://rest-testnet.unification.io/swagger/)
+**TestNet** - [https://rest-testnet.unification.io/swagger/](https://rest-testnet.unification.io/swagger/)
 - Public RPC Interface:  
-**MainNet** - [https://rpc1.unification.io:443](https://rpc1.unification.io:443)  
-**TestNet** - [https://rpc-testnet.unification.io:443](https://rpc-testnet.unification.io:443)  
+**MainNet** - [https://rpc1.unification.io:443](https://rpc1.unification.io)  
+**TestNet** - [https://rpc-testnet.unification.io:443](https://rpc-testnet.unification.io)  
 The RPC specification is the same as [Tendermint](https://docs.tendermint.com/master/rpc/).
 
 ## 3. Where is the block explorer?
@@ -44,7 +44,7 @@ The RPC specification is the same as [Tendermint](https://docs.tendermint.com/ma
 
 Latest compiled binaries available from [https://github.com/unification-com/mainchain/releases](https://github.com/unification-com/mainchain/releases)  
 
-- `und` software has been compiled for Linux x86_64, OSX and Windows. Tested on CentOS 7, and Ubuntu 16.04  
+- `und` software has been compiled for Linux x86_64, OSX and Windows. Tested on CentOS, and Ubuntu
 
 ## 5. How do I compile the code from source?
 
@@ -75,7 +75,7 @@ node being queried/used for broadcast.
 Several methods available:
 
 ```bash
-und status --chain-id=CHAIN_ID --node=PROTOCOL://NODE:PORT
+und status --chain-id=CHAIN_ID --node PROTOCOL://NODE:PORT
 ```
 
 **TestNet Example**:
@@ -113,6 +113,13 @@ und query block --chain-id=FUND-TestNet-2 --node=https://rpc-testnet.unification
 
 ```bash
 und query block --chain-id=FUND-MainNet-2 --node=https://rpc1.unification.io:443 --trust-node=true
+```
+
+Finally, a `curl` request can be made to the RPC node:
+
+```bash
+curl -s https://rpc-testnet.unification.io/status
+curl -s https://rpc1.unification.io/status
 ```
 
 ### 7.2. How do I create new wallet address?

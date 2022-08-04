@@ -17,7 +17,7 @@ alongside the `und` RPC interface.
 Before continuing, ensure you have gone through the following docs:
 
 1. [Installing the software](installation.md)
-2. [join a Network](../networks/join-network.md), or [run DevNet](../networks/local-devnet.md)
+2. [join a Network](../networks/join-network.md), or [run DevNet](../networks/devnet/local-devnet-docker.md)
 
 ## Running a light client
 

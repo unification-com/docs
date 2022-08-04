@@ -2,7 +2,7 @@
 
 ::: danger
 If you intend to become a `MainNet` Validator, it is **HIGHLY** recommended that you practice on `TestNet` first 
-in order to _fully familiarise_ yourself with the process.
+in order to fully familiarise yourself with the process.
 :::
 
 ::: warning IMPORTANT
@@ -62,13 +62,14 @@ This will output your node's public key. Make a note of it, as it will be requir
 
 ::: warning IMPORTANT
 Before continuing, ensure your full node has fully synced with the network and downloaded all the blocks (this may take 
-a while, so go and make a brew). You can check the current network block height in the 
-[TestNet block explorer](https://explorer-testnet.unification.io), or [MainNet block explorer](https://explorer.unification.io) 
-depending on the network you are joining. For each block your full node syncs, you will see:
+a while, so go and make a brew). You can check the status of your node's sync by running the following from the node 
+host:
 
-`I[2020-01-15|11:45:07.782] Executed block module=state height=12345 validTxs=24 invalidTxs=0`
+```bash
+curl -s http://localhost:26657/status | jq '.result.sync_info.catching_up'
+```
 
-When the height is the same as the current network block number, your full node has completed syncing.
+if the value is `false`, the node is fully synced
 :::
 
 To create your Validator, you will need to generate, sign and broadcast a special transaction to the network which will 
@@ -202,8 +203,8 @@ You can verify your node is registered as a validator by running:
 
 ```bash
 und query staking validator \
-$(und keys show SELF_DELEGATOR_ACCOUNT --bech=val -a) \
---chain-id=CHAIN_ID
+  $(und keys show SELF_DELEGATOR_ACCOUNT --bech=val -a) \
+  --chain-id=CHAIN_ID
 ```
 
 replacing `SELF_DELEGATOR_ACCOUNT` and `CHAIN_ID` accordingly.

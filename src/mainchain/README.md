@@ -21,6 +21,7 @@ to interact with the Mainchain network.
 - [Accounts and Wallets](software/accounts-wallets.md)
 - [Run a full node & join a Network](networks/join-network.md)
 - [Run `und` as a daemon](software/run-und-as-service.md)
+- [Migrating to Cosmovisor](migrations/cosmovisor.md)
 
 ### Light Client & REST
 
@@ -43,7 +44,7 @@ to interact with the Mainchain network.
 
 ### Private DevNet
 
-- [Play with DevNet](networks/local-devnet.md)
+- [Play with DevNet](networks/devnet/local-devnet-docker.md)
 
 ## 4. Guides & Examples
 

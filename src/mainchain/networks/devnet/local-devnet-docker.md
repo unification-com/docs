@@ -1,27 +1,29 @@
-# Deploying a Local DevNet
+# 3-Node Docker DevNet
 
 ::: warning IMPORTANT
 Whenever you use `und` to send Txs or query the chain ensure you pass the correct data to the `--chain-id`
 and if necessary `--node=` flags so that you connect to the correct network!
 :::
 
-The repository contains a ready to deploy Docker composition for local development and testing.
+The repository contains a ready to deploy Docker composition for local development and testing. The Docker composition
+will spin up a DevNet using the current checked out branch's code to build and run the `und` binaries.
 
 #### Contents
 
 [[toc]]
 
-## Local build
+## Getting DevNet
 
-The local build copies the current local codebase to the Docker containers, and is used during development to test 
-changes before committing to the repository.
+Check out the `mainchain` repository:
 
+```bash
+git clone https://github.com/unification-com/mainchain
+cd mainchain
 ```
-docker-compose -f Docker/docker-compose.local.yml up --build
-docker-compose -f Docker/docker-compose.local.yml down --remove-orphans
-```
 
-or using the `make` target:
+## Spinning up DevNet
+
+DevNet can be started by using the `make` target:
 
 ```bash
 make devnet
@@ -36,7 +38,7 @@ make devnet-down
 ## DevNet Chain ID
 
 ::: warning IMPORTANT
-DevNet's Chain ID is `FUND-DevNet-2`. Any `und` or `und` commands
+DevNet's Chain ID is `FUND-DevNet-2`. Any `und` commands
 intended for DevNet should use the flag `--chain-id FUND-DevNet-2`
 :::
 
@@ -108,7 +110,7 @@ und config node tcp://localhost:26661
 
 ### REST API Endpoints
 
-With DevNet up, the REST API endpoints can be seen via [http://localhost:1318/swagger/](http://localhost:1318/swagger/)
+With DevNet up, the REST API endpoints can be seen via [http://localhost:1317/swagger/](http://localhost:1317/swagger/)
 
 #### Next
 
