@@ -2,7 +2,7 @@
 module.exports = {
   sidebar: [
     {
-      title: 'About Mainchain',
+      title: 'Introduction',
       children: [
         '',
         'introduction/about-mainchain',
@@ -16,12 +16,24 @@ module.exports = {
       ]
     },
     {
-      title: 'Install and Use the Software',
+      title: 'Installation',
       children: [
         'software/installation',
-        'software/accounts-wallets',
-        'networks/join-network',
         'software/run-und-as-service',
+      ]
+    },
+    {
+      title: "Migrations & Upgrades",
+      children: [
+        'migrations/',
+        'migrations/cosmovisor',
+        'migrations/1-ibc_upgrade'
+      ]
+    },
+    {
+      title: 'Using und',
+      children: [
+        'software/accounts-wallets',
         'software/light-client-rpc',
         {
           title: 'CLI Command & Config References',
@@ -38,16 +50,17 @@ module.exports = {
       title: 'Networks',
       children: [
         {
-          title: 'Mainchain Public Networks',
+          title: 'Public Networks',
           children: [
             'networks/join-network',
             'networks/become-validator'
           ]
         },
         {
-          title: 'Play with DevNet',
+          title: 'DevNet',
           children: [
-            'networks/local-devnet'
+            'networks/devnet/local-devnet-docker',
+            'networks/devnet/single-node-devnet'
           ]
         },
         'networks/participation',
@@ -63,7 +76,7 @@ module.exports = {
       ]
     },
     {
-      title: 'In-depth Guides',
+      title: 'Cloud Installation Guides',
       children: [
         'guides/cloud/install-aws',
         'guides/cloud/install-gc'

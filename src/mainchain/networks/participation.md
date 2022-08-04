@@ -74,7 +74,16 @@ A REST (light-client) server can be run alongside an Archive Node to offer deepe
 Third party applications such as block explorers and wallet apps rely on REST servers along with Archive nodes for 
 their data.
 
-REST servers are best run on servers/cloud VMs with high uptimes, along with an Archive node.
+REST servers are best run on servers/cloud VMs with high uptimes, along with an Archive node. 
+
+The REST server can be started by setting the configuring options in `app.toml` as follows:
+
+```toml
+[api]
+enable = true
+swagger = true
+address = "tcp://0.0.0.0:1317"
+```
 
 ## Relay Nodes
 
@@ -86,20 +95,7 @@ Relay nodes can potentially help reduce overall P2P network latency.
 A relay node should have high availability (for example, be running on a Cloud VM, or other host that is always 
 online with a static IP address).
 
-In `$HOME/.und_mainchain/config/config.toml` set the `p2p.external_address` value to `[ip]:26656`, and ensure any 
-firewall rules allow incoming requests from `0.0.0.0/0`
+In `$HOME/.und_mainchain/config/config.toml` set the `p2p.external_address` value to `0.0.0.0:26656`, and ensure any 
+firewall rules allow incoming requests from `0.0.0.0/0` on port `26656`
 
 In `$HOME/.und_mainchin/config/app.toml` set the `minimum-gas-prices` value, to for example `25.0nund`.
-
-## Invariance checking
-
-Invariance checking can be done by any full-node and can help identify any malicious/odd activity on the chain db,
-and the overall data integrity. To do so, simply run the `und` node and pass the `--inv-check-period` flag:
-
-```bash
-und start --inv-check-period=1
-```
-
-Setting `--inv-check-period` to 1 will check every block.
-
-Invariance checking is a resource intensive process.

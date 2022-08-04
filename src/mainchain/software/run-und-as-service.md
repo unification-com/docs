@@ -37,6 +37,11 @@ WantedBy=default.target
 
 It is entirely possible to create a more sophisticated service definition should you desire.
 
+:::tip Note
+**Also see**: [Using Cosmovisor with und: Quick Start](../migrations/cosmovisor.md) for details on running `und` with
+`cosmovisor`.
+:::
+
 Next, inform `systemctl` of the new service:
 
 ```bash

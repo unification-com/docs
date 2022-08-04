@@ -16,7 +16,9 @@ The BIP-0044 Path for our HD Wallets is as follows:
 
 ## Public REST Endpoints
 
-The REST endpoints for API interaction (for example block explorers, wallets etc.), served by [light-clients](../software/light-client-rpc.md) can be found in [swagger.yaml](https://github.com/unification-com/mainchain/blob/master/client/lcd/swagger-ui/swagger.yaml)
+The REST endpoints for API interaction (for example block explorers, wallets etc.), served by 
+[light-clients](../software/light-client-rpc.md) can be found in 
+[swagger.yaml](https://github.com/unification-com/mainchain/blob/master/client/docs/swagger-ui/swagger.yaml)
 
 Live examples can be found at [https://rest.unification.io/swagger/](https://rest.unification.io/swagger/).
 

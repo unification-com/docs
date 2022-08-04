@@ -33,8 +33,8 @@ will result in:
 
 ## HD Wallet Path
 
-The BIP-0044 Path for our HD Wallets is as follows:
+The `BIP-0044` Path for our HD Wallets is as follows:
 
 `44'/5555'/0'/0`   
 
-SLIP-0044 Coin ID is `5555`
+`SLIP-0044` Coin ID is `5555`
