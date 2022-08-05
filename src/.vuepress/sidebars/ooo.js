@@ -1,34 +1,36 @@
 module.exports = {
   sidebar: [
     {
-      title: 'OoO Introduction',
-      path: '/ooo/'
+      text: 'OoO Introduction',
+      link: '/ooo/'
     },
     {
-      title: 'OoO Contract Addresses',
-      path: '/ooo/contracts'
+      text: 'OoO Contract Addresses',
+      link: '/ooo/contracts'
     },
     {
-      title: 'OoO Provider Addresses',
-      path: '/ooo/providers'
+      text: 'OoO Provider Addresses',
+      link: '/ooo/providers'
     },
     {
-      title: 'OoO Guides',
+      text: 'OoO Guides',
+      collapsible: true,
       children: [
-        'guide/',
-        'guide/quickstart',
-        'guide/implementation',
-        'guide/interaction',
-        'guide/ooo_api'
+        '/ooo/guide/',
+        '/ooo/guide/quickstart',
+        '/ooo/guide/implementation',
+        '/ooo/guide/interaction',
+        '/ooo/guide/ooo_api'
       ]
     },
     {
-      title: 'OoO Contract Docs',
+      text: 'OoO Contract Docs',
+      collapsible: true,
       children: [
-        'api/Router',
-        'api/lib/ConsumerBase',
-        'api/lib/RequestIdBase',
-        'api/examples/DemoConsumer',
+        '/ooo/api/Router',
+        '/ooo/api/lib/ConsumerBase',
+        '/ooo/api/lib/RequestIdBase',
+        '/ooo/api/examples/DemoConsumer',
       ]
     },
   ]

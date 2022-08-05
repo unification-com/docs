@@ -1,0 +1,1 @@
+export const data = JSON.parse("{\"key\":\"v-744e20ef\",\"path\":\"/vor/\",\"title\":\"VOR Introduction\",\"lang\":\"en-US\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[],\"git\":{\"updatedTime\":1659516583000,\"contributors\":[{\"name\":\"Codegnosis\",\"email\":\"paul@codegnosis.co.uk\",\"commits\":1}]},\"filePathRelative\":\"vor/README.md\"}")

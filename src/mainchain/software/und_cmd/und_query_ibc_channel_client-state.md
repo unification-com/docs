@@ -21,7 +21,7 @@ und query ibc channel client-state [port-id] [channel-id]
 ```
       --height int      Use a specific height to query state at (this can error if the node is pruning state)
   -h, --help            help for client-state
-      --node string     <host>:<port> to Tendermint RPC interface for this chain (default "tcp://localhost:26657")
+      --node string     &#9001;host&#9002;:&#9001;port&#9002; to Tendermint RPC interface for this chain (default "tcp://localhost:26657")
   -o, --output string   Output format (text|json) (default "text")
 ```
 

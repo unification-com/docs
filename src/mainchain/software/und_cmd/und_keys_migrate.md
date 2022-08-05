@@ -15,7 +15,7 @@ It is recommended to run in 'dry-run' mode first to verify all key migration mat
 
 
 ```
-und keys migrate <old_home_dir> [flags]
+und keys migrate &#9001;old_home_dir&#9002; [flags]
 ```
 
 ### Options

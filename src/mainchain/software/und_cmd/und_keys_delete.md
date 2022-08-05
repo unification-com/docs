@@ -12,7 +12,7 @@ private keys stored in a ledger device cannot be deleted with the CLI.
 
 
 ```
-und keys delete <name>... [flags]
+und keys delete &#9001;name&#9002;... [flags]
 ```
 
 ### Options

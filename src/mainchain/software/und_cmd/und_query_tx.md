@@ -1,13 +1,13 @@
 ## und query tx
 
-Query for a transaction by hash, "<addr>/<seq>" combination or comma-separated signatures in a committed block
+Query for a transaction by hash, "&#9001;addr&#9002;/&#9001;seq&#9002;" combination or comma-separated signatures in a committed block
 
 ### Synopsis
 
 Example:
-$ und query tx <hash>
-$ und query tx --type=acc_seq <addr>/<sequence>
-$ und query tx --type=signature <sig1_base64>,<sig2_base64...>
+$ und query tx &#9001;hash&#9002;
+$ und query tx --type=acc_seq &#9001;addr&#9002;/&#9001;sequence&#9002;
+$ und query tx --type=signature &#9001;sig1_base64&#9002;,&#9001;sig2_base64...&#9002;
 
 ```
 und query tx --type=[hash|acc_seq|signature] [hash|acc_seq|signature] [flags]
@@ -18,7 +18,7 @@ und query tx --type=[hash|acc_seq|signature] [hash|acc_seq|signature] [flags]
 ```
       --height int      Use a specific height to query state at (this can error if the node is pruning state)
   -h, --help            help for tx
-      --node string     <host>:<port> to Tendermint RPC interface for this chain (default "tcp://localhost:26657")
+      --node string     &#9001;host&#9002;:&#9001;port&#9002; to Tendermint RPC interface for this chain (default "tcp://localhost:26657")
   -o, --output string   Output format (text|json) (default "text")
       --type string     The type to be used when querying tx, can be one of "hash", "acc_seq", "signature" (default "hash")
 ```

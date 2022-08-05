@@ -17,7 +17,7 @@ it is required to set such parameters manually. Note, invalid values will cause
 the transaction to fail. The sequence will be incremented automatically for each
 transaction that is signed.
 
-The --multisig=<multisig_key> flag generates a signature on behalf of a multisig
+The --multisig=&#9001;multisig_key&#9002; flag generates a signature on behalf of a multisig
 account key. It implies --signature-only.
 
 
@@ -43,7 +43,7 @@ und tx sign-batch [file] [flags]
       --keyring-dir string       The client Keyring directory; if omitted, the default 'home' directory will be used
       --ledger                   Use a connected Ledger device
       --multisig string          Address or key name of the multisig account on behalf of which the transaction shall be signed
-      --node string              <host>:<port> to tendermint rpc interface for this chain (default "tcp://localhost:26657")
+      --node string              &#9001;host&#9002;:&#9001;port&#9002; to tendermint rpc interface for this chain (default "tcp://localhost:26657")
       --note string              Note to add a description to the transaction (previously --memo)
       --offline                  Offline mode (does not allow any online functionality
   -o, --output string            Output format (text|json) (default "json")

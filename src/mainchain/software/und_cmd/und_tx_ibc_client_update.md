@@ -13,7 +13,7 @@ und tx ibc client update [client-id] [path/to/header.json] [flags]
 ### Examples
 
 ```
-und tx ibc client update [client-id] [path/to/header.json] --from node0 --home ../node0/<app>cli --chain-id $CID
+und tx ibc client update [client-id] [path/to/header.json] --from node0 --home ../node0/&#9001;app&#9002;cli --chain-id $CID
 ```
 
 ### Options

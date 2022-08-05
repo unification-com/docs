@@ -56,11 +56,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  props: {
-    features: { required: true, type: Array },
-  }
-}
-</script>

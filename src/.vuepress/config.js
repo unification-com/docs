@@ -1,9 +1,13 @@
+const { defaultTheme } = require('@vuepress/theme-default')
+const { path } = require('@vuepress/utils')
+const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
 const { description } = require('../../package.json')
 const { sidebar: mainchain_sidebar } = require('./sidebars/mainchain')
 const { sidebar: ooo_sidebar } = require('./sidebars/ooo')
 const { sidebar: vor_sidebar } = require('./sidebars/vor')
 
 module.exports = {
+
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
@@ -25,19 +29,13 @@ module.exports = {
     ['link', { rel: 'icon', href: '/assets/common/unification_icon.png' }]
   ],
 
-  /**
-   * Theme configuration, here is the default theme configuration for VuePress.
-   *
-   * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-   */
-  themeConfig: {
-    repo: 'unification-com/docs',
+  theme: defaultTheme({
     logo: '/assets/common/unification_logoblack.png',
-    editLinks: false,
-    docsDir: '',
-    editLinkText: '',
-    lastUpdated: false,
-    nav: [
+    logoDark: '/assets/common/unification_logowhite.png',
+    repo: 'unification-com/docs',
+    docsDir: 'src',
+    editLink: false,
+    navbar: [
       {
         text: 'Mainchain',
         link: '/mainchain/'
@@ -56,17 +54,20 @@ module.exports = {
       '/ooo/': ooo_sidebar,
       '/vor/': vor_sidebar
     }
-  },
+  }),
 
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
+    registerComponentsPlugin({
+      components: {
+        CustomFeatureBlock: path.resolve(__dirname, './components/CustomFeatureBlock.vue'),
+      },
+    }),
   ],
 
-  extendMarkdown: (md) => {
+  extendsMarkdown: (md) => {
     // use more markdown-it plugins!
     md.use(require('markdown-it-include'), 'src')
   }

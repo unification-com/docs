@@ -21,7 +21,7 @@ und add-genesis-account [address_or_key_name] [coin][,[coin]] [flags]
   -h, --help                     help for add-genesis-account
       --home string              The application home directory (default "/home/hodge/.und_mainchain")
       --keyring-backend string   Select keyring's backend (os|file|kwallet|pass|test) (default "os")
-      --node string              <host>:<port> to Tendermint RPC interface for this chain (default "tcp://localhost:26657")
+      --node string              &#9001;host&#9002;:&#9001;port&#9002; to Tendermint RPC interface for this chain (default "tcp://localhost:26657")
   -o, --output string            Output format (text|json) (default "text")
       --vesting-amount string    amount of coins for vesting accounts
       --vesting-end-time int     schedule end time (unix epoch) for vesting accounts

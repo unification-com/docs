@@ -1,4 +1,4 @@
-# `.und_mainchain/config/client.toml` Reference
+# `client.toml` Reference
 
 The `$HOME/.und_mainchain/config/client.toml` file contains all the configuration options for the `und` client
 configuration. Below is a reference for the file.

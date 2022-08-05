@@ -31,7 +31,7 @@ und tx beacon register [flags]
       --ledger                   Use a connected Ledger device
       --moniker string           BEACON's moniker
       --name string              (optional) BEACON's name
-      --node string              <host>:<port> to tendermint rpc interface for this chain (default "tcp://localhost:26657")
+      --node string              &#9001;host&#9002;:&#9001;port&#9002; to tendermint rpc interface for this chain (default "tcp://localhost:26657")
       --note string              Note to add a description to the transaction (previously --memo)
       --offline                  Offline mode (does not allow any online functionality
   -o, --output string            Output format (text|json) (default "json")

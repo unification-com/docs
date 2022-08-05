@@ -14,7 +14,7 @@ FULLY AWARE OF THE RISKS. If you are unsure, you may want to do some research
 and export your keys in ASCII-armored encrypted format.
 
 ```
-und keys export <name> [flags]
+und keys export &#9001;name&#9002; [flags]
 ```
 
 ### Options

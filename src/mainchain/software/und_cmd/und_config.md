@@ -3,7 +3,7 @@
 Create or query an application CLI configuration file
 
 ```
-und config <key> [value] [flags]
+und config &#9001;key&#9002; [value] [flags]
 ```
 
 ### Options

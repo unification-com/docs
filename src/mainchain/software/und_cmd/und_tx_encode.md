@@ -5,7 +5,7 @@ Encode transactions generated offline
 ### Synopsis
 
 Encode transactions created with the --generate-only flag and signed with the sign command.
-Read a transaction from <file>, serialize it to the Amino wire protocol, and output it as base64.
+Read a transaction from &#9001;file&#9002;, serialize it to the Amino wire protocol, and output it as base64.
 If you supply a dash (-) argument in place of an input filename, the command reads from standard input.
 
 ```
@@ -29,7 +29,7 @@ und tx encode [file] [flags]
       --keyring-backend string   Select keyring's backend (os|file|kwallet|pass|test|memory) (default "os")
       --keyring-dir string       The client Keyring directory; if omitted, the default 'home' directory will be used
       --ledger                   Use a connected Ledger device
-      --node string              <host>:<port> to tendermint rpc interface for this chain (default "tcp://localhost:26657")
+      --node string              &#9001;host&#9002;:&#9001;port&#9002; to tendermint rpc interface for this chain (default "tcp://localhost:26657")
       --note string              Note to add a description to the transaction (previously --memo)
       --offline                  Offline mode (does not allow any online functionality
   -o, --output string            Output format (text|json) (default "json")

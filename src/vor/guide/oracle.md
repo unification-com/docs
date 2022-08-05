@@ -204,7 +204,7 @@ It is also advisable to backup the `keystore.json` file.
 Finally, it will ask you to enter the **api key** previously output in order to start running
 the `oracle`.
 
-The `oracle` can be stopped with <key>CTRL+C</key>, or the safer api method:
+The `oracle` can be stopped with CTRL+C, or the safer api method:
 
 ```bash
 /path/to/oraclecli stop

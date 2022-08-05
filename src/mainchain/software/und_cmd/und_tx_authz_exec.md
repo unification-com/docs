@@ -7,7 +7,7 @@ execute tx on behalf of granter account
 execute tx on behalf of granter account:
 Example:
  $ und tx authz exec tx.json --from grantee
- $ und tx bank send <granter> <recipient> --from <granter> --chain-id <chain-id> --generate-only > tx.json && und tx authz exec tx.json --from grantee
+ $ und tx bank send &#9001;granter&#9002; &#9001;recipient&#9002; --from &#9001;granter&#9002; --chain-id &#9001;chain-id&#9002; --generate-only &#9002; tx.json && und tx authz exec tx.json --from grantee
 
 ```
 und tx authz exec [msg_tx_json_file] --from [grantee] [flags]
@@ -30,7 +30,7 @@ und tx authz exec [msg_tx_json_file] --from [grantee] [flags]
       --keyring-backend string   Select keyring's backend (os|file|kwallet|pass|test|memory) (default "os")
       --keyring-dir string       The client Keyring directory; if omitted, the default 'home' directory will be used
       --ledger                   Use a connected Ledger device
-      --node string              <host>:<port> to tendermint rpc interface for this chain (default "tcp://localhost:26657")
+      --node string              &#9001;host&#9002;:&#9001;port&#9002; to tendermint rpc interface for this chain (default "tcp://localhost:26657")
       --note string              Note to add a description to the transaction (previously --memo)
       --offline                  Offline mode (does not allow any online functionality
   -o, --output string            Output format (text|json) (default "json")

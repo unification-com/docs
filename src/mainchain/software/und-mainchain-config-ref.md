@@ -1,4 +1,4 @@
-# `.und_mainchain/config/config.toml` Reference
+# `config.toml` Reference
 
 The `$HOME/.und_mainchain/config/config.toml` file contains all the configuration options for the `und` server binary. Below is a reference for the file.
 

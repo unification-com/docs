@@ -15,7 +15,7 @@ und tx ibc client create [path/to/client_state.json] [path/to/consensus_state.js
 ### Examples
 
 ```
-und tx ibc client create [path/to/client_state.json] [path/to/consensus_state.json] --from node0 --home ../node0/<app>cli --chain-id $CID
+und tx ibc client create [path/to/client_state.json] [path/to/consensus_state.json] --from node0 --home ../node0/&#9001;app&#9002;cli --chain-id $CID
 ```
 
 ### Options
@@ -35,7 +35,7 @@ und tx ibc client create [path/to/client_state.json] [path/to/consensus_state.js
       --keyring-backend string   Select keyring's backend (os|file|kwallet|pass|test|memory) (default "os")
       --keyring-dir string       The client Keyring directory; if omitted, the default 'home' directory will be used
       --ledger                   Use a connected Ledger device
-      --node string              <host>:<port> to tendermint rpc interface for this chain (default "tcp://localhost:26657")
+      --node string              &#9001;host&#9002;:&#9001;port&#9002; to tendermint rpc interface for this chain (default "tcp://localhost:26657")
       --note string              Note to add a description to the transaction (previously --memo)
       --offline                  Offline mode (does not allow any online functionality
   -o, --output string            Output format (text|json) (default "json")

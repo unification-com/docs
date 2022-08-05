@@ -6,7 +6,7 @@ Query the current auth parameters
 
 Query the current auth parameters:
 
-$ <appd> query auth params
+$ &#9001;appd&#9002; query auth params
 
 ```
 und query auth params [flags]
@@ -17,7 +17,7 @@ und query auth params [flags]
 ```
       --height int      Use a specific height to query state at (this can error if the node is pruning state)
   -h, --help            help for params
-      --node string     <host>:<port> to Tendermint RPC interface for this chain (default "tcp://localhost:26657")
+      --node string     &#9001;host&#9002;:&#9001;port&#9002; to Tendermint RPC interface for this chain (default "tcp://localhost:26657")
   -o, --output string   Output format (text|json) (default "text")
 ```
 

@@ -2,90 +2,105 @@
 module.exports = {
   sidebar: [
     {
-      title: 'Introduction',
+      text: 'Home',
+      link: '/mainchain/',
+      collapsible: true,
+    },
+    {
+      text: 'Introduction',
+      collapsible: true,
       children: [
-        '',
-        'introduction/about-mainchain',
-        'introduction/denomination',
-        'introduction/fees-and-gas',
-        'introduction/total-supply',
-        'introduction/genesis-settings',
-        'introduction/delegators',
-        'introduction/validators',
-        'introduction/faqs'
+        '/mainchain/introduction/about-mainchain',
+        '/mainchain/introduction/denomination',
+        '/mainchain/introduction/fees-and-gas',
+        '/mainchain/introduction/total-supply',
+        '/mainchain/introduction/genesis-settings',
+        '/mainchain/introduction/delegators',
+        '/mainchain/introduction/validators',
+        '/mainchain/introduction/faqs'
       ]
     },
     {
-      title: 'Installation',
+      text: 'Installation',
+      collapsible: true,
       children: [
-        'software/installation',
-        'software/run-und-as-service',
+        '/mainchain/software/installation',
+        '/mainchain/software/run-und-as-service',
       ]
     },
     {
-      title: 'Networks',
+      text: 'Networks',
+      collapsible: true,
       children: [
         {
-          title: 'Public Networks',
+          text: 'Public Networks',
+          collapsible: true,
           children: [
-            'networks/join-network',
-            'networks/become-validator'
+            '/mainchain/networks/join-network',
+            '/mainchain/networks/become-validator'
           ]
         },
         {
-          title: 'DevNet',
+          text: 'DevNet',
+          collapsible: true,
           children: [
-            'networks/devnet/local-devnet-docker',
-            'networks/devnet/single-node-devnet'
+            '/mainchain/networks/devnet/local-devnet-docker',
+            '/mainchain/networks/devnet/single-node-devnet'
           ]
         },
-        'networks/participation',
+        '/mainchain/networks/participation',
       ]
     },
     {
-      title: "Migrations & Upgrades",
+      text: "Migrations & Upgrades",
+      collapsible: true,
       children: [
-        'migrations/',
-        'migrations/cosmovisor',
-        'migrations/1-ibc_upgrade'
+        '/mainchain/migrations/',
+        '/mainchain/migrations/cosmovisor',
+        '/mainchain/migrations/1-ibc_upgrade'
       ]
     },
     {
-      title: 'Using und',
+      text: 'Using und',
+      collapsible: true,
       children: [
-        'software/accounts-wallets',
-        'software/light-client-rpc',
+        '/mainchain/software/accounts-wallets',
+        '/mainchain/software/light-client-rpc',
         {
-          title: 'CLI Command & Config References',
+          text: 'CLI Command & Config References',
+          collapsible: true,
           children: [
-            'software/und_cmd/und',
-            'software/und-mainchain-config-ref',
-            'software/und-mainchain-app-config-ref',
-            'software/und-mainchain-client-config-ref'
+            '/mainchain/software/und_cmd/und',
+            '/mainchain/software/und-mainchain-config-ref',
+            '/mainchain/software/und-mainchain-app-config-ref',
+            '/mainchain/software/und-mainchain-client-config-ref'
           ]
         }
       ]
     },
     {
-      title: 'Tx & Query Examples',
+      text: 'Tx & Query Examples',
+      collapsible: true,
       children: [
-        'examples/transactions',
-        'examples/wrkchain',
-        'examples/beacon',
-        'examples/enterprise-fund'
+        '/mainchain/examples/transactions',
+        '/mainchain/examples/wrkchain',
+        '/mainchain/examples/beacon',
+        '/mainchain/examples/enterprise-fund'
       ]
     },
     {
-      title: 'Cloud Installation Guides',
+      text: 'Cloud Installation Guides',
+      collapsible: true,
       children: [
-        'guides/cloud/install-aws',
-        'guides/cloud/install-gc'
+        '/mainchain/guides/cloud/install-aws',
+        '/mainchain/guides/cloud/install-gc'
       ]
     },
     {
-      title: 'Developers',
+      text: 'Developers',
+      collapsible: true,
       children: [
-        'developers/third-party',
+        '/mainchain/developers/third-party',
       ]
     },
   ]

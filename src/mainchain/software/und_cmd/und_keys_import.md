@@ -7,7 +7,7 @@ Import private keys into the local keybase
 Import a ASCII armored private key into the local keybase.
 
 ```
-und keys import <name> <keyfile> [flags]
+und keys import &#9001;name&#9002; &#9001;keyfile&#9002; [flags]
 ```
 
 ### Options

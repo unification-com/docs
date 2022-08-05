@@ -1,6 +1,6 @@
 ## und keys add
 
-Add an encrypted private key (either newly generated or recovered), encrypt it, and save to <name> file
+Add an encrypted private key (either newly generated or recovered), encrypt it, and save to &#9001;name&#9002; file
 
 ### Synopsis
 
@@ -25,7 +25,7 @@ Example:
 
 
 ```
-und keys add <name> [flags]
+und keys add &#9001;name&#9002; [flags]
 ```
 
 ### Options
@@ -44,7 +44,7 @@ und keys add <name> [flags]
       --multisig-threshold int   K out of N required signatures. For use in conjunction with --multisig (default 1)
       --no-backup                Don't print out seed phrase (if others are watching the terminal)
       --nosort                   Keys passed to --multisig are taken in the order they're supplied
-      --pubkey string            Parse a public key in JSON format and saves key info to <name> file.
+      --pubkey string            Parse a public key in JSON format and saves key info to &#9001;name&#9002; file.
       --recover                  Provide seed phrase to recover existing key instead of creating
 ```
 

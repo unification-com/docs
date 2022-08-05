@@ -9,7 +9,7 @@ hexadecimal into bech32 cosmos prefixed format and vice versa.
 
 
 ```
-und keys parse <hex-or-bech32-address> [flags]
+und keys parse &#9001;hex-or-bech32-address&#9002; [flags]
 ```
 
 ### Options

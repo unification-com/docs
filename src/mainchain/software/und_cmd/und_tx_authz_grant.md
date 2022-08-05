@@ -11,7 +11,7 @@ Examples:
  $ und tx authz grant cosmos1skjw.. generic --msg-type=/cosmos.gov.v1beta1.MsgVote --from=cosmos1sk..
 
 ```
-und tx authz grant <grantee> <authorization_type="send"|"generic"|"delegate"|"unbond"|"redelegate"> --from <granter> [flags]
+und tx authz grant &#9001;grantee&#9002; &#9001;authorization_type="send"|"generic"|"delegate"|"unbond"|"redelegate"&#9002; --from &#9001;granter&#9002; [flags]
 ```
 
 ### Options
@@ -35,7 +35,7 @@ und tx authz grant <grantee> <authorization_type="send"|"generic"|"delegate"|"un
       --keyring-dir string           The client Keyring directory; if omitted, the default 'home' directory will be used
       --ledger                       Use a connected Ledger device
       --msg-type string              The Msg method name for which we are creating a GenericAuthorization
-      --node string                  <host>:<port> to tendermint rpc interface for this chain (default "tcp://localhost:26657")
+      --node string                  &#9001;host&#9002;:&#9001;port&#9002; to tendermint rpc interface for this chain (default "tcp://localhost:26657")
       --note string                  Note to add a description to the transaction (previously --memo)
       --offline                      Offline mode (does not allow any online functionality
   -o, --output string                Output format (text|json) (default "json")

@@ -13,7 +13,7 @@ und tx ibc client misbehaviour [path/to/misbehaviour.json] [flags]
 ### Examples
 
 ```
-und tx ibc client misbehaviour [path/to/misbehaviour.json] --from node0 --home ../node0/<app>cli --chain-id $CID
+und tx ibc client misbehaviour [path/to/misbehaviour.json] --from node0 --home ../node0/&#9001;app&#9002;cli --chain-id $CID
 ```
 
 ### Options

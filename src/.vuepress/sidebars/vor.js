@@ -1,42 +1,45 @@
 module.exports = {
   sidebar: [
     {
-      title: 'VOR Introduction',
-      path: '/vor/'
+      text: 'VOR Introduction',
+      link: '/vor/'
     },
     {
-      title: 'VOR Contract Addresses',
-      path: '/vor/contracts'
+      text: 'VOR Contract Addresses',
+      link: '/vor/contracts'
     },
     {
-      title: 'VOR Providers',
-      path: '/vor/providers'
+      text: 'VOR Providers',
+      link: '/vor/providers'
     },
     {
-      title: 'VOR Guides',
+      text: 'VOR Guides',
+      collapsible: true,
       children: [
-        'guide/',
-        'guide/quickstart',
-        'guide/implementation',
-        'guide/interaction',
-        'guide/advanced',
-        'guide/oracle',
+        '/vor/guide/',
+        '/vor/guide/quickstart',
+        '/vor/guide/implementation',
+        '/vor/guide/interaction',
+        '/vor/guide/advanced',
+        '/vor/guide/oracle',
       ]
     },
     {
-      title: 'VOR Demos',
+      text: 'VOR Demos',
+      collapsible: true,
       children: [
-        'demos/',
-        'demos/nft_demo',
+        '/vor/demos/',
+        '/vor/demos/nft_demo',
       ]
     },
     {
-      title: 'VOR Contract Docs',
+      text: 'VOR Contract Docs',
+      collapsible: true,
       children: [
-        'api/VOR',
-        'api/VORConsumerBase',
-        'api/VORCoordinator',
-        'api/VORRequestIDBase',
+        '/vor/api/VOR',
+        '/vor/api/VORConsumerBase',
+        '/vor/api/VORCoordinator',
+        '/vor/api/VORRequestIDBase',
       ]
     },
   ]
