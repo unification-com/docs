@@ -23,6 +23,26 @@ module.exports = {
       ]
     },
     {
+      title: 'Networks',
+      children: [
+        {
+          title: 'Public Networks',
+          children: [
+            'networks/join-network',
+            'networks/become-validator'
+          ]
+        },
+        {
+          title: 'DevNet',
+          children: [
+            'networks/devnet/local-devnet-docker',
+            'networks/devnet/single-node-devnet'
+          ]
+        },
+        'networks/participation',
+      ]
+    },
+    {
       title: "Migrations & Upgrades",
       children: [
         'migrations/',
@@ -44,26 +64,6 @@ module.exports = {
             'software/und-mainchain-client-config-ref'
           ]
         }
-      ]
-    },
-    {
-      title: 'Networks',
-      children: [
-        {
-          title: 'Public Networks',
-          children: [
-            'networks/join-network',
-            'networks/become-validator'
-          ]
-        },
-        {
-          title: 'DevNet',
-          children: [
-            'networks/devnet/local-devnet-docker',
-            'networks/devnet/single-node-devnet'
-          ]
-        },
-        'networks/participation',
       ]
     },
     {
