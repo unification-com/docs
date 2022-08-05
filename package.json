@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "g": "^2.0.1",
+    "markdown-it-include": "^2.0.0",
     "yarn": "^1.22.19"
   }
 }

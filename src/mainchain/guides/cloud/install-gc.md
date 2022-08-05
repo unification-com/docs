@@ -217,38 +217,7 @@ sudo yum install nano jq wget -y
 
 ### Part 4.3: Install the `und` binary
 
-See [https://github.com/unification-com/mainchain/releases](https://github.com/unification-com/mainchain/releases) for
-the latest release, and replace the archive name with the latest `linux` version in the commands below.
-
-```bash
-wget https://github.com/unification-com/mainchain/releases/download/1.5.1/und_v1.5.1_linux_x86_64.tar.gz
-tar -zxvf und_v1.5.1_linux_x86_64.tar.gz
-sudo mv und /usr/local/bin/und
-```
-
-This should install the binary into `/usr/local/bin/und`. Verify the installation was successful:
-
-```bash
-which und
-```
-
-should output:
-
-```bash
-/usr/local/bin/und
-```
-
-and:
-
-```bash
-und version --log_level=""
-```
-
-should output something similar to:
-
-```yaml
-1.5.1
-```
+!!!include(mainchain/partials/install-und-binary.md)!!!
 
 ## Part 5: Initialising your full node
 
@@ -266,19 +235,7 @@ und init [your_node_tag] --home=/mnt/disks/data/.und_mainchain
 
 ### Download the latest Genesis file.
 
-The following command downloads the latest genesis for the respective network. Command is all one line:
-
-#### TestNet
-
-```bash
-curl https://raw.githubusercontent.com/unification-com/testnet/master/latest/genesis.json > /mnt/disks/data/.und_mainchain/config/genesis.json
-```
-
-#### MainNet
-
-```bash
-curl https://raw.githubusercontent.com/unification-com/mainnet/master/latest/genesis.json > /mnt/disks/data/.und_mainchain/config/genesis.json
-```
+!!!include(mainchain/partials/download-genesis.md)!!!
 
 Get the current chain ID from genesis. Make a note of the output, it'll be required in commands later in the guide.
 Command is all on one line:
@@ -289,49 +246,7 @@ $ jq --raw-output '.chain_id' /mnt/disks/data/.und_mainchain/.und_mainchain/conf
 
 ### Get seed nodes
 
-::: danger IMPORTANT
-Please ensure you get the correct seed node information for the network you would like to join! Remember to change the
-directory if you are using something other than the default `$HOME/.und_mainchain` directory!
-For this guide, we are using `/mnt/disks/data/.und_mainchain` for the node's home directory.
-:::
-
-Your node will need to know at least one seed node in order to join the network
-and begin P2P communication with other nodes in the network. The latest seed information will always be available at
-each network's respective Github repo:
-
-#### TestNet: [https://github.com/unification-com/testnet/blob/master/latest/seed_nodes.md](https://github.com/unification-com/testnet/blob/master/latest/seed_nodes.md)
-
-#### MainNet: [https://github.com/unification-com/mainnet/blob/master/latest/seed_nodes.md](https://github.com/unification-com/mainnet/blob/master/latest/seed_nodes.md)
-
-Go to the repo for the network you are connecting to and copy one or more of the seed nodes (you only need
-the `id@address:port`)
-
-Edit your node configuration file using nano:
-
-```bash
-nano /mnt/disks/data/.und_mainchain/config/config.toml
-```
-
-Hit <kbd>Ctrl</kbd>+<kbd>W</kbd>, type `[p2p]` (including the square brackets) and hit return - this will take you to
-the `[p2p]` section of the config file, which begins with:
-
-```
-##### peer to peer configuration options #####
-[p2p]
-```
-
-Find the `external_address = ""` variable about 9 lines below, and set it to your `vm_ip:26656` e.g.:
-
-```toml
-external_address = "11.22.33.44:26656"
-```
-
-Find the `seeds = ""` variable about 12 lines below, and add the seed node information between the double quotes (comma
-separated, no spaces if more than one). For example:
-
-```toml
-seeds = "node_id@ip:port"
-```
+!!!include(mainchain/partials/seed-nodes.md)!!!
 
 Next, hit <kbd>Ctrl</kbd>+<kbd>W</kbd>, type `[rpc]` (including the square brackets) and hit return - this will take you
 to the `[rpc]` section of the config file, which begins with:
@@ -367,123 +282,13 @@ or, more securely, via a full node running on your local PC. See [Part 8: Final 
 further details.
 :::
 
-### Gas Prices & Pruning
+### Gas Prices
 
-It is good practice to set the minimum-gas-prices value in `$HOME/.und_mainchain/config/app.toml`, in order to protect
-your full node from spam transactions. This should be set as a decimal value in `nund`, and the recommended value is
-currently `25.0nund`. This means your node will ignore any Txs with a gas price below this value. To do so, open
-up `$HOME/.und_mainchain/config/app.toml` in a text editor, and set `minimum-gas-prices`
+!!!include(mainchain/partials/gas-price.md)!!!
 
-```bash
-nano /mnt/disks/data/.und_mainchain/config/app.toml
-```
+### Syncing the node with `statesync`
 
-Change:
-
-```toml
-minimum-gas-prices = ""
-```
-
-To, for example:
-
-```toml
-minimum-gas-prices = "25.0nund"
-```
-
-:::tip Note
-Validator nodes do not really need to keep a state history, so you should be able to safely set `pruning = "everything"`
-:::
-
-Hit <kbd>Ctrl</kbd>+<kbd>X</kbd> followed by `y` and then return to save the file and exit nano.
-
-### State Syncing from Snapshots
-
-The default method for syncing your node with the network is to start from `genesis`, and replay every block to the
-current block. As the chain grows, this can potentially take several days to complete. Thankfully, Cosmos SDK >= 0.42,
-which is used by the latest `und` software, can use State Syncing  from Snapshots to quickly sync your node from a safe
-checkpoint. This potentially reduces the sync time to no more than an hour or so, and in most cases mere minutes.
-
-Setting this up requires a few more steps
-
-1. Run the following command to get the latest block hash and height. For **TestNet**:
-
-```bash
-curl -s https://rest-testnet.unification.io/blocks/latest | jq '.|[.block_id.hash,.block.header.height]'
-```
-
-For **MainNet**:
-
-```bash
-curl -s https://rest.unification.io/blocks/latest | jq '.|[.block_id.hash,.block.header.height]'
-```
-
-Example output:
-
-```json
-[
-  "820275B5EE63EDA2923886A01C0B1196A7CE1D96A89FA0D774942999C6698AAC",
-  "1052423"
-]
-```
-
-2. Using the output from the above command, configure `[statesync]` section in `/mnt/disks/data/.und_mainchain/config.toml`:
-
-```toml
-enable = true
-rpc_servers = "TWO_RPC_NODES"
-trust_height = 1052423
-trust_hash = "820275B5EE63EDA2923886A01C0B1196A7CE1D96A89FA0D774942999C6698AAC"
-trust_period = "168h0m0s"
-discovery_time = "30s"
-temp_dir = ""
-chunk_request_timeout = "60s"
-chunk_fetchers = "4"
-```
-
-The `rpc_servers` requires two RPC nodes for verification.
-
-For **TestNet**, replace `TWO_RPC_NODES` with:
-
-`sync1-testnet.unification.io:26657,sync2-testnet.unification.io:26657`
-
-For **MainNet**:
-
-`sync1.unification.io:26657,sync2.unification.io:26657`
-
-e.g.:
-
-```toml
-rpc_servers = "sync1.unification.io:26657,sync2.unification.io:26657"
-```
-
-Or any RPC servers of your choice for the target network.
-
-### Check connection
-
-Finally, check that your node can connect to and sync with the network:
-
-```bash
-und start --home=/mnt/disks/data/.und_mainchain
-```
-
-Depending on the method used to sync your node, you should start seeing some output. If you are using `statesync`,
-you should start seeing the following:
-
-```bash
-11:53AM INF Discovered new snapshot format=1 hash="V0���&�U1�J0�yP4A%�/���GŽ@\x05�<�j" height=1051600 module=statesync
-```
-
-After a few seconds (or at most, minutes), you should see your node start downloading the blocks:
-
-```bash
-11:56AM INF received proposal module=consensus proposal={"Type":32,"block_id":{"hash":"632E122ADDF385954FB8598FEE7D89EB09D7E93746FB36D2F12DECFEB7F07D9E","parts":{"hash":"E8246C504B9BC14275874A90C95E6AA035678302AD3BF9269B6F253B04C038BE","total":1}},"height":1052494,"pol_round":-1,"round":0,"signature":"HYJz0rV7o6bNm7za82sj1Az1rV25qVkLh9Y4s0K95nf86uVq+YmuDIf3LtIP7pDfFEYErxNVyeSplPGh7IVHDQ==","timestamp":"2022-05-19T10:56:03.273030584Z"}
-11:56AM INF received complete proposal block hash=632E122ADDF385954FB8598FEE7D89EB09D7E93746FB36D2F12DECFEB7F07D9E height=1052494 module=consensus
-11:56AM INF finalizing commit of block hash=632E122ADDF385954FB8598FEE7D89EB09D7E93746FB36D2F12DECFEB7F07D9E height=1052494 module=consensus num_txs=0 root=7EC77102840743503BD71FD89F60FD0B912DD0DE27575408B6AD67990CE4A6B8
-11:56AM INF executed block height=1052494 module=state num_invalid_txs=0 num_valid_txs=0
-11:56AM INF commit synced commit=436F6D6D697449447B5B3234312031333020323235203834203837203234372031303220323820323435203234382032372032303920313432203133372031303620353920343520323220323020313737203135342032303320323338203136352030203231322034392031383620313638203433203839203233395D3A3130304634457D
-11:56AM INF committed state app_hash=F182E15457F7661CF5F81BD18E896A3B2D1614B19ACBEEA500D431BAA82B59EF height=1052494 module=state num_txs=0
-11:56AM INF indexed block height=1052494 module=txindex
-```
+!!!include(mainchain/partials/statesync.md)!!!
 
 Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the node - it will be configured as a background service next.
 
@@ -504,53 +309,7 @@ node, hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the node.
 
 We need to use the nano text editor to create the service configuration. Run:
 
-```bash
-sudo nano /etc/systemd/system/und.service
-```
-
-Add the following **as a minimum**, replacing `vmusername` with the administrator username entered when creating the VM
-in Part 3.:
-
-```
-[Unit]
-Description=Unification Mainchain Validator Node
-
-[Service]
-User=vmusername
-Group=vmusername
-WorkingDirectory=/home/vmusername
-ExecStart=/usr/local/bin/und start --home=/mnt/disks/data/.und_mainchain
-LimitNOFILE=4096
-
-[Install]
-WantedBy=default.target
-```
-
-Note: the `ExecStart=` is all one line.
-
-Hit <kbd>Ctrl</kbd>+<kbd>X</kbd> followed by `y` and then return to save the file and exit nano.
-
-Run:
-
-```bash
-sudo systemctl daemon-reload
-sudo systemctl enable und
-```
-
-to update `systemctl`
-
-You can now start and stop the Unification daemon in the background using:
-
-```bash
-$ sudo systemctl start und
-$ sudo systemctl stop und
-```
-
-Finally, you can monitor the log output for the service by running:
-
-```bash
-sudo journalctl -u und --follow
-```
+!!!include(mainchain/partials/systemd-service.md)!!!
 
 and use <kbd>Ctrl</kbd>+<kbd>C</kbd> to exit the `journalctl` command. You can now log out of your SSH session and und
 will continue running in the background.
