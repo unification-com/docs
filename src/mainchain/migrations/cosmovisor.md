@@ -92,8 +92,15 @@ EnvironmentFile=/full/path/to/.und_mainchain/cosmovisor/UND_COSMOVISOR_ENV
 
 Edit the `ExecStart` directive, replacing `/usr/local/bin/und` with `/usr/local/bin/cosmovisor run`, for example:
 
+change
+
 ```bash
-#ExecStart=/usr/local/bin/und start
+ExecStart=/usr/local/bin/und start
+```
+
+to:
+
+```bash
 ExecStart=/usr/local/bin/cosmovisor run start
 ```
 

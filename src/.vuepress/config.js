@@ -63,5 +63,10 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-  ]
+  ],
+
+  extendMarkdown: (md) => {
+    // use more markdown-it plugins!
+    md.use(require('markdown-it-include'), 'src')
+  }
 }

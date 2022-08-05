@@ -9,30 +9,7 @@ order to participate and interact with any of the Mainchain networks.
 
 ## Installing the latest release binaries
 
-The latest pre-compiled binaries are available from
-[https://github.com/unification-com/mainchain/releases](https://github.com/unification-com/mainchain/releases).
-
-- The `und` binary has been compiled for Linux, OSX and Windows.
-
-Simply download the archives for your OS.
-
-Once downloaded, you can verify the SHA256 checksum against those listed in the release's `checksums.txt`, for example:
-
-```bash
-$ openssl dgst -sha256 und_v1.5.0_linux_x86_64.tar.gz
-SHA256(und_v1.5.0_linux_x86_64.tar.gz)= 98a93e757234f4cc408421b112bbc850975178900f3db53ab4a244f677041287
-```
-
-Extract them and copy the binaries to a suitable location - preferably a location in your `$PATH` environment variable,
-for example `/usr/local/bin`, `/opt`, etc.
-
-Once installed, verify:
-
-```bash
-$ und version --long
-```
-
-The output should match the latest release version tag.
+!!!include(mainchain/partials/install-und-binary.md)!!!
 
 ## Building from Source
 
