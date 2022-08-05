@@ -126,6 +126,8 @@ und start
 
 You should see that your node connects to some peers, and after a few seconds begins syncing with the network.
 
+### Using `statesync` Snapshots
+
 !!!include(mainchain/partials/statesync.md)!!!
 
 ### Checkin the node's status
