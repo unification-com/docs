@@ -1,5 +1,11 @@
 # Introduction
 
+:::tip Note
+This documentation section is for existing nodes migrating to `cosmovisor`. For new node installations please
+see the [Install Cosmovisor and Sync using statesync](../software/cosmovisor/install_statesync_cosmovisor.md) 
+documentation.
+:::
+
 Unlike previous upgrades, future upgrades of the FUND Mainchain should not require the full halt/export state/migrate
 genesis process. As of Cosmos SDK v0.45.x, network upgrades and state changes can occur in-place. This makes
 upgrading much simpler for node operators, as it means that they can set up an upgrade well in advance.
