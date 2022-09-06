@@ -1,5 +1,8 @@
 <template>
   <div>
+    <p>
+      Data pulled from <a :href="dataSource" target="_blank">{{ dataSource }}</a>
+    </p>
     <h3>Upgrades</h3>
     <Network-Upgrades :upgrades="networkInfo.upgrades" />
     <h3>Nodes & Services</h3>
@@ -9,7 +12,6 @@
         :numCommunity="numCommunity"
         :numLegacy="numLegacy"
     />
-    Data pulled from <a :href="dataSource" target="_blank">{{ dataSource }}</a>
   </div>
 </template>
 

@@ -26,9 +26,11 @@
       </table>
     </div>
 
-    <h3>IBC</h3>
-    <h4>Unification Foundation</h4>
-    <Network-IBC :relayers="services?.ibc_relayers?.foundation" />
+    <h3>IBC Relayers</h3>
+    <div v-if="services?.ibc_relayers?.foundation.length > 0">
+      <h4>Unification Foundation</h4>
+      <Network-IBC :relayers="services?.ibc_relayers?.foundation" />
+    </div>
     <div v-if="services?.ibc_relayers?.community.length > 0">
       <h4>Community</h4>
       <Network-IBC :relayers="services?.ibc_relayers?.foundation" />
