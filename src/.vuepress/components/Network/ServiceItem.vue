@@ -2,7 +2,7 @@
   <div>
     {{ item.name }}<br />
     <span v-if="item.link">
-      <a href="">{{ item.url }}</a>
+      <a :href="item.url" target="_blank">{{ item.url }}</a>
     </span>
     <span v-if="!item.link">
       {{ item.url }}

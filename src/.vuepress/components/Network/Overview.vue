@@ -9,6 +9,7 @@
         :numCommunity="numCommunity"
         :numLegacy="numLegacy"
     />
+    Data pulled from <a :href="dataSource" target="_blank">{{ dataSource }}</a>
   </div>
 </template>
 
@@ -23,12 +24,13 @@ export default {
         upgrades: [],
         services: {},
       },
+      dataSource: `https://raw.githubusercontent.com/unification-com/${this.network}/master/latest/network_info.json`,
       numCommunity: 0,
       numLegacy: 0,
     };
   },
   mounted() {
-    fetch(`https://raw.githubusercontent.com/unification-com/${this.network}/master/latest/network_info.json`, {cache: "no-cache"})
+    fetch(this.dataSource, {cache: "no-cache"})
         .then(response => response.json())
         .then(data => {
           this.networkInfo = data
