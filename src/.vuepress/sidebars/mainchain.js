@@ -26,15 +26,16 @@ module.exports = {
     {
       title: 'Networks',
       children: [
+        'networks/overview',
         {
-          title: 'Public Networks',
+          title: 'Join Public Networks',
           children: [
             'networks/join-network',
             'networks/become-validator'
           ]
         },
         {
-          title: 'DevNet',
+          title: 'Run a Local DevNet',
           children: [
             'networks/devnet/local-devnet-docker',
             'networks/devnet/single-node-devnet'
