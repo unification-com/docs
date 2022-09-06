@@ -25,6 +25,15 @@
         <Network-ServiceTableRow v-if="services?.explorer?.legacy.length > 0" :services="services?.explorer?.legacy" title="Explorer" />
       </table>
     </div>
+
+    <h3>IBC</h3>
+    <h4>Unification Foundation</h4>
+    <Network-IBC :relayers="services?.ibc_relayers?.foundation" />
+    <div v-if="services?.ibc_relayers?.community.length > 0">
+      <h4>Community</h4>
+      <Network-IBC :relayers="services?.ibc_relayers?.foundation" />
+    </div>
+
   </div>
 </template>
 
