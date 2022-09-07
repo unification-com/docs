@@ -1,4 +1,4 @@
-# Install Cosmovisor and Sync using statesync
+# Install und, Cosmovisor and optionally Sync using statesync
 
 :::tip Note
 This guide is for fresh node installations. For existing nodes migrating to `cosmovisor`, please
@@ -6,7 +6,9 @@ see the [Migrations](../../migrations/README.md) documentation.
 :::
 
 Combining `cosmovisor` and `statesync`, it is possible to sync the chain in a short amount of time. Additionally, 
-installing and configuring `cosmovisor` will make future updates much simpler
+installing and configuring `cosmovisor` will make future updates much simpler.
+
+This guide will cover both a full sync from genesis, and also configuring `statesync`.
 
 ## 1. Download the genesis version of und, initialise & configure
 
@@ -50,6 +52,11 @@ Create the directory structure for the `und` binaries and updates
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.6.x.md)!!!
 
+::: tip Note
+Skip to section **2.2 Create cosmovisor environment file** below if you intend to run a full
+sync from genesis!
+:::
+
 Create the `upgrade-info.json` file for `1-ibc`:
 
 **TestNet `1-ibc`**
@@ -64,7 +71,7 @@ Coming Soon
 
 ### 2.2 Create cosmovisor environment file
 
-Create an environment variable file which will laod into the `systemd` service, modifying `/FULL/PATH/TO/` as
+Create an environment variable file which will load into the `systemd` service, modifying `/FULL/PATH/TO/` as
 required:
 
 ```bash
@@ -77,6 +84,11 @@ EOF
 ```
 
 ### 2.3 Point Cosmovisor to the latest und
+
+::: tip Note
+Skip to section **3. Set up the systemd service** below if you intend to run a full
+sync from genesis!
+:::
 
 Next, `cosmovisor`'s `current` link needs to point to the latest version of `und`, e.g.:
 
@@ -127,9 +139,17 @@ sudo systemctl daemon-reload
 
 ## 4. Configure and test statesync
 
+::: tip Note
+Skip to the section **5. Start the systemd service**  if you intend to run a full sync from genesis!
+:::
+
 !!!include(mainchain/partials/statesync.md)!!!
 
-Finally, hit `ctrl+c` to stop `und`, then start the `und` as a background service:
+**Hit `ctrl+c` to stop `und`**
+
+## 5. Start the systemd service
+
+Start the `und` as a background service:
 
 ```bash
 sudo systemctl start und
