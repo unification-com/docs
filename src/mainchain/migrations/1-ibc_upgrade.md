@@ -1,9 +1,9 @@
 # Network Upgrade: 1-ibc
 
-:::danger IMPORTANT: CURRENTLY TestNet ONLY
-The upgrade is currently planned for TestNet
+:::warning IMPORTANT
+The upgrade successfully executed on **TestNet** in block **2,410,500**
 
-The MainNet upgrade will be announced after a successful TestNet upgrade.
+The **MainNet** upgrade will be announced presently.
 :::
 
 There are two possible methods for upgrading:
@@ -35,12 +35,7 @@ mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/1-ibc/bin
 
 2. Download the latest `und` v1.6.x and add to Cosmovisor's `upgrades/1-ibc/bin` directory
 
-```bash
-mkdir -p $HOME/tmp/1-ibc && cd $HOME/tmp/1-ibc
-wget https://github.com/unification-com/mainchain/releases/download/v1.6.1/und_v1.6.1_linux_x86_64.tar.gz
-tar -zxvf und_v1.6.1_linux_x86_64.tar.gz
-mv und $HOME/.und_mainchain/cosmovisor/upgrades/1-ibc/bin/
-```
+!!!include(mainchain/partials/cosmovisor/install_und_v1.6.x.md)!!!
 
 The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as follows:
 
@@ -55,12 +50,6 @@ The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as
     └── 1-ibc
         └── bin
             └── und
-```
-
-3. Check the version is 1.6.1
-
-```bash
-$HOME/.und_mainchain/cosmovisor/upgrades/1-ibc/bin/und version --log_level ""
 ```
 
 That's it! Once the upgrade height specified in the governance proposal is reached, Cosmovisor and the `upgrade`
