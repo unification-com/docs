@@ -20,32 +20,14 @@ assumes that the `.und_mainchain` home directory is the default `$HOME/.und_main
 
 ## 1. Download & install cosmovisor
 
-```bash
-mkdir $HOME/tmp && cd $HOME/tmp
-wget https://github.com/cosmos/cosmos-sdk/releases/download/cosmovisor%2Fv1.2.0/cosmovisor-v1.2.0-linux-amd64.tar.gz
-tar -zxvf cosmovisor-v1.2.0-linux-amd64.tar.gz
-sudo mv cosmovisor /usr/local/bin/cosmovisor
-```
+!!!include(mainchain/partials/cosmovisor/install_cosmovisor.md)!!!
 
 **Note**: Installing using `go install` as per the official guide will install `cosmovisor` in `$GOPATH/bin` (usually
 `$HOME/go/bin`) not `/usr/local/bin`.
 
 ## 2. Set up cosmovisor dirs
 
-```bash
-mkdir -p $HOME/.und_mainchain/cosmovisor/genesis/bin
-cd $HOME/tmp
-wget https://github.com/unification-com/mainchain/releases/download/1.5.1/und_v1.5.1_linux_x86_64.tar.gz
-tar -zxvf und_v1.5.1_linux_x86_64.tar.gz
-mv und $HOME/.und_mainchain/cosmovisor/genesis/bin
-```
-
-Check the version:
-
-```bash
-$HOME/.und_mainchain/cosmovisor/genesis/bin/und version --log_level=""
-1.5.1
-```
+!!!include(mainchain/partials/cosmovisor/install_und_v1.5.1.md)!!!
 
 Create a `UND_COSMOVISOR_ENV` env file for `systemd`:
 
