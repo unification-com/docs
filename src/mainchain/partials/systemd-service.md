@@ -14,6 +14,8 @@ User=USERNAME
 Group=USERNAME
 WorkingDirectory=/home/USERNAME
 ExecStart=/usr/local/bin/und start --home /FULL_PATH_TO/.und_mainchain
+Restart=on-failure
+RestartSec=10s
 LimitNOFILE=4096
 
 [Install]

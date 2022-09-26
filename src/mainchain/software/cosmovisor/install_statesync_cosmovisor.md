@@ -48,26 +48,38 @@ Create the directory structure for the `und` binaries and updates
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.5.1.md)!!!
 
-#### `und` v1.6.1 -> `1-ibc` update
+#### `und` v1.6.1 -> `1-init_ibc` update
+
+::: warning Important
+Upgrade plan names for `und` v1.6.x:  
+**MainNet**: `1-init_ibc`  
+**TestNet**: `1-ibc`
+
+The upgrade plan name determines the directory path that `und` v1.6.x will be installed in!
+:::
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.6.x.md)!!!
 
 ::: tip Note
 Skip to section **2.2 Create cosmovisor environment file** below if you intend to run a full
-sync from genesis!
+chain sync from genesis!
 :::
 
-Create the `upgrade-info.json` file for `1-ibc`:
+Create the `upgrade-info.json`:
 
-**TestNet `1-ibc`**
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab MainNet
+#### MainNet
+Coming Soon
+:::
 
+::: tab TestNet
+#### TestNet
 ```bash
 echo '{"name":"1-ibc","time":"0001-01-01T00:00:00Z","height":2410500}' | tee $HOME/.und_mainchain/cosmovisor/upgrades/1-ibc/upgrade-info.json
 ```
-
-**MainNet `1-ibc`**
-
-Coming Soon
+:::
+::::
 
 ### 2.2 Create cosmovisor environment file
 
@@ -87,7 +99,7 @@ EOF
 
 ::: tip Note
 Skip to section **3. Set up the systemd service** below if you intend to run a full
-sync from genesis!
+chain sync from genesis!
 :::
 
 Next, `cosmovisor`'s `current` link needs to point to the latest version of `und`, e.g.:
@@ -97,17 +109,21 @@ cd $HOME/.und_mainchain/cosmovisor
 rm current
 ```
 
-**TestNet**
-
-```bash
-ln -s $HOME/.und_mainchain/cosmovisor/upgrades/1-ibc ./current
-```
-
-**MainNet**
-
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab MainNet
+#### MainNet
 ```bash
 ln -s $HOME/.und_mainchain/cosmovisor/genesis ./current
 ```
+:::
+
+::: tab TestNet
+#### TestNet
+```bash
+ln -s $HOME/.und_mainchain/cosmovisor/upgrades/1-ibc ./current
+```
+:::
+::::
 
 ## 3. Set up the systemd service
 
@@ -124,6 +140,8 @@ Group=USERNAME
 WorkingDirectory=/home/USERNAME 
 EnvironmentFile=/home/USERNAME/.und_mainchain/cosmovisor/UND_COSMOVISOR_ENV
 ExecStart=/usr/local/bin/cosmovisor run start
+Restart=on-failure
+RestartSec=10s
 LimitNOFILE=4096 
  
 [Install] 

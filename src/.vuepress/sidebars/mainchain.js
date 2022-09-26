@@ -49,7 +49,7 @@ module.exports = {
       children: [
         'migrations/',
         'migrations/cosmovisor',
-        'migrations/1-ibc_upgrade'
+        'migrations/1-init_ibc_upgrade'
       ]
     },
     {
