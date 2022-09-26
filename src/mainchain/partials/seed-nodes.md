@@ -8,9 +8,17 @@ Your node will need to know at least one seed node in order to join the network
 and begin P2P communication with other nodes in the network. The latest seed information will always be available at
 each network's respective Github repo:
 
-#### TestNet: [https://github.com/unification-com/testnet/blob/master/latest/seed_nodes.md](https://github.com/unification-com/testnet/blob/master/latest/seed_nodes.md)
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab MainNet
+#### MainNet
+[https://github.com/unification-com/mainnet/blob/master/latest/seed_nodes.md](https://github.com/unification-com/mainnet/blob/master/latest/seed_nodes.md)
+:::
 
-#### MainNet: [https://github.com/unification-com/mainnet/blob/master/latest/seed_nodes.md](https://github.com/unification-com/mainnet/blob/master/latest/seed_nodes.md)
+::: tab TestNet
+#### TestNet
+[https://github.com/unification-com/testnet/blob/master/latest/seed_nodes.md](https://github.com/unification-com/testnet/blob/master/latest/seed_nodes.md)
+:::
+::::
 
 Go to the repo for the network you are connecting to and copy one or more of the seed nodes (you only need
 the `id@address:port`)

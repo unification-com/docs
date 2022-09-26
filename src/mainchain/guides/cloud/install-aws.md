@@ -6,9 +6,9 @@
 
 ## Introduction to installing `und` on AWS EC2 instances
 
-::: danger
-If you intend to become a `MainNet` Validator, it is **HIGHLY** recommended that you practice on `TestNet` first in
-order to _fully familiarise_ yourself with the process.
+::: tip
+If you intend to become a `MainNet` Validator, it is recommended that you practice on `TestNet` first in
+order to familiarise yourself with the process.
 :::
 
 This guide introduces a _very simple_ "quick start" single AWS EC2 instance, using a VPC with a single public subnet
@@ -109,7 +109,7 @@ instance, and connect it to the network created in the previous part.
 1. From the Services menu in AWS Console, click "EC2" under "Compute", followed by the "Launch Instance" button.
 2. On the "1. Choose AMI" tab, use the search input to find the AMI ID "ami-0f2b4fc905b0bd1f1". Click "Community AMIs"
    in the results, find "CentOS Linux 7 x86_64 HVM EBS ENA" and click the "Select" button.
-3. On the "2. Choose Instance Type" tab, tick `t2.small` or `t2.medium` and click "Next: Configure Instance Details".
+3. On the "2. Choose Instance Type" tab, we recommend at least a `t2.medium`. Click "Next: Configure Instance Details".
 4. In the "Network" section, select the VPC created in the previous part. Leave the rest as the defaults, and click
    the "6. Configure Security Group" tab at the top.
 5. Give the security group a meaningful name and description - for example "und-validator-node". You will be able to

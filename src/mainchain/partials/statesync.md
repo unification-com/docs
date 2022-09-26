@@ -4,17 +4,23 @@ most cases mere minutes.
 
 Setting this up requires a few more steps
 
-1. Run the following command to get the latest block hash and height. For **TestNet**:
+1. Run the following command to get the latest block hash and height:
 
-```bash
-curl -s https://rest-testnet.unification.io/blocks/latest | jq '.|[.block_id.hash,.block.header.height]'
-```
-
-For **MainNet**:
-
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab MainNet
+#### MainNet
 ```bash
 curl -s https://rest.unification.io/blocks/latest | jq '.|[.block_id.hash,.block.header.height]'
 ```
+:::
+
+::: tab TestNet
+#### TestNet
+```bash
+curl -s https://rest-testnet.unification.io/blocks/latest | jq '.|[.block_id.hash,.block.header.height]'
+```
+:::
+::::
 
 Example output:
 
@@ -39,15 +45,19 @@ chunk_request_timeout = "60s"
 chunk_fetchers = "4"
 ```
 
-The `rpc_servers` requires two RPC nodes for verification.
+The `rpc_servers` requires two RPC nodes for verification. Replace `TWO_RPC_NODES` with:
 
-For **TestNet**, replace `TWO_RPC_NODES` with:
-
-`sync1-testnet.unification.io:26657,sync2-testnet.unification.io:26657`
-
-For **MainNet**:
-
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab MainNet
+#### MainNet
 `sync1.unification.io:26657,sync2.unification.io:26657`
+:::
+
+::: tab TestNet
+#### TestNet
+`sync1-testnet.unification.io:26657,sync2-testnet.unification.io:26657`
+:::
+::::
 
 e.g.:
 

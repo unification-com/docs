@@ -6,7 +6,8 @@
       <th>Chain Id</th>
       <th>From #</th>
       <th>To #</th>
-      <th>State Export Required?*</th>
+      <th>Upgrade Plan</th>
+      <th>State Export?*</th>
       </thead>
       <tbody>
       <tr v-for="item in upgrades">
@@ -14,6 +15,7 @@
         <td>{{ item.chain_id }}</td>
         <td>{{ item.from }}</td>
         <td>{{ item.to }}</td>
+        <td>{{ item.upgrade_plan }}</td>
         <td>{{ item.state_export }}</td>
       </tr>
       </tbody>

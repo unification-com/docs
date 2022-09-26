@@ -45,8 +45,17 @@ flag to the `und` command, for example `und start --home $HOME/.und_mainchain_Te
 
 The latest genesis for each network can always be found in their respective Github repos:
 
-#### TestNet: [https://github.com/unification-com/testnet/latest](https://github.com/unification-com/testnet/latest)
-#### MainNet: [https://github.com/unification-com/mainnet/latest](https://github.com/unification-com/mainnet/latest)
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab MainNet
+#### MainNet
+[https://github.com/unification-com/mainnet/latest](https://github.com/unification-com/mainnet/latest)
+:::
+
+::: tab TestNet
+#### TestNet
+[https://github.com/unification-com/testnet/latest](https://github.com/unification-com/testnet/latest)
+:::
+::::
 
 ### Download the latest Genesis
 
@@ -57,17 +66,21 @@ directory in the command below if you are using something other than the default
 
 To spin up your new node, download the latest `genesis.json` for the network you would like to join:
 
-#### TestNet
-
-```bash
-curl https://raw.githubusercontent.com/unification-com/testnet/master/latest/genesis.json > $HOME/.und_mainchain/config/genesis.json
-```
-
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab MainNet
 #### MainNet
-
 ```bash
 curl https://raw.githubusercontent.com/unification-com/mainnet/master/latest/genesis.json > $HOME/.und_mainchain/config/genesis.json
 ```
+:::
+
+::: tab TestNet
+#### TestNet
+```bash
+curl https://raw.githubusercontent.com/unification-com/testnet/master/latest/genesis.json > $HOME/.und_mainchain/config/genesis.json
+```
+:::
+::::
 
 ### Get the current Chain ID
 
@@ -85,15 +98,19 @@ jq --raw-output '.chain_id' $HOME/.und_mainchain/config/genesis.json
 
 This will output, for example:
 
-```
-FUND-TestNet-2
-```
-
-or
-
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab MainNet
 ```
 FUND-MainNet-2
 ```
+:::
+
+::: tab TestNet
+```
+FUND-TestNet-2
+```
+:::
+::::
 
 which can then be passed to your `und` commands:
 
@@ -153,14 +170,20 @@ for `und` can also be set in `$HOME/.und_mainchain/config/client.toml`
 
 Our public block explorers can be found at:
 
-#### TestNet: [https://explorer-testnet.unification.io](https://explorer-testnet.unification.io)
-
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab MainNet
 #### MainNet: [https://explorer.unification.io](https://explorer.unification.io)
+:::
+
+::: tab TestNet
+#### TestNet: [https://explorer-testnet.unification.io](https://explorer-testnet.unification.io)
+:::
+::::
 
 ## TestNet Faucet
 
 Our public TestNet has a faucet which can be used to obtain Test FUND for
-use **exclusively on the TestNet network**. You will need an [account](accounts-wallets.md) and its associated address 
+use **exclusively on the TestNet network**. You will need an [account](accounts-wallets.md) and its associated address
 in order to be able to claim Test FUND.
 
 See [https://faucet-testnet.unification.io](https://faucet-testnet.unification.io)

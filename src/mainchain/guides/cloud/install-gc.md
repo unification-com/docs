@@ -6,9 +6,9 @@
 
 ## Introduction to installing `und` on Google Cloud VMs
 
-::: danger
-If you intend to become a `MainNet` Validator, it is **HIGHLY** recommended that you practice on `TestNet` first in
-order to _fully familiarise_ yourself with the process.
+::: tip
+If you intend to become a `MainNet` Validator, it is recommended that you practice on `TestNet` first in
+order to familiarise yourself with the process.
 :::
 
 This guide introduces a _very simple_ "quick start" single Google Cloud VM, using simple network infrastructure to
@@ -147,7 +147,7 @@ Click the "Create" button.
 Give your VM instance a suitable name.
 
 1. Under "Machine Configuration", leave "General purpose" selected, along with "N1" for Series.
-2. For "Machine Type", select "`g1-small"`
+2. For "Machine Type", we recommend at least `e2-medium`
 3. In the "Boot Disk" section click the "Change" button
 4. Select "CentOS" as the operating system, and "CentOS 7" as the version
    Leave the disk size as default. Click the "Select" button.
