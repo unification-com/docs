@@ -19,8 +19,8 @@ module.exports = {
       title: 'Installation',
       children: [
         'software/installation',
-        'software/run-und-as-service',
         'software/cosmovisor/install_statesync_cosmovisor',
+        'software/run-und-as-service',
       ]
     },
     {
