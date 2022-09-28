@@ -1,7 +1,13 @@
 # Installing the Mainchain Software
 
 This documentation outlines how to install the Unification Mainchain software, in
-order to participate and interact with any of the Mainchain networks.
+order to interact with any of the Mainchain networks and query data/send transactions.
+
+::: tip
+If you intend to run a node and/or become a validator, follow the guide below:
+
+- [Install und, Cosmovisor and optionally Sync using statesync](./cosmovisor/install_statesync_cosmovisor.md)
+:::
 
 #### Contents
 

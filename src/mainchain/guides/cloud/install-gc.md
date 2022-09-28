@@ -1,5 +1,11 @@
 # Google Cloud 101
 
+::: warning
+This guide is in the process of being updated to cover cosmovisor. In the interim, for parts 4.3 up to and including
+part 6, you can follow the [Install und, Cosmovisor and optionally Sync using statesync](./cosmovisor/install_statesync_cosmovisor.md)
+guide.
+:::
+
 #### Contents
 
 [[toc]]
