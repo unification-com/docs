@@ -57,7 +57,7 @@ for other environment variables.
 Stop the service
 
 ```bash
-sudo systemcl stop und
+sudo systemctl stop und
 ```
 
 Open the service file in a text editor
