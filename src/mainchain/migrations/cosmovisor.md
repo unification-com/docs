@@ -1,11 +1,19 @@
 # Using Cosmovisor with und: Quick Start
 
+:::tip Note
+This guide is for operators already running a node. For new nodes, please see the
+[Install und, Cosmovisor and optionally Sync using statesync](../software/cosmovisor/install_statesync_cosmovisor.md)
+documentation.
+:::
+
 `cosmovisor` can be used for all node types (sentries, RPCs, seeds etc.), not just validator nodes.
 
 See [Cosmos SDK's Cosmovidor Docs](https://docs.cosmos.network/v0.44/run-node/cosmovisor.html) for full documentation.
 
-This is a quick-start guide specifically for getting `und` up and running using `cosmovisor`. It is
-recommended that node operators fully read and understand the official documentation above before proceeding.
+This is a quick-start guide specifically for getting `und` up and running using `cosmovisor`, and is aimed at operators
+who are already running a FUND node.
+
+It is recommended that node operators fully read and understand the official documentation above before proceeding.
 
 :::tip Note
 The above documentation states that `go get github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor` should be run
@@ -24,6 +32,15 @@ assumes that the `.und_mainchain` home directory is the default `$HOME/.und_main
 
 **Note**: Installing using `go install` as per the official guide will install `cosmovisor` in `$GOPATH/bin` (usually
 `$HOME/go/bin`) not `/usr/local/bin`.
+
+::: danger IMPORTANT
+if your `.und_mainchain` is located somewhere other than `$HOME/.und_manichain`, replace all instances in the commands
+below with the **full, absolute path** to your `.und_mainchain` directory, for example:
+
+```bash
+/mnt/mounted_data_volume/path/to/.und_mainchain
+```
+:::
 
 ## 2. Set up cosmovisor dirs
 

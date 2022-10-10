@@ -6,6 +6,12 @@ The upgrade successfully executed on **TestNet** in block **2,410,500** in upgra
 The **MainNet** upgrade will be announced presently.
 :::
 
+:::tip Note
+This guide is for operators already running a node. For new nodes, please see the
+[Install und, Cosmovisor and optionally Sync using statesync](../software/cosmovisor/install_statesync_cosmovisor.md)
+documentation.
+:::
+
 There are two possible methods for upgrading:
 
 1. Automatically, using Cosmovisor (recommended)
