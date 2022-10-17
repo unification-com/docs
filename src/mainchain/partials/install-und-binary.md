@@ -17,8 +17,8 @@ wget https://github.com/unification-com/mainchain/releases/download/1.5.1/checks
 ::: tab TestNet
 #### TestNet
 ```bash
-wget https://github.com/unification-com/mainchain/releases/download/v1.6.2/und_v1.6.2_linux_x86_64.tar.gz
-wget https://github.com/unification-com/mainchain/releases/download/v1.6.2/checksums.txt
+wget https://github.com/unification-com/mainchain/releases/download/v1.6.3/und_v1.6.3_linux_x86_64.tar.gz
+wget https://github.com/unification-com/mainchain/releases/download/v1.6.3/checksums.txt
 ```
 :::
 ::::
@@ -38,8 +38,8 @@ SHA256(und_v1.5.1_linux_x86_64.tar.gz)= ...12324abcd...
 ::: tab TestNet
 #### TestNet
 ```bash
-$ openssl dgst -sha256 und_v1.6.2_linux_x86_64.tar.gz
-SHA256(und_v1.6.2_linux_x86_64.tar.gz)= ...12324abcd...
+$ openssl dgst -sha256 und_v1.6.3_linux_x86_64.tar.gz
+SHA256(und_v1.6.3_linux_x86_64.tar.gz)= ...12324abcd...
 ```
 :::
 ::::
@@ -59,7 +59,7 @@ sudo mv und /usr/local/bin/und
 ::: tab TestNet
 #### TestNet
 ```bash
-tar -zxvf und_v1.6.2_linux_x86_64.tar.gz
+tar -zxvf und_v1.6.3_linux_x86_64.tar.gz
 sudo mv und /usr/local/bin/und
 ```
 :::
