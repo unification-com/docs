@@ -312,9 +312,9 @@ mv $HOME/upgrade/v1.5.1/und $HOME/.und_mainchain/cosmovisor/genesis/bin
 #### `und` v1.6.x -> `1-init_ibc` update
 
 ```bash
-mkdir -p $HOME/upgrade/v1.6.2 && cd $HOME/upgrade/v1.6.2
-wget https://github.com/unification-com/mainchain/releases/download/v1.6.2/und_v1.6.2_linux_x86_64.tar.gz
-tar -zxvf und_v1.6.2_linux_x86_64.tar.gz
+mkdir -p $HOME/upgrade/v1.6.3 && cd $HOME/upgrade/v1.6.3
+wget https://github.com/unification-com/mainchain/releases/download/v1.6.3/und_v1.6.3_linux_x86_64.tar.gz
+tar -zxvf und_v1.6.3_linux_x86_64.tar.gz
 mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/1-init_ibc/bin
 mv und $HOME/.und_mainchain/cosmovisor/upgrades/1-init_ibc/bin
 ```
