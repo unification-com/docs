@@ -48,7 +48,7 @@ Create the directory structure for the `und` binaries and updates
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.5.1.md)!!!
 
-#### `und` v1.6.1 -> `1-init_ibc` update
+#### `und` v1.6.x -> `1-init_ibc` update
 
 ::: warning Important
 Upgrade plan names for `und` v1.6.x:  
@@ -86,14 +86,7 @@ echo '{"name":"1-ibc","time":"0001-01-01T00:00:00Z","height":2410500}' | tee $HO
 Create an environment variable file which will load into the `systemd` service, modifying `/FULL/PATH/TO/` as
 required:
 
-```bash
-tee $HOME/.und_mainchain/cosmovisor/UND_COSMOVISOR_ENV > /dev/null <<EOF
-DAEMON_NAME=und
-DAEMON_HOME=/FULL/PATH/TO/.und_mainchain
-DAEMON_RESTART_AFTER_UPGRADE=true
-DAEMON_RESTART_DELAY=5s
-EOF
-```
+!!!include(mainchain/partials/cosmovisor/cosmovisor_env.md)!!!
 
 ### 2.3 Point Cosmovisor to the latest und
 

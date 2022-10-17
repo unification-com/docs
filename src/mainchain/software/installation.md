@@ -23,20 +23,7 @@ The Mainchain binaries can also be built from source.
 
 ### Prerequisites
 
-`git`, `curl` and `make` are required to build the binaries. `jq` is also useful for quickly looking up 
-values in `genesis.json`
-
-These can all be installed via your package manager:
-
-```bash
-sudo apt-get install git curl make jq
-```
-
-or
-
-```bash
-sudo yum install git curl make jq
-```
+!!!include(mainchain/partials/prerequisites.md)!!!
 
 ### Install Go
 
