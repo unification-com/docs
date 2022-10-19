@@ -3,7 +3,7 @@
 :::warning IMPORTANT
 The upgrade successfully executed on **TestNet** in block **2,410,500** in upgrade plan `1-ibc`
 
-The **MainNet** upgrade will be announced presently.
+The upgrade successfully executed on **MainNet** in block **2,002,620** in upgrade plan `1-init_ibc`
 :::
 
 :::tip Note
