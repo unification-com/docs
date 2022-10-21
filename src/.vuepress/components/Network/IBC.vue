@@ -8,22 +8,22 @@
       </thead>
       <tbody>
       <tr>
-        <td>Name</td>
+        <td><strong>Name</strong></td>
         <td>{{ item.src.chain_name}}</td>
         <td>{{ item.dest.chain_name}}</td>
       </tr>
       <tr>
-        <td>Chain ID</td>
+        <td><strong>Chain ID</strong></td>
         <td>{{ item.src.chain_id}}</td>
         <td>{{ item.dest.chain_id}}</td>
       </tr>
       <tr>
-        <td>Channel</td>
+        <td><strong>Channel</strong></td>
         <td>{{ item.src.channel}}</td>
         <td>{{ item.dest.channel}}</td>
       </tr>
       <tr>
-        <td>Coin</td>
+        <td><strong>Coin</strong></td>
         <td>{{ item.src.coin_id}}</td>
         <td>{{ item.dest.coin_id}}</td>
       </tr>

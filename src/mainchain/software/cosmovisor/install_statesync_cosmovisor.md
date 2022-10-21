@@ -70,7 +70,9 @@ Create the `upgrade-info.json`:
 :::: tabs :options="{ useUrlFragment: false }"
 ::: tab MainNet
 #### MainNet
-Coming Soon
+```bash
+echo '{"name":"1-init_ibc","time":"0001-01-01T00:00:00Z","height":2002620}' | tee $HOME/.und_mainchain/cosmovisor/upgrades/1-init_ibc/upgrade-info.json
+```
 :::
 
 ::: tab TestNet
@@ -106,7 +108,7 @@ rm current
 ::: tab MainNet
 #### MainNet
 ```bash
-ln -s $HOME/.und_mainchain/cosmovisor/genesis ./current
+ln -s $HOME/.und_mainchain/cosmovisor/upgrades/1-init_ibc ./current
 ```
 :::
 
