@@ -31,7 +31,7 @@ module.exports = {
           title: 'Join Public Networks',
           children: [
             'networks/join-network',
-            'networks/become-validator'
+            'networks/become-validator',
           ]
         },
         {
@@ -41,7 +41,8 @@ module.exports = {
             'networks/devnet/single-node-devnet'
           ]
         },
-        'networks/participation',
+        'networks/sentry',
+        'networks/participation'
       ]
     },
     {
