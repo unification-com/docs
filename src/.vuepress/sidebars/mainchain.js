@@ -70,6 +70,31 @@ module.exports = {
       ]
     },
     {
+      title: "IBC Transfers",
+      children: [
+        'ibc/',
+        {
+          title: "Generic",
+          children: [
+            "ibc/generic/"
+          ]
+        },
+        {
+          title: "Gravity Bridge",
+          children: [
+            "ibc/gravity-bridge/cli",
+            "ibc/gravity-bridge/web-portal"
+          ]
+        },
+        {
+          title: "Osmosis",
+          children: [
+            "ibc/osmosis/"
+          ]
+        }
+      ]
+    },
+    {
       title: 'Tx & Query Examples',
       children: [
         'examples/transactions',
