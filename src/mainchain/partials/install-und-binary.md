@@ -9,8 +9,8 @@ Download the latest version:
 ::: tab MainNet
 #### MainNet
 ```bash
-wget https://github.com/unification-com/mainchain/releases/download/1.5.1/und_v1.5.1_linux_x86_64.tar.gz
-wget https://github.com/unification-com/mainchain/releases/download/1.5.1/checksums.txt
+wget https://github.com/unification-com/mainchain/releases/download/v1.6.3/und_v1.6.3_linux_x86_64.tar.gz
+wget https://github.com/unification-com/mainchain/releases/download/v1.6.3/checksums.txt
 ```
 :::
 
@@ -30,8 +30,8 @@ Once downloaded, you can verify the SHA256 checksum against those listed in the 
 ::: tab MainNet
 #### MainNet
 ```bash
-$ openssl dgst -sha256 und_v1.5.1_linux_x86_64.tar.gz
-SHA256(und_v1.5.1_linux_x86_64.tar.gz)= ...12324abcd...
+$ openssl dgst -sha256 und_v1.6.3_linux_x86_64.tar.gz
+SHA256(und_v1.6.3_linux_x86_64.tar.gz)= ...12324abcd...
 ```
 :::
 
@@ -51,7 +51,7 @@ for example `/usr/local/bin`.
 ::: tab MainNet
 #### MainNet
 ```bash
-tar -zxvf und_v1.5.1_linux_x86_64.tar.gz
+tar -zxvf und_v1.6.3_linux_x86_64.tar.gz
 sudo mv und /usr/local/bin/und
 ```
 :::
