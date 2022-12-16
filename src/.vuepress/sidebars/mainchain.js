@@ -104,10 +104,16 @@ module.exports = {
       ]
     },
     {
-      title: 'Cloud Installation Guides',
+      title: 'Guides',
       children: [
-        'guides/cloud/install-aws',
-        'guides/cloud/install-gc'
+        'guides/legacy-to-current',
+        {
+          title: 'Cloud Installation',
+          children: [
+            'guides/cloud/install-aws',
+            'guides/cloud/install-gc'
+          ]
+        }
       ]
     },
     {
