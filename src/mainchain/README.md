@@ -61,6 +61,7 @@ to interact with the Mainchain network.
 
 - [AWS 101: Introduction to installing `und` on AWS EC2 instances](guides/cloud/install-aws.md)
 - [Google Cloud 101: Introduction to installing `und` on Google Cloud VMs](guides/cloud/install-gc.md)
+- [Fully sync MainNet from Legacy to Current](guides/legacy-to-current.md)
 
 ## 5. Developer guides
 

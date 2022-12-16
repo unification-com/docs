@@ -6,9 +6,9 @@ It is entirely possible - should you wish - to set up and fully sync a `MainNet`
 This guide will cover the necessary steps for those who prefer to do so.
 
 ::: danger WARNING
-To fully sync the chain from `FUND-Mainchain-MainNet-v1` will take several days and require a significant amount of
-disk space! Ensure you have at least 300Gb disk space available to allow for syncs, and upwards of 500Gb if backups 
-are required.
+To fully sync the chain from `FUND-Mainchain-MainNet-v1` will take several days (or weeks) and require a significant 
+amount of disk space! Ensure you have at least 300Gb disk space available to allow for syncs, and upwards of 500Gb if 
+backups are required.
 :::
 
 There are several steps required, some of which will require manual intervention:
@@ -155,7 +155,13 @@ Once it reaches block 11,039,060, the node will stop and exit.
 
 :::danger IMPORTANT
 Do not proceed with the following steps until your node has fully synced up to block 11,039,060. Doing so will result in
-an incorrect `FUND-MainNet-2` genesis export!
+an incorrect `FUND-MainNet-2` genesis export! Do not stop the node until you see the following in the `journalctl`
+logs:
+
+```bash
+halting node per configuration               module=main height=11039060 time=0
+Committed state                              module=state height=11039060 txs=0 appHash=EB8ECEBAC7D1B84B459BA5541C108B3687C045E340B2D4044638E23A7F06009B
+```
 
 Fully syncing the legacy chain will take several days, if not weeks to complete!
 :::
@@ -204,7 +210,7 @@ Export the current chain state to the new genesis. Effectively, all accounts,
 wallets, balances and all other chain data at block 11,039,060 were exported to a new genesis block, such that the
 entire chain state at block 11,039,060 becomes the new block 0 for `FUND-MainNet-2`.
 
-You must use `und` v1.4.9 to execute this:
+**You must use `und` v1.4.9 to execute this**:
 
 ```bash
 $HOME/legacy/v1.4.9/und export --for-zero-height --home=$HOME/.und_mainchain > $HOME/v038_exported_state.json
@@ -237,10 +243,22 @@ Validate the migrated genesis:
 $HOME/upgrade/v1.5.1/und validate-genesis --log_level="" $HOME/new_v042_genesis.json
 ```
 
-Generate a checksum - it should result in `aca9b55183c0689e38d5b75ec63064aa84df838808833736c70b12c93adf323f`:
+should result in:
+
+```bash
+File at new_v042_genesis.json is a valid genesis file
+```
+
+Generate a checksum:
 
 ```bash
 jq -S -c -M '' $HOME/new_v042_genesis.json | sha256sum
+```
+
+it should result in:
+
+```
+aca9b55183c0689e38d5b75ec63064aa84df838808833736c70b12c93adf323f
 ```
 
 Reset the chain data for your node:
@@ -275,17 +293,27 @@ snapshot-keep-recent = 4
 ```
 
 Finally, change the `log_level` in `$HOME/.und_mainchain/config/config.toml`, as the variable format has changed in 
-Cosmos SDK 0.42.x:
+Cosmos SDK 0.42.x, and modify the `sseds` and `persistent_peers:
 
 ```bash
 nano $HOME/.und_mainchain/config/config.toml
 ```
 
-and set:
+set:
 
 ```toml
 log_level = "info"
 ```
+
+also, in the `[p2p]` section, set:
+
+```toml
+seeds = "0c2b65bc604a18a490f5f55bb7b4140cfb512ced@seed1.unification.io:26656,e66e0f89af19da09f676c85b262d591b8c2bb9d8@seed2.unification.io:26656"
+
+persistent_peers = ""
+```
+
+**Note:** if you have a list of `persistent_peers`, you can add them too.
 
 ## 3. Configure and Migrate to Cosmovisor
 
