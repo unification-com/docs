@@ -12,14 +12,9 @@ Router: [`0x9ac9AE20a17779c17b069b48A8788e3455fC6121`](https://etherscan.io/addr
 xFUND Token: [`0x77a3840f78e4685afaf9c416b36e6eae6122567b`](https://polygonscan.com/address/0x77a3840f78e4685afaf9c416b36e6eae6122567b)  
 Router: [`0x5E9405888255C142207Ab692C72A8cd6fc85C3A2`](https://polygonscan.com/address/0x5E9405888255C142207Ab692C72A8cd6fc85C3A2)
 
-## ETH Testnet (Rinkeby)
-
-xFUND Mock Token: [`0x245330351344F9301690D5D8De2A07f5F32e1149`](https://rinkeby.etherscan.io/address/0x245330351344F9301690D5D8De2A07f5F32e1149#code)  
-Router: [`0x05AB63BeC9CfC3897a20dE62f5f812de10301FDf`](https://rinkeby.etherscan.io/address/0x05AB63BeC9CfC3897a20dE62f5f812de10301FDf#code)  
-
 ## ETH TestNet (Goerli)
 
-xFUND Mock Token: [`0xb07C72acF3D7A5E9dA28C56af6F93862f8cc8196`](https://goerli.etherscan.io/address/0xb07C72acF3D7A5E9dA28C56af6F93862f8cc8196#code)  
+xFUND Test Token: [`0xb07C72acF3D7A5E9dA28C56af6F93862f8cc8196`](https://goerli.etherscan.io/address/0xb07C72acF3D7A5E9dA28C56af6F93862f8cc8196#code)  
 Router: [`0xf6b5d6eafE402d22609e685DE3394c8b359CaD31`](https://goerli.etherscan.io/address/0xf6b5d6eafE402d22609e685DE3394c8b359CaD31#code)
 
 See [Providers](providers.md) for OoO Data Provider addresses

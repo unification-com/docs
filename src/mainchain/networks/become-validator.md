@@ -32,11 +32,14 @@ Before continuing, ensure you have gone through the following docs:
 jq --raw-output '.chain_id' $HOME/.und_mainchain/config/genesis.json
 ```
 
+**You will need to run this on the same host that is running your validator node**
+
 The above command assumes you have downloaded the appropriate genesis for the network you wish to become a Validator 
 on to the default `$HOME/.und_mainchain` directory.
 
 ::: warning IMPORTANT
-you will need an account with sufficient FUND to self-delegate to your validator node.
+you will need an account with sufficient FUND to self-delegate to your validator node. For **TestNet** nodes,
+you can use the [TestNet Faucet](https://faucet-testnet.unification.io).
 :::
 
 ::: tip
@@ -52,16 +55,25 @@ keep your `$HOME/.und_mainchain/config/node_key.json` and `$HOME/.und_mainchain/
 different host machine or need to restore your node, you will need these!
 :::
 
+::: tip NOTE
+The following commands assume you have initialised your node using the default `$HOME/.und_mainchain` directory. If
+you are using a different location, use the `--home` flag.
+:::
+
+**If required, SSH to the host running your validator node - the public key output by the following command must be the
+public key of your validator node!**
+
 The first thing you will need is your node's Tendermint validator public key. This will be used to register your node 
-as a Validator on the network. To get the key, open a terminal and run:
+as a Validator on the network. To get the key, run:
 
 ```bash
 und tendermint show-validator
 ```
-This will output your node's public key. Make a note of it, as it will be required soon.
+This will output your node's public key. Make a note of it, as it will be required soon. You will need the entire 
+JSON string
 
 ::: warning IMPORTANT
-Before continuing, ensure your full node has fully synced with the network and downloaded all the blocks (this may take 
+Before continuing, ensure your node has fully synced with the network and downloaded all the blocks (this may take 
 a while, so go and make a brew). You can check the status of your node's sync by running the following from the node 
 host:
 
@@ -74,7 +86,8 @@ if the value is `false`, the node is fully synced
 
 To create your Validator, you will need to generate, sign and broadcast a special transaction to the network which will 
 register your Tendermint validator public key and stake the amount of FUND (in `nund`) specified (via self-delegation). 
-Run the following command, modifying as required:
+Run the following command, modifying as required (**this command can be run from your local host, or the node host,
+depending on where you generated the account wallet in Prerequisite #3**)
 
 ```bash
 und tx staking create-validator \
@@ -114,11 +127,11 @@ do not attempt to stake more than you have in your account. **Ensure you have en
 fees, and enough left over for future transactions such as withdrawing rewards!**
 :::
 
-`NODE_TENDERMINT_PUBLIC_KEY`: Your node's tendermint public key, obtained earlier via the 
+`NODE_TENDERMINT_PUBLIC_KEY`: Your node's Protobuf JSON encoded tendermint public key, obtained earlier via the 
 `und tendermint show-validator` command.
 
 `CHAIN_ID`: the chain you are creating a validator for. This was obtained previously via the `jq` command, and will 
-be for example `FUND-TestNet-2` or `FUND-Mainchain-MainNet-v1` etc.
+be for example `FUND-TestNet-2` or `FUND-MainNet-2` etc.
 
 `SELF_DELEGATOR_ACCOUNT`: the name of the account being used to stake self-delegated FUND and sign the 
 transaction — for example, the identifier you entered when running the `und keys add` command to 
@@ -169,7 +182,7 @@ to your validator, meaning you must always have _at least_ this amount self-dele
 ```bash
 und tx staking create-validator \
 --amount=1000000000000nund \
---pubkey=undvalconspub1zcjduepq6yq7drzefkavsrxhxk69cy63tj3r... \
+--pubkey='{"@type":"/cosmos.crypto.ed25519.PubKey","key":"abc123...="}' \
 --moniker="MyAwesomeNode" \
 --website="https://my-node-site.com" \
 --details="My node is awesome" \

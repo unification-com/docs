@@ -12,11 +12,11 @@ BEACONs submit their hashes, and FUND transactions take place.
 There are currently two live public Mainchain networks, and one private development network:
 
 #### MainNet
-Launched on 14/05/2020, [FUND-Mainchain-MainNet](https://github.com/unification-com/mainnet) is the live public 
+Launched on 14/05/2020, [FUND-MainNet](https://github.com/unification-com/mainnet) is the live public 
 Unification **Main Network**.
 
 #### Testnet
-Launched in Q4 2019, [FUND-Mainchain-TestNet](https://github.com/unification-com/testnet) serves as the official 
+Launched in Q4 2019, [FUND-TestNet](https://github.com/unification-com/testnet) serves as the official 
 Unification public **Test network**, where developers can test WRKChains/BEACONs or third party application such 
 as wallets and block explorers before deploying on MainNet. It also serves as a test platform for Mainchain developers 
 to test updates and new features to the Mainchain code in a live environment.  
