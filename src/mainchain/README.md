@@ -22,8 +22,7 @@ to interact with the Mainchain network.
 
 ### 2.2. Server
 
-- [Run a full node & join a Network](software/cosmovisor/install_statesync_cosmovisor)
-- [Run `und` as a daemon](software/run-und-as-service)
+- [Run a full node & join a Network](software/cosmovisor/install_und_with_cosmovisor)
 - [Migrating to Cosmovisor](migrations/cosmovisor)
 - [Running a Light Client/REST server](software/light-client-rpc)
 

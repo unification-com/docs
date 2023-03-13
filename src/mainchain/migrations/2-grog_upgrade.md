@@ -8,7 +8,7 @@ The upgrade is due to occur on **TestNet** in block **5,840,430** in upgrade pla
 
 :::tip Note
 This guide is for operators already running a node. For new nodes, please see the
-[Install und, Cosmovisor and optionally Sync using statesync](../software/cosmovisor/install_statesync_cosmovisor.md)
+[Install und with Cosmovisor](../software/cosmovisor/install_und_with_cosmovisor.md)
 documentation.
 :::
 

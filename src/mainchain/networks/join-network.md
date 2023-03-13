@@ -1,6 +1,6 @@
 # Run a Full Node & Join a Public Network
 
-Once you have [installed](../software/cosmovisor/install_statesync_cosmovisor.md) the required software, you can run a full node, join one of the 
+Once you have [installed](../software/cosmovisor/install_und_with_cosmovisor.md) the required software, you can run a full node, join one of the 
 public networks (TestNet or MainNet) and try out [becoming a validator](become-validator.md).
 
 ::: warning IMPORTANT
@@ -16,7 +16,7 @@ Whenever you use `und` to send Txs or query the chain ensure you pass the correc
 
 Before continuing, ensure you have gone through the following docs:
 
-1. [Install und & Cosmovisor](../software/cosmovisor/install_statesync_cosmovisor.md)
+1. [Install und & Cosmovisor](../software/cosmovisor/install_und_with_cosmovisor.md)
 
 ## Initialising a New Node
 

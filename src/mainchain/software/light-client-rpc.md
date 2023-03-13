@@ -16,12 +16,11 @@ alongside the `und` RPC interface.
 
 Before continuing, ensure you have gone through the following docs:
 
-1. [Installing the software](installation.md)
-2. [join a Network](../networks/join-network.md), or [run DevNet](../networks/devnet/local-devnet-docker.md)
+1. [Install und with Cosmovisor](../software/cosmovisor/install_und_with_cosmovisor.md)
 
 ## Running a light client
 
-The Light Client can be started by setting the configuring options in `app.toml` as follows:
+The Light Client can be started by setting the configuring options for a full node in `app.toml` as follows:
 
 ```toml
 [api]

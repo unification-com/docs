@@ -2,7 +2,7 @@
 
 ::: warning
 This guide is in the process of being updated to cover cosmovisor. In the interim, for parts 4.2 up to and including
-part 6, you can follow the [Install und, Cosmovisor and optionally Sync using statesync](./cosmovisor/install_statesync_cosmovisor.md)
+part 6, you can follow the [Install und with Cosmovisor](../../software/cosmovisor/install_und_with_cosmovisor.md)
 guide.
 :::
 
@@ -296,12 +296,6 @@ details.
 ### Gas Prices
 
 !!!include(mainchain/partials/gas-price.md)!!!
-
-### Syncing the node with `statesync`
-
-!!!include(mainchain/partials/statesync.md)!!!
-
-Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the node - it will be configured as a background service next.
 
 ::: danger IMPORTANT
 keep your `$HOME/.und_mainchain/config/node_key.json` and `$HOME/.und_mainchain/config/priv_validator_key.json` files

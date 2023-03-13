@@ -26,7 +26,7 @@ module.exports = {
         {
           title: 'Server',
           children: [
-            'software/cosmovisor/install_statesync_cosmovisor',
+            'software/cosmovisor/install_und_with_cosmovisor',
             'software/run-und-as-service',
             'networks/sentry',
             'software/light-client-rpc',

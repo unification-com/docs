@@ -8,7 +8,7 @@ The upgrade successfully executed on **MainNet** in block **2,002,620** in upgra
 
 :::tip Note
 This guide is for operators already running a node. For new nodes, please see the
-[Install und, Cosmovisor and optionally Sync using statesync](../software/cosmovisor/install_statesync_cosmovisor.md)
+[Install und with Cosmovisor](../software/cosmovisor/install_und_with_cosmovisor.md)
 documentation.
 :::
 
