@@ -1,7 +1,7 @@
 # Installing the Mainchain Software
 
-This documentation outlines how to install the Unification Mainchain software, in
-order to interact with any of the Mainchain networks and query data/send transactions.
+This documentation outlines how to install the Unification Mainchain `und` software as a client, in
+order to interact with any of the Mainchain networks to query data/send transactions.
 
 ::: tip
 If you intend to run a node and/or become a validator, follow the guide below:

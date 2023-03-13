@@ -10,6 +10,10 @@ installing and configuring `cosmovisor` will make future updates much simpler.
 
 This guide will cover both a full sync from genesis, and also configuring `statesync`.
 
+:::danger Note
+It is recommended that public-facing nodes (such as sentries) do a full sync from Genesis
+:::
+
 ## 1. Download the genesis version of und, initialise & configure
 
 Fist, download the `und` version for `genesis`:
@@ -44,11 +48,11 @@ Next, install `cosmovisor`
 
 Create the directory structure for the `und` binaries and updates
 
-#### `und` v1.5.1 -> `genesis`:
+#### `und` v1.5.1: `genesis`:
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.5.1.md)!!!
 
-#### `und` v1.6.x -> `1-init_ibc` update
+#### `und` v1.6.x: `1-init_ibc` update
 
 ::: warning Important
 Upgrade plan names for `und` v1.6.x:  
@@ -59,11 +63,6 @@ The upgrade plan name determines the directory path that `und` v1.6.x will be in
 :::
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.6.x.md)!!!
-
-::: tip Note
-Skip to section **2.2 Create cosmovisor environment file** below if you intend to run a full
-chain sync from genesis!
-:::
 
 Create the `upgrade-info.json`:
 
@@ -80,6 +79,29 @@ echo '{"name":"1-init_ibc","time":"0001-01-01T00:00:00Z","height":2002620}' | te
 ```bash
 echo '{"name":"1-ibc","time":"0001-01-01T00:00:00Z","height":2410500}' | tee $HOME/.und_mainchain/cosmovisor/upgrades/1-ibc/upgrade-info.json
 ```
+:::
+::::
+
+#### `und` v1.7.x: `2-grog` update
+
+!!!include(mainchain/partials/cosmovisor/install_und_v1.7.x.md)!!!
+
+::: tip Note
+Skip to section **2.2 Create cosmovisor environment file** below if you intend to run a full
+chain sync from genesis!
+:::
+
+Create the `upgrade-info.json`:
+
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab MainNet
+#### MainNet
+TBD
+:::
+
+::: tab TestNet
+#### TestNet
+TBD
 :::
 ::::
 
@@ -168,3 +190,7 @@ Start the `und` as a background service:
 sudo systemctl start und
 sudo journalctl -u und -f
 ```
+
+## 6. Become a Validator
+
+Should you wish, and once your node is fully synced, you can [become a validator](../../networks/become-validator)

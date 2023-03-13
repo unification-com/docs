@@ -24,3 +24,4 @@ The following guides are available, covering migrating to `cosmovisr`, and confi
 
 1. [Using Cosmovisor with und: Quick Start](cosmovisor.md) - how to set up `cosmovisor` to run `und` and handle upgrades
 2. [1-init_ibc Upgrade](1-init_ibc_upgrade.md) - configuring `cosmovisor` for the `1-init_ibc` upgrade
+3. [2-grog Upgrade](2-grog_upgrade.md) - configuring `cosmovisor` for the `2-grog` upgrade

@@ -23,10 +23,9 @@ server/cloud VM, as opposed to a laptop or home PC.
 
 Before continuing, ensure you have gone through the following docs:
 
-1. [Installing the software](../software/installation.md)
-2. [Join a Public Network](join-network.md)
-3. [Accounts and Wallets](../software/accounts-wallets.md)
-4. Chain ID - if you haven't already, you can get the current chain ID by running:
+1. [Install `und` and fully sync a node](../software/cosmovisor/install_statesync_cosmovisor.md)
+2. [Accounts and Wallets](../software/accounts-wallets.md)
+3. Chain ID - if you haven't already, you can get the current chain ID by running:
 
 ```
 jq --raw-output '.chain_id' $HOME/.und_mainchain/config/genesis.json
