@@ -150,11 +150,11 @@ contract MyDataConsumer is ConsumerBase {
 }
 ```
 
-## 3. Define the required `recieveData` smart contract function
+## 3. Define the required `receiveData` smart contract function
 
-`recieveData` will be called by the Data Provider (indirectly - it is actually proxied 
+`receiveData` will be called by the Data Provider (indirectly - it is actually proxied 
 via the `Router` smart contract) in order to fulfil a data request and send data to 
-our smart contract. It should override the abstract `recieveData` function defined
+our smart contract. It should override the abstract `receiveData` function defined
 in the `ConsumerBase.sol` base smart contract, and must have the following parameters:
 
 `uint256 _price` - the price data the provider is sending  
@@ -180,10 +180,10 @@ contract MyDataConsumer is ConsumerBase {
     event GotSomeData(bytes32 requestId, uint256 price);
 ```
 
-and emit within the `recieveData` function:
+and emit within the `receiveData` function:
 
 ```solidity
-    function recieveData( ...
+    function receiveData( ...
         ...
         emit GotSomeData(_requestId, _price);
 ```
@@ -268,7 +268,7 @@ npx truffle compile
 Ensure that you have:
 
 1. an [Infura](https://infura.io/) account and API key
-2. a test wallet private key and address with [Test ETH on Rinkeby](https://faucet.rinkeby.io/) testnet
+2. a test wallet private key and address with [Test ETH on Goerli](https://goerlifaucet.com/) testnet
 
 ### 6.1 .env
 
@@ -313,15 +313,15 @@ module.exports = {
       port: 8545,
       network_id: "*",
     },
-    rinkeby: {
+    goerli: {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [ETH_PKEY],
-          providerOrUrl: `https://rinkeby.infura.io/v3/${INFURA_PROJECT_ID}`
+          providerOrUrl: `https://goerli.infura.io/v3/${INFURA_PROJECT_ID}`
         }),
-      network_id: "4",
+      network_id: "5",
       gas: 10000000,
-      gasPrice: 100000000000,
+      gasPrice: 10000000000,
       skipDryRun: true,
     }
   },
@@ -361,7 +361,7 @@ This will deploy your contract with the required parameters.
 Finally, deploy your contract with the following command:
 
 ```bash 
-npx truffle migrate --network=rinkeby
+npx truffle migrate --network=goerli
 ```
 
 That's it! You're now ready to initialise and interact with your OoO enabled smart contract.

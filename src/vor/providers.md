@@ -26,7 +26,7 @@ Provider Oracles running on Polygon Mainnet
 
 ## Rinkeby Testnet
 
-Provider Oracles running on Rinkeby testnet
+Provider Oracles running on Goerli testnet
 
 ### Unification Foundation
 

@@ -7,7 +7,7 @@
 
 ```
 .
-├── current -> /path/to/.und_mainchain/cosmovisor/genesis
+├── current -> /path/to/.und_mainchain/cosmovisor/upgrades/1-init_ibc
 ├── genesis
 │   └── bin
 │       └── und
@@ -26,13 +26,16 @@
 
 ```
 .
-├── current -> /path/to/.und_mainchain/cosmovisor/genesis
+├── current -> /path/to/.und_mainchain/cosmovisor/upgrades/1-ibc
 ├── genesis
 │   └── bin
 │       └── und
 ├── UND_COSMOVISOR_ENV
 └── upgrades
     └── 1-ibc
+        └── bin
+            └── und
+    └── 2-grog
         └── bin
             └── und
 ```

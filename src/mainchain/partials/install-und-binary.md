@@ -3,7 +3,7 @@ The latest pre-compiled binaries are available for download from
 
 - The `und` binary has been compiled for Linux, OSX and Windows.
 
-Download the latest version:
+Download the latest version of `und`:
 
 :::: tabs :options="{ useUrlFragment: false }"
 ::: tab MainNet
