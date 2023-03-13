@@ -1,9 +1,8 @@
 # Using Cosmovisor with und: Quick Start
 
 :::tip Note
-This guide is for operators already running a node. For new nodes, please see the
-[Install und, Cosmovisor and optionally Sync using statesync](../software/cosmovisor/install_statesync_cosmovisor.md)
-documentation.
+This guide is for operators already running a node who have not yet implemented Cosmovisor. For new nodes, please see 
+the [Install und with Cosmovisor](../software/cosmovisor/install_und_with_cosmovisor.md) documentation.
 :::
 
 `cosmovisor` can be used for all node types (sentries, RPCs, seeds etc.), not just validator nodes.

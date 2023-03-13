@@ -2,7 +2,7 @@
 
 :::tip Note
 This documentation section is for existing nodes migrating to `cosmovisor`. For new node installations please
-see the [Install Cosmovisor and Sync using statesync](../software/cosmovisor/install_statesync_cosmovisor.md) 
+see the [Install und with Cosmovisor](../software/cosmovisor/install_und_with_cosmovisor.md) 
 documentation.
 :::
 

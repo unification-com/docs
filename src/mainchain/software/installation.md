@@ -6,7 +6,7 @@ order to interact with any of the Mainchain networks to query data/send transact
 ::: tip
 If you intend to run a node and/or become a validator, follow the guide below:
 
-- [Install und, Cosmovisor and optionally Sync using statesync](./cosmovisor/install_statesync_cosmovisor.md)
+- [Install und with Cosmovisor](./cosmovisor/install_und_with_cosmovisor.md)
 :::
 
 #### Contents
@@ -114,7 +114,3 @@ Likewise, the `--help` flag can be passed to subcommands, for example:
 ```bash
 und query wrkchain --help
 ```
-
-#### Next
-
-Running [Devnet](../networks/devnet/local-devnet-docker.md), joining [a network](../networks/join-network.md)

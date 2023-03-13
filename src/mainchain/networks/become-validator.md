@@ -23,7 +23,7 @@ server/cloud VM, as opposed to a laptop or home PC.
 
 Before continuing, ensure you have gone through the following docs:
 
-1. [Install `und` and fully sync a node](../software/cosmovisor/install_statesync_cosmovisor.md)
+1. [Install `und` and fully sync a node](../software/cosmovisor/install_und_with_cosmovisor.md)
 2. [Accounts and Wallets](../software/accounts-wallets.md)
 3. Chain ID - if you haven't already, you can get the current chain ID by running:
 
@@ -39,11 +39,6 @@ on to the default `$HOME/.und_mainchain` directory.
 ::: warning IMPORTANT
 you will need an account with sufficient FUND to self-delegate to your validator node. For **TestNet** nodes,
 you can use the [TestNet Faucet](https://faucet-testnet.unification.io).
-:::
-
-::: tip
-if you intend to fully participate in the running of a network, your node will need to be permanently available and 
-online. In which case, you will need to investigate running `und` as a [background service](run-und-as-service.md)
 :::
 
 ## Creating a validator
