@@ -6,66 +6,89 @@ to interact with the Mainchain network.
 
 ## 1. About Mainchain
 
-- [What is Mainchain?](introduction/about-mainchain.md)
-- [Native Coin Denomination: nund](introduction/denomination.md)
-- [Total Supply Queries and Conversions](introduction/total-supply.md)
-- [Fees and Gas](introduction/fees-and-gas.md)
-- [Introduction to Genesis Params](introduction/genesis-settings.md)
-- [Introduction to Delegators and Staking](introduction/delegators.md)
-- [Introduction to Validators](introduction/validators.md)
-- [FAQs](introduction/faqs.md)
+- [What is Mainchain?](introduction/about-mainchain)
+- [Native Coin Denomination: nund](introduction/denomination)
+- [Total Supply Queries and Conversions](introduction/total-supply)
+- [Fees and Gas](introduction/fees-and-gas)
+- [Introduction to Genesis Params](introduction/genesis-settings)
+- [FAQs](introduction/faqs)
 
-## 2. Install & Use the Software
+## 2. Software
 
-- [Installation](software/installation.md)
-- [Accounts and Wallets](software/accounts-wallets.md)
-- [Run a full node & join a Network](networks/join-network.md)
-- [Run `und` as a daemon](software/run-und-as-service.md)
-- [Migrating to Cosmovisor](migrations/cosmovisor.md)
+### 2.1 Client
 
-### Light Client & REST
+- [Installation](software/installation)
+- [Accounts and Wallets](software/accounts-wallets)
 
-- [Running a Light Client/REST server](software/light-client-rpc.md)
+### 2.2. Server
 
-### Full Command References
+- [Run a full node & join a Network](software/cosmovisor/install_statesync_cosmovisor)
+- [Run `und` as a daemon](software/run-und-as-service)
+- [Migrating to Cosmovisor](migrations/cosmovisor)
+- [Running a Light Client/REST server](software/light-client-rpc)
 
-- [`und` - the und server command reference](und_cmd/und.md)
+### 2.3 Full Command & Config File References
 
-### Full Config File References
+- [`und` - the und command reference](und_cmd/und)
+- [`.und_mainchain/config/config.toml` Reference](software/und-mainchain-config-ref)
+- [`.und_mainchain/config/app.toml` Reference](software/und-mainchain-app-config-ref)
+- [`.und_mainchain/config/client.toml` Reference](software/und-mainchain-client-config-ref)
 
-- [`.und_mainchain/config/config.toml` Reference](software/und-mainchain-config-ref.md)
-- [`.und_mainchain/config/app.toml` Reference](software/und-mainchain-app-config-ref.md)
-- [`.und_mainchain/config/client.toml` Reference](software/und-mainchain-client-config-ref.md)
+## 3. Migrations & Upgrades
 
-## 3. Mainchain Networks
+- [Introduction](migrations)
+- [Using Cosmovisor: Quick start](migrations/cosmovisor)
+- [Network Upgrade: 1-init_ibc](migrations/1-init_ibc_upgrade)
+- [Network Upgrade: 2-grog](migrations/2-grog_upgrade)
 
-- [Network Overview](networks/overview.md)
-- [Join a Network](networks/join-network.md)
-- [Becoming a Validator](networks/become-validator.md)
+## 4. Mainchain Networks
 
-### Private DevNet
+- [FUND Network Overview](networks/overview)
+- [Non-Validator Participation](networks/participation)
 
-- [Play with DevNet](networks/devnet/local-devnet-docker.md)
+## 5. Validators
 
-## 4. Guides & Examples
+- [Introduction to Validators](introduction/validators)
+- [Becoming a Validator](networks/become-validator)
 
-### Tx & Query Examples
+## 6. Delegators
 
-- [Sending Simple Transactions](examples/transactions.md)
-- [Example WRKChain Transactions and Queries](examples/wrkchain.md)
-- [Example BEACON Transactions and Queries](examples/beacon.md)
-- [Example Enterprise FUND Transactions and Queries](examples/enterprise-fund.md)
-- [WRKChain: Finchains](examples/finchain.md)
+- [Introduction to Delegators and Staking](introduction/delegators)
 
-### In-depth guides
+## 7. IBC Transfers
 
-- [AWS 101: Introduction to installing `und` on AWS EC2 instances](guides/cloud/install-aws.md)
-- [Google Cloud 101: Introduction to installing `und` on Google Cloud VMs](guides/cloud/install-gc.md)
-- [Fully sync MainNet from Legacy to Current](guides/legacy-to-current.md)
+- [Introduction to guides](ibc)
+- [Generic IBC Transfers](ibc/generic)
+- Gravity Bridge
+  - [CLI](ibc/gravity-bridge/cli)
+  - [Web Portal](ibc/gravity-bridge/web-portal)
+- [Osmosis](ibc/osmosis)
 
-## 5. Developer guides
+## 8. Tx & Query Examples
 
-- [Third Party Tool Development](developers/third-party.md)
+- [Sending Simple Transactions](examples/transactions)
+- [Example WRKChain Transactions and Queries](examples/wrkchain)
+- [Example BEACON Transactions and Queries](examples/beacon)
+- [Example Enterprise FUND Transactions and Queries](examples/enterprise-fund)
+- [WRKChain: Finchains](examples/finchain)
+
+## 9. Guides
+
+- [Fully sync MainNet from Legacy to Current](guides/legacy-to-current)
+
+### 9.1 Cloud Installation
+
+- [AWS 101: Introduction to installing `und` on AWS EC2 instances](guides/cloud/install-aws)
+- [Google Cloud 101: Introduction to installing `und` on Google Cloud VMs](guides/cloud/install-gc)
+
+## 10. Developers
+
+- [Third Party Tool Development](developers/third-party)
+- 
+### 10.1 Private DevNet
+
+- [3-node Docker DevNet](networks/devnet/local-devnet-docker)
+- [Single Node DevNet](networks/devnet/single-node-devnet)
 
 ### Disclaimer
 
