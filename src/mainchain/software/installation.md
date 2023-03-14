@@ -4,9 +4,8 @@ This documentation outlines how to install the Unification Mainchain `und` softw
 order to interact with any of the Mainchain networks to query data/send transactions.
 
 ::: tip
-If you intend to run a node and/or become a validator, follow the guide below:
-
-- [Install und with Cosmovisor](./cosmovisor/install_und_with_cosmovisor.md)
+If you intend to run a node and/or become a validator, follow the
+ [Install und with Cosmovisor](./cosmovisor/install_und_with_cosmovisor.md) instead.
 :::
 
 #### Contents

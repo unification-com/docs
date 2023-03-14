@@ -103,7 +103,7 @@ ExecStart=/usr/local/bin/cosmovisor run start
 ```
 
 If you have installed via `go install` or built/installed from source, the path might be 
-something like `/home/centos/go/bin/cosmovisor`
+something like `/home/username/go/bin/cosmovisor`
 
 :::tip Note
 Any flags for `und` can be passed the same as previously, for example:
