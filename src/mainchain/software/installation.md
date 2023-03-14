@@ -8,10 +8,6 @@ If you intend to run a node and/or become a validator, follow the
  [Install und with Cosmovisor](./cosmovisor/install_und_with_cosmovisor.md) instead.
 :::
 
-#### Contents
-
-[[toc]]
-
 ## Installing the latest release binaries
 
 !!!include(mainchain/partials/install-und-binary.md)!!!
@@ -40,7 +36,7 @@ $ source ~/.bash_profile
 ### Build and install the binaries
 
 ::: warning IMPORTANT
-unless you are contributing to Mainchain development, it is recommended you checkout and build from the latest release 
+unless you are contributing to Mainchain development, it is recommended you checkout and build from the latest release
 tag and **not** the `master` branch if you intend to connect to a live, public network (e.g. TestNet/MainNet).
 :::
 
@@ -53,41 +49,41 @@ The **`[latest-release-tag]`** required for the command below can also be obtain
 curl --silent "https://api.github.com/repos/unification-com/mainchain/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")'
 ```
 
+Then run:
+
 ```bash
 $ git clone -b [latest-release-tag] https://github.com/unification-com/mainchain
 $ cd mainchain
 $ make install
 ```
 
-This will install the two binaries `und` and `und` into your `$HOME/go/bin`
+This will install the `und` binary into your `$HOME/go/bin`
 
 ### Verify the installation
 
 Run the following commands:
 
 ```bash
-$ und version --long
+und version --long
 ```
 
-If they have installed correctly, you should see output similar to the following:
+If `und` has been installed correctly, you should see output similar to the following:
 
-```bash
+```
 name: UndMainchain
 server_name: und
-version: 1.5.1
-commit: 8bbd2b3dabebf8186c19b452f5331071f79e48f1
+version: 1.6.3
+commit: 4ce308e65a4a6de0d2d05f88b02584869f6b1c24
 build_tags: netgo
-go: go version go1.16.2 linux/amd64
+go: go version go1.18.5 linux/amd64
 build_deps:
-- github.com/99designs/keyring@v1.1.6 => github.com/cosmos/keyring@v1.1.7-0.20210622111912-ef00f8ac3d76
-- github.com/ChainSafe/go-schnorrkel@v0.0.0-20200405005733-88cbf1b4c40d
-- ... SNIP ...
-cosmos_sdk_version: v0.42.11
+...SNIP...
+cosmos_sdk_version: v0.45.9
 ```
 
 ### Development
 
-The included Mainchain [DevNet](local-devnet.md) network can be used for development and testing of new features and 
+The included Mainchain [DevNet](../networks/devnet/local-devnet-docker.md) network can be used for development and testing of new features and
 bug fixes locally. To build the binaries for testing without installing, run:
 
 ```bash

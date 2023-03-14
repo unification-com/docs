@@ -53,5 +53,5 @@ in the background.
 Finally, you can monitor the log output for the service by running:
 
 ```bash
-$ sudo journalctl -u und --follow
+sudo journalctl -u und --follow
 ```

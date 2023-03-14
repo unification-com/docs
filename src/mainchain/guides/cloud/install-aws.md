@@ -3,7 +3,7 @@
 ::: warning
 This guide is in the process of being updated to cover cosmovisor. In the interim, for parts 4.2 up to and including
 part 6, you can follow the [Install und with Cosmovisor](../../software/cosmovisor/install_und_with_cosmovisor.md)
-guide.
+guide, then return here.
 :::
 
 #### Contents
@@ -71,17 +71,17 @@ ls -la $HOME/.ssh
 If you do not have a `$HOME/.ssh` directory, create it:
 
 ```bash
-$ mkdir $HOME/.ssh
-$ chmod 700 $HOME/.ssh
+mkdir $HOME/.ssh
+chmod 700 $HOME/.ssh
 ```
 
 Next, move the downloaded private key into the `$HOME/.ssh` directory, and tighten the file's permissions, replacing any
 bold text appropriately:
 
 ```bash
-$ mv /path/to/aws-ec2-und-validator-node.pem $HOME/.ssh
-$ cd $HOME/.ssh
-$ chmod 400 aws-ec2-und-validator-node.pem
+mv /path/to/aws-ec2-und-validator-node.pem $HOME/.ssh
+cd $HOME/.ssh
+chmod 400 aws-ec2-und-validator-node.pem
 ```
 
 ## Part 2: Create a VPC (Network)
@@ -200,7 +200,7 @@ versions will require [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty
 
 In a terminal on your local PC, run the following:
 
-```bash
+```
 ssh -i $HOME/.ssh/[aws_private_key] ubuntu@[vm_ip]
 ```
 
@@ -239,7 +239,7 @@ und init [your_node_tag]
 `[your_node_tag]` can be any ID you like, but is limited to ASCII characters (alphanumeric characters, hyphens and
 underscores)
 
-### Download the latest Genesis file.
+### Download the latest Genesis file
 
 !!!include(mainchain/partials/download-genesis.md)!!!
 
@@ -247,7 +247,7 @@ Get the current chain ID from genesis. Make a note of the output, it'll be requi
 Command is all on one line:
 
 ```bash
-$ jq --raw-output '.chain_id' $HOME/.und_mainchain/config/genesis.json
+jq --raw-output '.chain_id' $HOME/.und_mainchain/config/genesis.json
 ```
 
 ### Get seed nodes
@@ -297,7 +297,7 @@ safe! These are required for your node to propose and sign blocks. If you ever m
 instance, you will need these.
 :::
 
-## Part 6: Running und as a daemon
+## Part 6: Run und as a systemd service
 
 Once you have initialised and tested the `und` node, it can be set up as a background daemon on the server
 using `systemctl`. This means that you can easily start/stop/restart the service, and do not need to leave the SSH
@@ -356,7 +356,7 @@ If you do not already have a wallet/account, you can create one (on your local P
 ./und keys add account_name
 ```
 
-If you already have a wallet, you can import the account using:
+If you already have a wallet, you can import the account by running:
 
 ```bash
 ./und keys add account_name --recover
@@ -369,7 +369,7 @@ Validator node. The account you use to self-delegate will become the "owner" acc
 
 On your local PC, run the following command, replacing any text in `[square_brackets]` accordingly with your own values:
 
-```bash
+```
 ./und tx staking create-validator \
 --amount=[stake_in_nund] \
 --pubkey=[your_validator_public_key] \
