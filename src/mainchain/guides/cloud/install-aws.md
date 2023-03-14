@@ -113,12 +113,12 @@ The EC2 instance is the Virtual Machine where the node will be installed an run.
 instance, and connect it to the network created in the previous part.
 
 1. From the Services menu in AWS Console, click "EC2" under "Compute", followed by the "Launch Instance" button.
-2. On the "1. Choose AMI" tab, use the search input to find the AMI ID "ami-0f2b4fc905b0bd1f1". Click "Community AMIs"
-   in the results, find "CentOS Linux 7 x86_64 HVM EBS ENA" and click the "Select" button.
-3. On the "2. Choose Instance Type" tab, we recommend at least a `t2.medium`. Click "Next: Configure Instance Details".
-4. In the "Network" section, select the VPC created in the previous part. Leave the rest as the defaults, and click
+2. In the "Application and OS Images" section, select Ubuntu, then "Ubuntu Server 22.04 LTS (HVM)" from the dropdown.
+3. In the "Choose Instance Type" section, we recommend a `t2.large`.
+4. In the "Key Pair" section, select the key you created previously.
+5. In the "Network" section, select the VPC created in the previous part. Leave the rest as the defaults, and click
    the "6. Configure Security Group" tab at the top.
-5. Give the security group a meaningful name and description - for example "und-validator-node". You will be able to
+6. Give the security group a meaningful name and description - for example "und-validator-node". You will be able to
    find and edit this security group in the AWS EC2 console, under "Network & Security -> Security Groups" once it has
    been created.
 
@@ -193,7 +193,7 @@ own values. For example, `[aws_private_key]` should be replaced with the name of
 in [Part 1](#part-1-create-an-ssh-key-pair), and `[vm_ip]` with the public IP address of your EC2 instance.
 :::
 
-The default username for our CentOS EC2 instance is `centos`.
+The default username for our Ubuntu EC2 instance is `ubuntu`.
 
 Note for Windows users: Windows 10 should have an SSH client available in the PowerShell terminal. Older Windows
 versions will require [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/).
@@ -201,7 +201,7 @@ versions will require [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty
 In a terminal on your local PC, run the following:
 
 ```bash
-ssh -i $HOME/.ssh/[aws_private_key] centos@[vm_ip]
+ssh -i $HOME/.ssh/[aws_private_key] ubuntu@[vm_ip]
 ```
 
 This will log you in to the EC2 instance via SSH.
@@ -211,19 +211,13 @@ This will log you in to the EC2 instance via SSH.
 Once logged in to the VM via SSH, run:
 
 ```bash
-sudo yum update -y
-```
-
-Install EPEL:
-
-```bash
-sudo yum install epel-release -y
+sudo apt update -y
 ```
 
 Finally, install the following additional software:
 
 ```bash
-sudo yum install nano jq wget -y
+sudo apt install nano jq wget -y
 ```
 
 ### Part 4.2: Install the und binary

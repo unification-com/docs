@@ -153,10 +153,10 @@ Click the "Create" button.
 Give your VM instance a suitable name.
 
 1. Under "Machine Configuration", leave "General purpose" selected, along with "N1" for Series.
-2. For "Machine Type", we recommend at least `e2-medium`
+2. For "Machine Type", we recommend at least `e2-standard-2`
 3. In the "Boot Disk" section click the "Change" button
-4. Select "CentOS" as the operating system, and "CentOS 7" as the version
-   Leave the disk size as default. Click the "Select" button.
+4. Select "Ubuntu" as the operating system, and "Ubuntu 22.04 LTS" as the version
+   Change the disk size to around 20Gb. Click the "Select" button.
 5. Click the "Management, security, disks, networking, sole-tenancy" link (under "Firewall").
 6. Click the "Security" tab.
 7. Copy your SSH public key into the input "Enter public SSH key".
@@ -212,13 +212,13 @@ echo UUID=`sudo blkid -s UUID -o value /dev/sdb` /mnt/disks/data ext4 discard,de
 Update the installed packages:
 
 ```bash
-sudo yum update -y
+sudo apt update -y
 ```
 
 Install the following additional software:
 
 ```bash
-sudo yum install nano jq wget -y
+sudo apt install nano jq wget -y
 ```
 
 ### Part 4.3: Install the `und` binary
