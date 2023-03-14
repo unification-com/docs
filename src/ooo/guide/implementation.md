@@ -280,7 +280,7 @@ required for the `ROUTER_ADDRESS` and `XFUND_ADDRESS` variables.
 Create a `.env` file in the root of your project with the following and set each value
 accordingly:
 
-```dotenv
+```
 # Private key for wallet used to deploy. This will be the contract owner
 # Most functions in ConsumerBase.sol can only be called by the owner
 ETH_PKEY=
