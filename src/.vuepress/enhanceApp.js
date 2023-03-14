@@ -11,6 +11,9 @@ export default ({
   siteData // site metadata
 }) => {
   router.addRoutes([
-    { path: '/mainchain/software/cosmovisor/install_statesync_cosmovisor.html', redirect: 'mainchain/software/cosmovisor/install_und_with_cosmovisor.html' },
+    {
+      path: '/mainchain/software/cosmovisor/install_statesync_cosmovisor.html',
+      redirect: 'mainchain/software/cosmovisor/install_und_with_cosmovisor.html',
+    },
   ])
 }
