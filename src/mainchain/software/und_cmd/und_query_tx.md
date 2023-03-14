@@ -1,13 +1,13 @@
 ## und query tx
 
-Query for a transaction by hash, "<addr>/<seq>" combination or comma-separated signatures in a committed block
+Query for a transaction by hash, "&lt;addr&gt;/&lt;seq&gt;" combination or comma-separated signatures in a committed block
 
 ### Synopsis
 
 Example:
-$ und query tx <hash>
-$ und query tx --type=acc_seq <addr>/<sequence>
-$ und query tx --type=signature <sig1_base64>,<sig2_base64...>
+$ und query tx &lt;hash&gt;
+$ und query tx --type=acc_seq &lt;addr&gt;/&lt;sequence&gt;
+$ und query tx --type=signature &lt;sig1_base64&gt;,&lt;sig2_base64...&gt;
 
 ```
 und query tx --type=[hash|acc_seq|signature] [hash|acc_seq|signature] [flags]

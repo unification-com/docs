@@ -6,7 +6,7 @@ unjail validator previously jailed for downtime
 
 unjail a jailed validator:
 
-$ <appd> tx slashing unjail --from mykey
+$ und tx slashing unjail --from mykey
 
 
 ```

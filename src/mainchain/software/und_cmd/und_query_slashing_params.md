@@ -6,7 +6,7 @@ Query the current slashing parameters
 
 Query genesis parameters for the slashing module:
 
-$ <appd> query slashing params
+$ und query slashing params
 
 ```
 und query slashing params [flags]

@@ -30,16 +30,26 @@ Once downloaded, you can verify the SHA256 checksum against those listed in the 
 ::: tab MainNet
 #### MainNet
 ```bash
-$ openssl dgst -sha256 und_v1.6.3_linux_x86_64.tar.gz
-SHA256(und_v1.6.3_linux_x86_64.tar.gz)= ...12324abcd...
+openssl dgst -sha256 und_v1.6.3_linux_x86_64.tar.gz
+```
+
+should output:
+
+```
+SHA256(und_v1.6.3_linux_x86_64.tar.gz)= a640ba6ef95c19aa2b75c300d9307c65d89418d02ae878e1e98d449cc4d42371
 ```
 :::
 
 ::: tab TestNet
 #### TestNet
 ```bash
-$ openssl dgst -sha256 und_v1.6.3_linux_x86_64.tar.gz
-SHA256(und_v1.6.3_linux_x86_64.tar.gz)= ...12324abcd...
+openssl dgst -sha256 und_v1.6.3_linux_x86_64.tar.gz
+```
+
+should output:
+
+```
+SHA256(und_v1.6.3_linux_x86_64.tar.gz)= a640ba6ef95c19aa2b75c300d9307c65d89418d02ae878e1e98d449cc4d42371
 ```
 :::
 ::::

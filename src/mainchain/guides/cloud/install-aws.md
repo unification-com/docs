@@ -3,7 +3,7 @@
 ::: warning
 This guide is in the process of being updated to cover cosmovisor. In the interim, for parts 4.2 up to and including
 part 6, you can follow the [Install und with Cosmovisor](../../software/cosmovisor/install_und_with_cosmovisor.md)
-guide.
+guide, then return here.
 :::
 
 #### Contents
@@ -71,17 +71,17 @@ ls -la $HOME/.ssh
 If you do not have a `$HOME/.ssh` directory, create it:
 
 ```bash
-$ mkdir $HOME/.ssh
-$ chmod 700 $HOME/.ssh
+mkdir $HOME/.ssh
+chmod 700 $HOME/.ssh
 ```
 
 Next, move the downloaded private key into the `$HOME/.ssh` directory, and tighten the file's permissions, replacing any
 bold text appropriately:
 
 ```bash
-$ mv /path/to/aws-ec2-und-validator-node.pem $HOME/.ssh
-$ cd $HOME/.ssh
-$ chmod 400 aws-ec2-und-validator-node.pem
+mv /path/to/aws-ec2-und-validator-node.pem $HOME/.ssh
+cd $HOME/.ssh
+chmod 400 aws-ec2-und-validator-node.pem
 ```
 
 ## Part 2: Create a VPC (Network)
@@ -113,12 +113,12 @@ The EC2 instance is the Virtual Machine where the node will be installed an run.
 instance, and connect it to the network created in the previous part.
 
 1. From the Services menu in AWS Console, click "EC2" under "Compute", followed by the "Launch Instance" button.
-2. On the "1. Choose AMI" tab, use the search input to find the AMI ID "ami-0f2b4fc905b0bd1f1". Click "Community AMIs"
-   in the results, find "CentOS Linux 7 x86_64 HVM EBS ENA" and click the "Select" button.
-3. On the "2. Choose Instance Type" tab, we recommend at least a `t2.medium`. Click "Next: Configure Instance Details".
-4. In the "Network" section, select the VPC created in the previous part. Leave the rest as the defaults, and click
+2. In the "Application and OS Images" section, select Ubuntu, then "Ubuntu Server 22.04 LTS (HVM)" from the dropdown.
+3. In the "Choose Instance Type" section, we recommend a `t2.large`.
+4. In the "Key Pair" section, select the key you created previously.
+5. In the "Network" section, select the VPC created in the previous part. Leave the rest as the defaults, and click
    the "6. Configure Security Group" tab at the top.
-5. Give the security group a meaningful name and description - for example "und-validator-node". You will be able to
+6. Give the security group a meaningful name and description - for example "und-validator-node". You will be able to
    find and edit this security group in the AWS EC2 console, under "Network & Security -> Security Groups" once it has
    been created.
 
@@ -193,15 +193,15 @@ own values. For example, `[aws_private_key]` should be replaced with the name of
 in [Part 1](#part-1-create-an-ssh-key-pair), and `[vm_ip]` with the public IP address of your EC2 instance.
 :::
 
-The default username for our CentOS EC2 instance is `centos`.
+The default username for our Ubuntu EC2 instance is `ubuntu`.
 
 Note for Windows users: Windows 10 should have an SSH client available in the PowerShell terminal. Older Windows
 versions will require [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/).
 
 In a terminal on your local PC, run the following:
 
-```bash
-ssh -i $HOME/.ssh/[aws_private_key] centos@[vm_ip]
+```
+ssh -i $HOME/.ssh/[aws_private_key] ubuntu@[vm_ip]
 ```
 
 This will log you in to the EC2 instance via SSH.
@@ -211,19 +211,13 @@ This will log you in to the EC2 instance via SSH.
 Once logged in to the VM via SSH, run:
 
 ```bash
-sudo yum update -y
-```
-
-Install EPEL:
-
-```bash
-sudo yum install epel-release -y
+sudo apt update -y
 ```
 
 Finally, install the following additional software:
 
 ```bash
-sudo yum install nano jq wget -y
+sudo apt install nano jq wget -y
 ```
 
 ### Part 4.2: Install the und binary
@@ -245,7 +239,7 @@ und init [your_node_tag]
 `[your_node_tag]` can be any ID you like, but is limited to ASCII characters (alphanumeric characters, hyphens and
 underscores)
 
-### Download the latest Genesis file.
+### Download the latest Genesis file
 
 !!!include(mainchain/partials/download-genesis.md)!!!
 
@@ -253,7 +247,7 @@ Get the current chain ID from genesis. Make a note of the output, it'll be requi
 Command is all on one line:
 
 ```bash
-$ jq --raw-output '.chain_id' $HOME/.und_mainchain/config/genesis.json
+jq --raw-output '.chain_id' $HOME/.und_mainchain/config/genesis.json
 ```
 
 ### Get seed nodes
@@ -303,7 +297,7 @@ safe! These are required for your node to propose and sign blocks. If you ever m
 instance, you will need these.
 :::
 
-## Part 6: Running und as a daemon
+## Part 6: Run und as a systemd service
 
 Once you have initialised and tested the `und` node, it can be set up as a background daemon on the server
 using `systemctl`. This means that you can easily start/stop/restart the service, and do not need to leave the SSH
@@ -362,7 +356,7 @@ If you do not already have a wallet/account, you can create one (on your local P
 ./und keys add account_name
 ```
 
-If you already have a wallet, you can import the account using:
+If you already have a wallet, you can import the account by running:
 
 ```bash
 ./und keys add account_name --recover
@@ -375,7 +369,7 @@ Validator node. The account you use to self-delegate will become the "owner" acc
 
 On your local PC, run the following command, replacing any text in `[square_brackets]` accordingly with your own values:
 
-```bash
+```
 ./und tx staking create-validator \
 --amount=[stake_in_nund] \
 --pubkey=[your_validator_public_key] \

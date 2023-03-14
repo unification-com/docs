@@ -3,7 +3,7 @@
 ::: warning
 This guide is in the process of being updated to cover cosmovisor. In the interim, for parts 4.3 up to and including
 part 6, you can follow the [Install und with Cosmovisor](../../software/cosmovisor/install_und_with_cosmovisor.md)
-guide.
+guide, then return here.
 :::
 
 #### Contents
@@ -66,8 +66,8 @@ ls -la $HOME/.ssh
 If you do not have a `$HOME/.ssh` directory, create it:
 
 ```bash
-$ mkdir $HOME/.ssh
-$ chmod 700 $HOME/.ssh
+mkdir $HOME/.ssh
+chmod 700 $HOME/.ssh
 ```
 
 Run the following commands, replacing **`vmusername`** with something easily identifiable such as the admin username (
@@ -75,8 +75,8 @@ only letters, no spaces) you will choose later in the guide for the VM, and ente
 prompted to do so:
 
 ```bash
-$ ssh-keygen -t rsa -b 4096 -f $HOME/.ssh/gc_vmusername_id_rsa
-$ chmod 400 $HOME/.ssh/gc_vmusername_id_rsa
+ssh-keygen -t rsa -b 4096 -f $HOME/.ssh/gc_vmusername_id_rsa
+chmod 400 $HOME/.ssh/gc_vmusername_id_rsa
 ```
 
 Finally, the public key will be required later in the guide, so open it up in a text editor. The public key counterpart
@@ -153,10 +153,10 @@ Click the "Create" button.
 Give your VM instance a suitable name.
 
 1. Under "Machine Configuration", leave "General purpose" selected, along with "N1" for Series.
-2. For "Machine Type", we recommend at least `e2-medium`
+2. For "Machine Type", we recommend at least `e2-standard-2`
 3. In the "Boot Disk" section click the "Change" button
-4. Select "CentOS" as the operating system, and "CentOS 7" as the version
-   Leave the disk size as default. Click the "Select" button.
+4. Select "Ubuntu" as the operating system, and "Ubuntu 22.04 LTS" as the version
+   Change the disk size to around 20Gb. Click the "Select" button.
 5. Click the "Management, security, disks, networking, sole-tenancy" link (under "Firewall").
 6. Click the "Security" tab.
 7. Copy your SSH public key into the input "Enter public SSH key".
@@ -190,7 +190,7 @@ versions will require [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty
 
 Open a terminal on your PC, and run:
 
-```bash
+```
 ssh -i $HOME/.ssh/[gc_vmusername_id_rsa] [vmusername]@[vm_ip]
 ```
 
@@ -212,13 +212,13 @@ echo UUID=`sudo blkid -s UUID -o value /dev/sdb` /mnt/disks/data ext4 discard,de
 Update the installed packages:
 
 ```bash
-sudo yum update -y
+sudo apt update -y
 ```
 
 Install the following additional software:
 
 ```bash
-sudo yum install nano jq wget -y
+sudo apt install nano jq wget -y
 ```
 
 ### Part 4.3: Install the `und` binary
@@ -233,7 +233,7 @@ currently logged in to the VM instance via SSH, do so.
 
 Once logged in, run:
 
-```bash
+```
 und init [your_node_tag] --home=/mnt/disks/data/.und_mainchain
 ```
 
@@ -360,7 +360,7 @@ If you do not already have a wallet/account, you can create one (on your local P
 ./und keys add account_name
 ```
 
-If you already have a wallet, you can import the account using:
+If you already have a wallet, you can import the account by running:
 
 ```bash
 ./und keys add account_name --recover
@@ -373,7 +373,7 @@ Validator node. The account you use to self-delegate will become the "owner" acc
 
 On your local PC, run the following command, replacing any text in `[square_brackets]` accordingly with your own values:
 
-```bash
+```
 ./und tx staking create-validator \
 --amount=[stake_in_nund] \
 --pubkey=[your_validator_public_key] \
