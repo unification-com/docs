@@ -34,7 +34,7 @@ und query [flags]
 * [und query staking](und_query_staking.md)	 - Querying commands for the staking module
 * [und query supply](und_query_supply.md)	 - Query the total supply of coins of the chain
 * [und query tendermint-validator-set](und_query_tendermint-validator-set.md)	 - Get the full tendermint validator set at given height
-* [und query tx](und_query_tx.md)	 - Query for a transaction by hash, "<addr>/<seq>" combination or comma-separated signatures in a committed block
+* [und query tx](und_query_tx.md)	 - Query for a transaction by hash, "&lt;addr&gt;/&lt;seq&gt;" combination or comma-separated signatures in a committed block
 * [und query txs](und_query_txs.md)	 - Query for paginated transactions that match a set of events
 * [und query upgrade](und_query_upgrade.md)	 - Querying commands for the upgrade module
 * [und query wrkchain](und_query_wrkchain.md)	 - Querying commands for the wrkchain module

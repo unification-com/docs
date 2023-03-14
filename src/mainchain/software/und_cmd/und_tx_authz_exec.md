@@ -7,7 +7,7 @@ execute tx on behalf of granter account
 execute tx on behalf of granter account:
 Example:
  $ und tx authz exec tx.json --from grantee
- $ und tx bank send <granter> <recipient> --from <granter> --chain-id <chain-id> --generate-only > tx.json && und tx authz exec tx.json --from grantee
+ $ und tx bank send &lt;granter&gt; &lt;recipient&gt; --from &lt;granter&gt; --chain-id &lt;chain-id&gt; --generate-only &gt; tx.json && und tx authz exec tx.json --from grantee
 
 ```
 und tx authz exec [msg_tx_json_file] --from [grantee] [flags]

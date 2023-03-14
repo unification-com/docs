@@ -6,7 +6,7 @@ Query signing information of all validators
 
 signing infos of validators:
 
-$ <appd> query slashing signing-infos
+$ und query slashing signing-infos
 
 ```
 und query slashing signing-infos [flags]

@@ -40,7 +40,7 @@ The pass backend requires GnuPG: https://gnupg.org/
 ### SEE ALSO
 
 * [und](und.md)	 - Unification Mainchain App
-* [und keys add](und_keys_add.md)	 - Add an encrypted private key (either newly generated or recovered), encrypt it, and save to <name> file
+* [und keys add](und_keys_add.md)	 - Add an encrypted private key (either newly generated or recovered), encrypt it, and save to &lt;name&gt; file
 * [und keys delete](und_keys_delete.md)	 - Delete the given keys
 * [und keys export](und_keys_export.md)	 - Export private keys
 * [und keys import](und_keys_import.md)	 - Import private keys into the local keybase

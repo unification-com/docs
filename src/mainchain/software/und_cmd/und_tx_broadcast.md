@@ -9,7 +9,7 @@ flag and signed with the sign command. Read a transaction from [file_path] and
 broadcast it to a node. If you supply a dash (-) argument in place of an input
 filename, the command reads from standard input.
 
-$ <appd> tx broadcast ./mytxn.json
+$ und tx broadcast ./mytxn.json
 
 ```
 und tx broadcast [file_path] [flags]
