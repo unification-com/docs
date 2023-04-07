@@ -1,9 +1,9 @@
 # Network Upgrade: 2-grog
 
 :::warning IMPORTANT
-The upgrade is due to occur on **TestNet** in block **5,840,430** in upgrade plan `2-grog`
+**TestNet** was upgraded in block **5,840,430** in upgrade plan `2-grog`
 
-**MainNet** TBD
+**MainNet** `2-grog` upgrade planned for block **4,727,000**
 :::
 
 :::tip Note
@@ -40,7 +40,9 @@ This will be dependent on how you configured `cosmovisor`, and your actual `.und
 ::: tab MainNet
 #### MainNet
 
-TBD
+```bash
+mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/2-grog/bin
+```
 
 :::
 
@@ -57,6 +59,8 @@ mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/2-grog/bin
 #### 2. Download the latest `und` v1.7.x and add to Cosmovisor's `upgrades` directory
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.7.x.md)!!!
+
+Check the version output is `1.7.x`.
 
 The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as follows:
 
