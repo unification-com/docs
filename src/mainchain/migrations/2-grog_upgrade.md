@@ -35,26 +35,9 @@ to the upgrade process, and as such, the process may take up to 30 minutes befor
 
 This will be dependent on how you configured `cosmovisor`, and your actual `.und_mainchain` path
 
-:::: tabs :options="{ useUrlFragment: false }"
-
-::: tab MainNet
-#### MainNet
-
 ```bash
 mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/2-grog/bin
 ```
-
-:::
-
-::: tab TestNet
-#### TestNet
-
-```bash
-mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/2-grog/bin
-```
-:::
-
-::::
 
 #### 2. Download the latest `und` v1.7.x and add to Cosmovisor's `upgrades` directory
 
