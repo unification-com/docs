@@ -14,9 +14,9 @@
 **Fee**: 0.001 xFUND  
 **Wait Confirmations**: 3 blocks (provider will wait for 3 block confirmations before processing a data request)
 
-### Eth Goerli testnet
+### Eth Sepolia testnet
 
-**Provider Address**: [`0x611661f4B5D82079E924AcE2A6D113fAbd214b14`](https://goerli.etherscan.io/address/0x611661f4B5D82079E924AcE2A6D113fAbd214b14)  
+**Provider Address**: [`0x611661f4B5D82079E924AcE2A6D113fAbd214b14`](https://sepolia.etherscan.io/address/0x611661f4B5D82079E924AcE2A6D113fAbd214b14)  
 **Fee**: 0.0001 xFUND  
 **Wait Confirmations**: 3 blocks (provider will wait for 3 block confirmations before processing a data request)
 
