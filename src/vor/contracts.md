@@ -8,11 +8,11 @@ Addresses for the currently deployed contracts, required for interaction and int
 **VORCoordinator**: [`0xCeB679DE692660dD701837c25a4181492050ED8F`](https://etherscan.io/address/0xCeB679DE692660dD701837c25a4181492050ED8F#code)  
 **BlockHashStore**: [`0x540FCdd99F4EC8cDac1345D152857B1B20e4d5f6`](https://etherscan.io/address/0x540FCdd99F4EC8cDac1345D152857B1B20e4d5f6#code)
 
-## Testnet (Rinkeby)
+## Testnet (Sepolia)
 
-**xFUND Mock Token**: [`0x245330351344F9301690D5D8De2A07f5F32e1149`](https://rinkeby.etherscan.io/address/0x245330351344F9301690D5D8De2A07f5F32e1149#code)  
-**VORCoordinator**: [`0x6d5Ba663dDCa573557c8420256Dc85F31D9762B0`](https://rinkeby.etherscan.io/address/0x6d5Ba663dDCa573557c8420256Dc85F31D9762B0#code)  
-**BlockHashStore**: [`0x95AE62E3E2261615970375CC8af8c7E6923627Fa`](https://rinkeby.etherscan.io/address/0x95AE62E3E2261615970375CC8af8c7E6923627Fa#code) 
+**xFUND Test Token**: [`0xb07C72acF3D7A5E9dA28C56af6F93862f8cc8196`](https://sepolia.etherscan.io/address/0xb07C72acF3D7A5E9dA28C56af6F93862f8cc8196#code)  
+**VORCoordinator**: [`0xC1e1a7f39fB6E3E1FBAa5d33407F7844e5C843Ff`](https://sepolia.etherscan.io/address/0xC1e1a7f39fB6E3E1FBAa5d33407F7844e5C843Ff#code)  
+**BlockHashStore**: [`0x84dccBf27cBF10409D0801F7d82Dfc6FFBbb020F`](https://sepolia.etherscan.io/address/0x84dccBf27cBF10409D0801F7d82Dfc6FFBbb020F#code) 
 
 ## Polygon (Mainnet)
 
