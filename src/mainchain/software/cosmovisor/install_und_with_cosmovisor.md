@@ -62,11 +62,21 @@ Upgrade plan names for `und` v1.6.x:
 The upgrade plan name determines the directory path that `und` v1.6.x will be installed in!
 :::
 
+Install the `1-init_ibc` update:
+
 !!!include(mainchain/partials/cosmovisor/install_und_v1.6.x.md)!!!
 
 #### 2.1.3 `und` v1.7.x: `2-grog` update
 
+Install the `2-grog` update:
+
 !!!include(mainchain/partials/cosmovisor/install_und_v1.7.x.md)!!!
+
+#### 2.1.4 `und` v1.8.x: `3-keyleth` update
+
+Install the `3-keyleth` update:
+
+!!!include(mainchain/partials/cosmovisor/install_und_v1.8.x.md)!!!
 
 ### 2.2 Create cosmovisor environment file
 

@@ -39,6 +39,7 @@ to interact with the Mainchain network.
 - [Using Cosmovisor: Quick start](migrations/cosmovisor)
 - [Network Upgrade: 1-init_ibc](migrations/1-init_ibc_upgrade)
 - [Network Upgrade: 2-grog](migrations/2-grog_upgrade)
+- [Network Upgrade: 3-keyleth](migrations/3-keyleth_upgrade)
 
 ## 4. Mainchain Networks
 
