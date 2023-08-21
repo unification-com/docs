@@ -4,6 +4,8 @@ Welcome to the documentation for Unification's Mainchain. These docs
 cover how to build and install the `und` application, how to run a node on MainNet, TestNet and DevNet, and how 
 to interact with the Mainchain network.
 
+!!!include(mainchain/partials/keyring-migration-warning.md)!!!
+
 ## 1. About Mainchain
 
 - [What is Mainchain?](introduction/about-mainchain)

@@ -44,6 +44,8 @@ Next, install `cosmovisor`
 
 !!!include(mainchain/partials/cosmovisor/install_cosmovisor.md)!!!
 
+The latest version of `cosmovisor` is `v1.5.0`
+
 ### 2.1 Set up cosmovisor directory structure
 
 Create the directory structure for the `und` binaries and updates
@@ -51,6 +53,8 @@ Create the directory structure for the `und` binaries and updates
 #### 2.1.1 `und` v1.5.1: `genesis`:
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.5.1.md)!!!
+
+Check the version output is `1.5.1`.
 
 #### 2.1.2 `und` v1.6.x: `1-init_ibc` update
 
@@ -66,17 +70,22 @@ Install the `1-init_ibc` update:
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.6.x.md)!!!
 
+Check the version output is `1.6.3`.
+
 #### 2.1.3 `und` v1.7.x: `2-grog` update
 
 Install the `2-grog` update:
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.7.x.md)!!!
+Check the version output is `1.7.0`.
 
 #### 2.1.4 `und` v1.8.x: `3-keyleth` update
 
 Install the `3-keyleth` update:
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.8.x.md)!!!
+
+Check the version output is `1.8.2`.
 
 ### 2.2 Create cosmovisor environment file
 

@@ -10,6 +10,8 @@ If you intend to run a node and/or become a validator, follow the
 
 ## Installing the latest release binaries
 
+!!!include(mainchain/partials/keyring-migration-warning.md)!!!
+
 !!!include(mainchain/partials/install-und-binary.md)!!!
 
 ## Building from Source
