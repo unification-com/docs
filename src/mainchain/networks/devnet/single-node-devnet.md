@@ -102,28 +102,28 @@ with `bash und_testnet.sh`
 ```bash
 #!/bin/bash
 
-####################################################
-# A script for quickly spinning up a local devnet  #
-####################################################
+################################################################
+# A script for quickly spinning up a local single-node devnet  #
+################################################################
 
-# Testnet configuration
+# DevNet configuration
+UND_VERS="1.7.0" # Change to latest release - https://github.com/unification-com/mainchain/releases/latest
 TEST_PATH="/tmp/und_devnet"
-CHAIN_ID="FUND-DevNet"
-UND_VERS="1.5.1"
+CHAIN_ID_PREFIX="FUND-DevNet"
+
+# Generate unique Chian ID suffix
+CHAIN_ID_SUFFIX=$(cat /proc/sys/kernel/random/uuid | sed 's/[-]//g' | head -c 5; echo;)
+
+CHAIN_ID="${CHAIN_ID_PREFIX}-${CHAIN_ID_SUFFIX}"
 
 # Internal VARS
 DATA_DIR="${TEST_PATH}/.und_mainchain"
 UND_BIN="${TEST_PATH}/und"
-PREFIX="v"
 
 function version_lt() { test "$(echo "$@" | tr " " "\n" | sort -rV | head -n 1)" != "$1"; }
 
-if version_lt $UND_VERS "1.6.1"; then
-  PREFIX=""
-fi
-
-if version_lt $UND_VERS "1.5.0"; then
-  echo "versions < 1.5.0 not supported"
+if version_lt $UND_VERS "1.6.3"; then
+  echo "versions < 1.6.3 not supported"
   exit 0
 fi
 
@@ -144,7 +144,7 @@ cd "${TEST_PATH}"
 
 # download und
 if [ ! -f "$UND_BIN" ]; then
-  wget "https://github.com/unification-com/mainchain/releases/download/${PREFIX}${UND_VERS}/und_v${UND_VERS}_linux_x86_64.tar.gz"
+  wget "https://github.com/unification-com/mainchain/releases/download/v${UND_VERS}/und_v${UND_VERS}_linux_x86_64.tar.gz"
   tar -zxvf "und_v${UND_VERS}_linux_x86_64.tar.gz"
 fi
 
@@ -179,7 +179,16 @@ sed -i "s/swagger = false/swagger = true/g" "${DATA_DIR}/config/app.toml"
 "${UND_BIN}" gentx validator 1000000nund --home ${DATA_DIR} --chain-id="${CHAIN_ID}"
 "${UND_BIN}" collect-gentxs --home "${DATA_DIR}"
 
-# start the daemon
-"${UND_BIN}" start --home "${DATA_DIR}"
+echo ""
+echo "---------------------"
+echo "Your DevNet is ready!"
+echo "---------------------"
+echo ""
+echo "Chain ID: ${CHAIN_ID}"
+echo ""
+echo "Run the chain with:"
+echo ""
+echo "${UND_BIN} start --home ${DATA_DIR}"
+echo ""
 
 ```
