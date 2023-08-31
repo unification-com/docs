@@ -1,9 +1,9 @@
 # Network Upgrade: 2-grog
 
 :::warning IMPORTANT
-**TestNet** was upgraded in block **5,840,430** in upgrade plan `2-grog`
+**TestNet** was successfully upgraded to `2-grog` in block **5,840,430**
 
-**MainNet** `2-grog` upgrade planned for block **4,727,000**
+**MainNet** was successfully upgraded to `2-grog` in block **4,727,000**
 :::
 
 :::tip Note
