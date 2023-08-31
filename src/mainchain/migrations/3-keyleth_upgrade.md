@@ -1,9 +1,9 @@
 # Network Upgrade: 3-keyleth
 
 :::warning IMPORTANT
-**TestNet** `3-keyleth` upgrade planned for block 7,841,840
+**TestNet** was successfully upgraded to `3-keyleth` in block **7,841,840**
 
-**MainNet** `3-keyleth` upgrade plan TBD 
+**MainNet** `3-keyleth` upgrade planned for block **6,943,000**
 :::
 
 :::tip Note
@@ -43,7 +43,7 @@ mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/3-keyleth/bin
 
 !!!include(mainchain/partials/cosmovisor/install_und_v1.8.x.md)!!!
 
-Check the version output is `1.8.2`.
+Check the version output is `1.8.2`!
 
 The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as follows:
 
