@@ -51,12 +51,12 @@ chunk_request_timeout = "60s"
 chunk_fetchers = "4"
 ```
 
-The `rpc_servers` requires two RPC nodes for verification. Replace `TWO_RPC_NODES` with:
+The `rpc_servers` requires two RPC nodes for verification. For example, replace `TWO_RPC_NODES` with:
 
 :::: tabs :options="{ useUrlFragment: false }"
 ::: tab MainNet
 #### MainNet
-`sync1.unification.io:26657,sync2.unification.io:26657`
+`rpc1.unification.io:443,rpc.unification.chainmasters.ninja:443`
 :::
 
 ::: tab TestNet
@@ -68,7 +68,7 @@ The `rpc_servers` requires two RPC nodes for verification. Replace `TWO_RPC_NODE
 e.g.:
 
 ```toml
-rpc_servers = "sync1.unification.io:26657,sync2.unification.io:26657"
+rpc_servers = "rpc1.unification.io:443,rpc.unification.chainmasters.ninja:443"
 ```
 
 Or any RPC servers of your choice for the target network.

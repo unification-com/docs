@@ -30,6 +30,7 @@ module.exports = {
             'software/run-und-as-service',
             'networks/sentry',
             'software/light-client-rpc',
+            'software/statesync.md',
           ]
         },
         {

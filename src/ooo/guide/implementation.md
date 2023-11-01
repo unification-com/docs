@@ -268,7 +268,7 @@ npx truffle compile
 Ensure that you have:
 
 1. an [Infura](https://infura.io/) account and API key
-2. a test wallet private key and address with [Test ETH on Goerli](https://goerlifaucet.com/) testnet
+2. a test wallet private key and address with [Test ETH on Sepolia](https://sepoliafaucet.com/) testnet
 
 ### 6.1 .env
 
@@ -313,11 +313,11 @@ module.exports = {
       port: 8545,
       network_id: "*",
     },
-    goerli: {
+    sepolia: {
       provider: () =>
         new HDWalletProvider({
           privateKeys: [ETH_PKEY],
-          providerOrUrl: `https://goerli.infura.io/v3/${INFURA_PROJECT_ID}`
+          providerOrUrl: `https://sepolia.infura.io/v3/${INFURA_PROJECT_ID}`
         }),
       network_id: "5",
       gas: 10000000,
@@ -361,7 +361,7 @@ This will deploy your contract with the required parameters.
 Finally, deploy your contract with the following command:
 
 ```bash 
-npx truffle migrate --network=goerli
+npx truffle migrate --network=sepolia
 ```
 
 That's it! You're now ready to initialise and interact with your OoO enabled smart contract.

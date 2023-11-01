@@ -11,7 +11,7 @@ and deployed your smart contract before continuing with this guide.
 Run the `truffle` development console, and connect to the Rinkeby testnet:
 
 ```bash
-npx truffle console --network=goerli
+npx truffle console --network=sepolia
 ```
 
 ::: tip Note
@@ -24,10 +24,10 @@ Within the `truffle` console, load the contract instances, and accounts
 ready for interaction
 
 ```bash 
-truffle(goerli)> let accounts = await web3.eth.getAccounts()
-truffle(goerli)> let consumerOwner = accounts[0]
-truffle(goerli)> let provider = "0x611661f4B5D82079E924AcE2A6D113fAbd214b14"
-truffle(goerli)> let myDataConsumer = await MyDataConsumer.deployed()
+truffle(sepolia)> let accounts = await web3.eth.getAccounts()
+truffle(sepolia)> let consumerOwner = accounts[0]
+truffle(sepolia)> let provider = "0x611661f4B5D82079E924AcE2A6D113fAbd214b14"
+truffle(sepolia)> let myDataConsumer = await MyDataConsumer.deployed()
 ```
 
 ## 1. Contract Initialisation
@@ -35,7 +35,7 @@ truffle(goerli)> let myDataConsumer = await MyDataConsumer.deployed()
 The following steps need only be done periodically, to ensure all parties have
 the correct amount of tokens and gas to pay for data.
 
-Go to [xFUNDMOCK](https://goerli.etherscan.io/address/0xb07C72acF3D7A5E9dA28C56af6F93862f8cc8196#writeContract)
+Go to [xFUNDMOCK](https://sepolia.etherscan.io/address/0xb07C72acF3D7A5E9dA28C56af6F93862f8cc8196#writeContract)
 on Etherscan, and connect MetaMask **with the account used to deploy the `MyDataConsumer`
 smart contract**, then run the `gimme()` function. This is a faucet function, and will
 supply your wallet with 10 `xFUNDMOCK` tokens. You may do this once per hour.
@@ -43,7 +43,7 @@ supply your wallet with 10 `xFUNDMOCK` tokens. You may do this once per hour.
 Get the deployed address for your `MyDataConsumer` smart contract:
 
 ```bash 
-truffle(goerli)> myDataConsumer.address
+truffle(sepolia)> myDataConsumer.address
 ```
 
 Next, using either Etherscan, or MetaMask, transfer 5 `xFUNDMOCK` tokens to your
@@ -53,7 +53,7 @@ Finally, we need to allow the `Router` smart contract to pay fees on the `MyData
 contract's behalf:
 
 ```bash 
-truffle(goerli)> myDataConsumer.increaseRouterAllowance("115792089237316195423570985008687907853269984665640564039457584007913129639935", {from: consumerOwner})
+truffle(sepolia)> myDataConsumer.increaseRouterAllowance("115792089237316195423570985008687907853269984665640564039457584007913129639935", {from: consumerOwner})
 ```
 
 ## 2. Data Request
@@ -65,8 +65,8 @@ tokens every so often.
 First, check the current `price` in your `MyDataConsumer` contract. Run:
 
 ```bash
-truffle(goerli)> let priceBefore = await myDataConsumer.price()
-truffle(goerli)> priceBefore.toString()
+truffle(sepolia)> let priceBefore = await myDataConsumer.price()
+truffle(sepolia)> priceBefore.toString()
 ```
 
 The result should be 0.
@@ -74,8 +74,8 @@ The result should be 0.
 Next, request some data from the provider. Run:
 
 ```bash
-truffle(goerli)> let endpoint = web3.utils.asciiToHex("BTC.USD.PR.AVI")
-truffle(goerli)> myDataConsumer.getData(provider, 100000000, endpoint, {from: consumerOwner})
+truffle(sepolia)> let endpoint = web3.utils.asciiToHex("BTC.USD.PR.AVI")
+truffle(sepolia)> myDataConsumer.getData(provider, 100000000, endpoint, {from: consumerOwner})
 ```
 
 The first command encodes the data endpoint (the data we want to get) into a bytes32
@@ -92,15 +92,15 @@ your smart contract.
 After 30 seconds or so, run:
 
 ```bash
-truffle(goerli)> let priceAfter = await myDataConsumer.price()
-truffle(goerli)> priceAfter.toString()
+truffle(sepolia)> let priceAfter = await myDataConsumer.price()
+truffle(sepolia)> priceAfter.toString()
 ```
 
 If the price is still 0, simply run the following a couple more times:
 
 ```bash
-truffle(goerli)> priceAfter = await myDataConsumer.price()
-truffle(goerli)> priceAfter.toString()
+truffle(sepolia)> priceAfter = await myDataConsumer.price()
+truffle(sepolia)> priceAfter.toString()
 ```
 
 The price should now be a non-zero value.
@@ -112,8 +112,8 @@ order to remove any decimals.
 To convert to the actual decimal price, you can for example:
 
 ```bash
-truffle(goerli)> let actualPrice = web3.utils.fromWei(priceAfter)
-truffle(goerli)> actualPrice.toString()
+truffle(sepolia)> let actualPrice = web3.utils.fromWei(priceAfter)
+truffle(sepolia)> actualPrice.toString()
 ```
 :::
 

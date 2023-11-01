@@ -9,7 +9,7 @@ such as Truffle/Hardhat.
 
 The contract will be deployed on Rinkeby testnet. You will need:
 
-1. wallets with test Eth - for example from the [faucet](https://goerlifaucet.com/)
+1. wallets with test Eth - for example from the [faucet](https://sepoliafaucet.com/)
 2. xFUNDMOCK tokens for each wallet interacting, including the owner. See
    [contracts](../contracts.md) for the Rinkeby testnet address, and call the
    `gimme()` function to get 10 xFUNDMOCK tokens.
