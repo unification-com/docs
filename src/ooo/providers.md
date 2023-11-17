@@ -2,11 +2,17 @@
 
 ## Unification Foundation
 
-### Mainnet
+### Eth Mainnet
 
 **Provider Address**: [`0xFDEc0386011d085A6b4F0e37Fab5d7f2601aCB33`](https://etherscan.io/address/0xFDEc0386011d085A6b4F0e37Fab5d7f2601aCB33)  
 **Fee**: 0.0415 xFUND  
 **Wait Confirmations**: 3 blocks (provider will wait for 3 block confirmations before processing a data request)
+
+### Shibarium Mainnet
+
+**Provider Address**: [`0xFDEc0386011d085A6b4F0e37Fab5d7f2601aCB33`](https://www.shibariumscan.io/address/0xFDEc0386011d085A6b4F0e37Fab5d7f2601aCB33)  
+**Fee**: 0.0001 xFUND  
+**Wait Confirmations**: 1 block
 
 ### Polygon Mainnet
 
