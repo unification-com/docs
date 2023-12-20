@@ -58,6 +58,7 @@ module.exports = {
       title: 'Networks',
       children: [
         'networks/overview',
+        'networks/erc20_ibc',
         'networks/participation',
       ]
     },
