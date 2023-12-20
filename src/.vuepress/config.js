@@ -2,6 +2,7 @@ const { description } = require('../../package.json')
 const { sidebar: mainchain_sidebar } = require('./sidebars/mainchain')
 const { sidebar: ooo_sidebar } = require('./sidebars/ooo')
 const { sidebar: vor_sidebar } = require('./sidebars/vor')
+const { sidebar: unode_sidebar } = require('./sidebars/unode')
 
 module.exports = {
   /**
@@ -49,12 +50,17 @@ module.exports = {
       {
         text: 'OoO',
         link: '/ooo/'
+      },
+      {
+        text: 'UNoDE',
+        link: '/unode/'
       }
     ],
     sidebar: {
       '/mainchain/': mainchain_sidebar,
       '/ooo/': ooo_sidebar,
-      '/vor/': vor_sidebar
+      '/vor/': vor_sidebar,
+      '/unode/': unode_sidebar,
     }
   },
 

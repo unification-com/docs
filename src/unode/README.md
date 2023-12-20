@@ -1,5 +1,7 @@
 # UNoDE
 
-## Deployment Documentation
+::: tip
+**Private Alpha testing is underway.** Please see the [Alpha Tester](./alpha-test.md) documentation
+:::
 
-### Coming in 2023
+### Public Beta Coming in 23/24
