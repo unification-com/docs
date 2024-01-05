@@ -46,8 +46,10 @@ Additionally, the community have deployed representations of **FUND** on other n
 It is wrapped FUND (1:1), with functionality required for Superfluid subscriptions. Used to pay UNoDE subscriptions
 in **FUND**.
 
-| Network           | Contract Address/IBC Denomination                                      | Symbol  |
-|-------------------|------------------------------------------------------------------------|---------|
-| Ethereum mainnet  | `0x479347DfD0Be56f2a5F7bB1506bFD7AB24d4BA26`                           | FUNDx   |
-| Polygon mainnet   | `0xf1e073d53AF781966F23B1a3B2D9E67cbbA69B92`                           | fxFUNDx |
-| Sepolia testnet   | `0x783fDEAB6951504C4601184587AaFED01511ED24`                           | FUNDx   |
+**Note:** Each Supertoken is a wrapper for the corresponding **FUND** token on its respective network
+
+| Network           | Contract Address                             | Symbol  |
+|-------------------|----------------------------------------------|---------|
+| Ethereum mainnet  | `0x479347DfD0Be56f2a5F7bB1506bFD7AB24d4BA26` | FUNDx   |
+| Polygon mainnet   | `0xf1e073d53AF781966F23B1a3B2D9E67cbbA69B92` | fxFUNDx |
+| Sepolia testnet   | `0x783fDEAB6951504C4601184587AaFED01511ED24` | FUNDx   |
