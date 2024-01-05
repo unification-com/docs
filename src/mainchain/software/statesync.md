@@ -16,25 +16,29 @@ Setting this up requires a few more steps
 ::: tab MainNet
 #### MainNet
 ```bash
-curl -s https://rest.unification.io/blocks/latest | jq '.|[.block_id.hash,.block.header.height]'
+API=https://rest.unification.io/cosmos/base/tendermint/v1beta1/blocks; \
+HEIGHT=$(( $(curl -s "$API/latest" | jq -r '.block.header.height') - 5000 )); \
+HASH=$(curl -s "$API/$HEIGHT" | jq -r '.block_id.hash' | base64 -d | xxd -p -u -c 100); \
+echo -e "height: ${HEIGHT}\nhash: ${HASH}"
 ```
 :::
 
 ::: tab TestNet
 #### TestNet
 ```bash
-curl -s https://rest-testnet.unification.io/blocks/latest | jq '.|[.block_id.hash,.block.header.height]'
+API=https://rest-testnet.unification.io/cosmos/base/tendermint/v1beta1/blocks; \
+HEIGHT=$(( $(curl -s "$API/latest" | jq -r '.block.header.height') - 5000 )); \
+HASH=$(curl -s "$API/$HEIGHT" | jq -r '.block_id.hash' | base64 -d | xxd -p -u -c 100); \
+echo -e "height: ${HEIGHT}\nhash: ${HASH}"
 ```
 :::
 ::::
 
 Example output:
 
-```json
-[
-  "820275B5EE63EDA2923886A01C0B1196A7CE1D96A89FA0D774942999C6698AAC",
-  "1052423"
-]
+```yaml
+height: 8632692
+hash: C7CF4E16619BF721D45EC05590087FB0064B77621D83F92BA6552B151A496AB9
 ```
 
 ### 2. Using the output from the above command, configure `[statesync]` section in `.und_mainchain/config.toml`:
@@ -42,8 +46,8 @@ Example output:
 ```toml
 enable = true
 rpc_servers = "TWO_RPC_NODES"
-trust_height = 1052423
-trust_hash = "820275B5EE63EDA2923886A01C0B1196A7CE1D96A89FA0D774942999C6698AAC"
+trust_height = 8632692
+trust_hash = "C7CF4E16619BF721D45EC05590087FB0064B77621D83F92BA6552B151A496AB9"
 trust_period = "168h0m0s"
 discovery_time = "30s"
 temp_dir = ""
