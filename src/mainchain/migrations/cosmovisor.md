@@ -43,7 +43,7 @@ below with the **full, absolute path** to your `.und_mainchain` directory, for e
 
 ## 2. Set up cosmovisor dirs
 
-!!!include(mainchain/partials/cosmovisor/install_und_v1.5.1.md)!!!
+<InstallUnd version="1.5.1" plan=""></InstallUnd>
 
 Create a `UND_COSMOVISOR_ENV` env file for `systemd`:
 

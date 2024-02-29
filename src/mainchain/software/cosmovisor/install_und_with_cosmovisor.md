@@ -52,7 +52,7 @@ Create the directory structure for the `und` binaries and updates
 
 #### 2.1.1 `und` v1.5.1: `genesis`:
 
-!!!include(mainchain/partials/cosmovisor/install_und_v1.5.1.md)!!!
+<InstallUnd version="1.5.1" plan=""></InstallUnd>
 
 Check the version output is `1.5.1`.
 
@@ -68,7 +68,21 @@ The upgrade plan name determines the directory path that `und` v1.6.x will be in
 
 Install the `1-init_ibc` update:
 
-!!!include(mainchain/partials/cosmovisor/install_und_v1.6.x.md)!!!
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab MainNet
+### MainNet
+
+<InstallUnd version="1.6.3" plan="1-init_ibc"></InstallUnd>
+:::
+
+::: tab TestNet
+### TestNet
+
+<InstallUnd version="1.6.3" plan="1-ibc"></InstallUnd>
+:::
+
+::::
 
 Check the version output is `1.6.3`.
 
@@ -76,16 +90,25 @@ Check the version output is `1.6.3`.
 
 Install the `2-grog` update:
 
-!!!include(mainchain/partials/cosmovisor/install_und_v1.7.x.md)!!!
+<InstallUnd version="1.7.0" plan="2-grog"></InstallUnd>
+
 Check the version output is `1.7.0`.
 
 #### 2.1.4 `und` v1.8.x: `3-keyleth` update
 
 Install the `3-keyleth` update:
 
-!!!include(mainchain/partials/cosmovisor/install_und_v1.8.x.md)!!!
+<InstallUnd version="1.8.2" plan="3-keyleth"></InstallUnd>
 
 Check the version output is `1.8.2`.
+
+#### 2.1.5 `und` v1.9.x: `4-percival` update
+
+Install the `4-percival` update:
+
+<InstallUnd version="1.9.0" plan="4-percival"></InstallUnd>
+
+Check the version output is `1.9.0`.
 
 ### 2.2 Create cosmovisor environment file
 

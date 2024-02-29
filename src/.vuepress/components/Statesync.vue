@@ -26,7 +26,7 @@ export default {
       trustHeight: "fetching...",
       trustHash: "fetching...",
       latest: "fetching...",
-      rpcNodes: (this.network === "testnet") ? "https://sync1-testnet.unification.io:26657,https://sync2-testnet.unification.io:26657" : "https://rpc1.unification.io:443,https://rpc.unification.chainmasters.ninja:443",
+      rpcNodes: (this.network === "testnet") ? "https://rpc-testnet.unification.io:443,https://sync-testnet.unification.io:443" : "https://rpc1.unification.io:443,https://rpc.unification.chainmasters.ninja:443",
     };
   },
   mounted() {
