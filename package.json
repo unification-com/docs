@@ -23,6 +23,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
+    "@cosmjs/encoding": "^0.32.2",
     "g": "^2.0.1",
     "markdown-it-include": "^2.0.0",
     "yarn": "^1.22.19"

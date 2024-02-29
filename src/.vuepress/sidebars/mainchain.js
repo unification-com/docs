@@ -52,6 +52,7 @@ module.exports = {
         'migrations/1-init_ibc_upgrade',
         'migrations/2-grog_upgrade',
         'migrations/3-keyleth_upgrade',
+        'migrations/4-percival_upgrade',
       ]
     },
     {

@@ -41,13 +41,29 @@ mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/2-grog/bin
 
 #### 2. Download the latest `und` v1.7.x and add to Cosmovisor's `upgrades` directory
 
-!!!include(mainchain/partials/cosmovisor/install_und_v1.7.x.md)!!!
+<InstallUnd version="1.7.0" plan="2-grog"></InstallUnd>
 
 Check the version output is `1.7.x`.
 
 The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as follows:
 
-!!!include(mainchain/partials/cosmovisor/directory_tree.md)!!!
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab MainNet
+#### MainNet
+
+**Note:** 1st upgrade path name is `1-init_ibc`
+<CosmovisorDirTree network="mainnet" plan="2-grog" upgraded=false></CosmovisorDirTree>
+:::
+
+::: tab TestNet
+#### TestNet
+
+**Note:** 1st upgrade path name is `1-ibc`
+<CosmovisorDirTree network="testnet" plan="2-grog" upgraded=false></CosmovisorDirTree>
+:::
+
+::::
 
 That's it! Once the upgrade height specified in the governance proposal is reached, Cosmovisor and the `upgrade`
 module will handle the rest automatically.

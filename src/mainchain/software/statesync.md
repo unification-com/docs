@@ -2,82 +2,35 @@
 
 `statesync` allows nodes to quickly sync up to the latest block on the network, without needing to sync all blocks
 from genesis. This can be useful for **non-public** nodes that require fast syncing and do not require a full block
-history (for example, if you want to run your own private RPC node to send transactions to), but is not recommended for
-public nodes (for example sentries, validators, public RPCs etc.), as it ultimately reduces the number of nodes on the
-network that retain a full block history.
+history (for example, if you want to run a validator, or your own private RPC node to send transactions to), 
+but is **not recommended for public nodes** (for example sentries, public RPCs etc.), as it ultimately reduces the number 
+of nodes on the network that retain a full block history.
 
 Setting this up requires a few more steps
 
 ## Configuring `statesync`
 
-### 1. Run the following command to get the latest block hash and height:
+### 1. Enable `statesync`
+
+Edit the `[statesync]` section in `.und_mainchain/config.toml` using the following values:
 
 :::: tabs :options="{ useUrlFragment: false }"
+
 ::: tab MainNet
-#### MainNet
-```bash
-API=https://rest.unification.io/cosmos/base/tendermint/v1beta1/blocks; \
-HEIGHT=$(( $(curl -s "$API/latest" | jq -r '.block.header.height') - 5000 )); \
-HASH=$(curl -s "$API/$HEIGHT" | jq -r '.block_id.hash' | base64 -d | xxd -p -u -c 100); \
-echo -e "height: ${HEIGHT}\nhash: ${HASH}"
-```
+### MainNet
+
+<Statesync network="mainnet" />
 :::
 
 ::: tab TestNet
-#### TestNet
-```bash
-API=https://rest-testnet.unification.io/cosmos/base/tendermint/v1beta1/blocks; \
-HEIGHT=$(( $(curl -s "$API/latest" | jq -r '.block.header.height') - 5000 )); \
-HASH=$(curl -s "$API/$HEIGHT" | jq -r '.block_id.hash' | base64 -d | xxd -p -u -c 100); \
-echo -e "height: ${HEIGHT}\nhash: ${HASH}"
-```
+### TestNet
+
+<Statesync network="testnet" />
 :::
+
 ::::
 
-Example output:
-
-```yaml
-height: 8632692
-hash: C7CF4E16619BF721D45EC05590087FB0064B77621D83F92BA6552B151A496AB9
-```
-
-### 2. Using the output from the above command, configure `[statesync]` section in `.und_mainchain/config.toml`:
-
-```toml
-enable = true
-rpc_servers = "TWO_RPC_NODES"
-trust_height = 8632692
-trust_hash = "C7CF4E16619BF721D45EC05590087FB0064B77621D83F92BA6552B151A496AB9"
-trust_period = "168h0m0s"
-discovery_time = "30s"
-temp_dir = ""
-chunk_request_timeout = "60s"
-chunk_fetchers = "4"
-```
-
-The `rpc_servers` requires two RPC nodes for verification. For example, replace `TWO_RPC_NODES` with:
-
-:::: tabs :options="{ useUrlFragment: false }"
-::: tab MainNet
-#### MainNet
-`rpc1.unification.io:443,rpc.unification.chainmasters.ninja:443`
-:::
-
-::: tab TestNet
-#### TestNet
-`sync1-testnet.unification.io:26657,sync2-testnet.unification.io:26657`
-:::
-::::
-
-e.g.:
-
-```toml
-rpc_servers = "rpc1.unification.io:443,rpc.unification.chainmasters.ninja:443"
-```
-
-Or any RPC servers of your choice for the target network.
-
-3. Start your node
+### 2. Start your node
 
 ```bash
 und start --home=/path/to/.und_mainchain

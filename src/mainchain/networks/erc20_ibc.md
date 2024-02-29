@@ -20,6 +20,7 @@ It is represented as an ERC-20 Token on the following networks:
 | Polygon mainnet     | `0x1f0145eaC900d75808510190dFC293A09c7A964F`                           | fxFUND  | 
 | Shibarium mainnet   | Coming soon                                                            |         |
 | Sepolia testnet     | `0xAfE70A1985ebDefbDCaeedba045d66091C38E1B1`                           | FUND    |
+| Shibarium testnet   | `0x27Ad57c007fa9Ef6BC4D2846f341e316e0445dEe`                           | FUND    |
 
 **Community FUND deployments**
 
@@ -39,6 +40,7 @@ Additionally, the community have deployed representations of **FUND** on other n
 | Polygon mainnet   | `0x77a3840f78e4685afaf9c416b36e6eae6122567b`  | xFUND   |
 | Shibarium mainnet | `0x89dc93C6c12CaE47aCAf4aD9305d7A442C30dBB2`  | xFUND   |
 | Sepolia testnet   | `0xb07C72acF3D7A5E9dA28C56af6F93862f8cc8196`  | xFUND   |
+| Shibarium testnet | `0x78f022230EaE6E05D8739E83a14b0Cf1D00CfaD5`  | xFUND   |
 
 ## FUNDx (Supertoken)
 
@@ -46,8 +48,10 @@ Additionally, the community have deployed representations of **FUND** on other n
 It is wrapped FUND (1:1), with functionality required for Superfluid subscriptions. Used to pay UNoDE subscriptions
 in **FUND**.
 
-| Network           | Contract Address/IBC Denomination                                      | Symbol  |
-|-------------------|------------------------------------------------------------------------|---------|
-| Ethereum mainnet  | `0x479347DfD0Be56f2a5F7bB1506bFD7AB24d4BA26`                           | FUNDx   |
-| Polygon mainnet   | `0xf1e073d53AF781966F23B1a3B2D9E67cbbA69B92`                           | fxFUNDx |
-| Sepolia testnet   | `0x783fDEAB6951504C4601184587AaFED01511ED24`                           | FUNDx   |
+**Note:** Each Supertoken is a wrapper for the corresponding **FUND** token on its respective network
+
+| Network           | Contract Address                             | Symbol  |
+|-------------------|----------------------------------------------|---------|
+| Ethereum mainnet  | `0x479347DfD0Be56f2a5F7bB1506bFD7AB24d4BA26` | FUNDx   |
+| Polygon mainnet   | `0xf1e073d53AF781966F23B1a3B2D9E67cbbA69B92` | fxFUNDx |
+| Sepolia testnet   | `0x783fDEAB6951504C4601184587AaFED01511ED24` | FUNDx   |
