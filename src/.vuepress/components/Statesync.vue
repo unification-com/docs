@@ -1,6 +1,6 @@
 <template>
    <div>
-     <strong>Latest Height</strong>: {{ latest }}
+     <strong>Latest Height</strong>: {{ latest }} <button v-on:click="refreshAction">Refresh</button>
      <pre class="language-toml">
      <code><span class="token punctuation">[</span><span class="token table class-name">statesync</span><span class="token punctuation">]</span>
      <span class="token key property">enable</span> <span class="token punctuation">=</span> <span class="token boolean">true</span>
@@ -30,19 +30,30 @@ export default {
     };
   },
   mounted() {
-    fetch(`${this.restUrl}/cosmos/base/tendermint/v1beta1/blocks/latest`, {cache: "no-cache"})
-        .then(response => response.json())
-        .then(latest => {
-          let h = Number(latest.block?.header?.height)
-          this.latest = h
-          h = Math.floor(h / 1000) * 1000
-          this.trustHeight = h
-          fetch(`${this.restUrl}/cosmos/base/tendermint/v1beta1/blocks/${h}`, {cache: "no-cache"})
-              .then(response => response.json())
-              .then(trusted => {
-                this.trustHash = toHex(fromBase64(trusted.block_id.hash)).toUpperCase()
-              })
-        });
+    this.getStateSyncData()
+  },
+  methods: {
+    refreshAction () {
+      this.trustHeight = "fetching..."
+      this.trustHash = "fetching..."
+      this.latest = "fetching..."
+      this.getStateSyncData()
+    },
+    getStateSyncData () {
+      fetch(`${this.restUrl}/cosmos/base/tendermint/v1beta1/blocks/latest`, {cache: "no-cache"})
+          .then(response => response.json())
+          .then(latest => {
+            let h = Number(latest.block?.header?.height)
+            this.latest = h
+            h = Math.floor(h / 1000) * 1000
+            this.trustHeight = h
+            fetch(`${this.restUrl}/cosmos/base/tendermint/v1beta1/blocks/${h}`, {cache: "no-cache"})
+                .then(response => response.json())
+                .then(trusted => {
+                  this.trustHash = toHex(fromBase64(trusted.block_id.hash)).toUpperCase()
+                })
+          });
+    }
   }
 }
 
