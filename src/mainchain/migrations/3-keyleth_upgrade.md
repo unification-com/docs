@@ -3,7 +3,7 @@
 :::warning IMPORTANT
 **TestNet** was successfully upgraded to `3-keyleth` in block **7,841,840**
 
-**MainNet** `3-keyleth` upgrade planned for block **6,943,000**
+**MainNet** was successfully upgraded to `3-keyleth` in block **6,943,000**
 :::
 
 :::tip Note
