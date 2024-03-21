@@ -1,7 +1,9 @@
 # Network Upgrade: 4-percival
 
 :::warning IMPORTANT
-**MainNet** `4-percival` upgrade planned for block **9,577,300**
+**TestNet** was successfully upgraded to `4-percival` in block **11,657,000**
+
+**MainNet** was successfully upgraded to `4-percival` in block **9,577,300**
 :::
 
 :::tip Note
