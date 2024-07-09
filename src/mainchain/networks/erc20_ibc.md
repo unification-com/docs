@@ -12,15 +12,15 @@ is also a utility token for paying for UNoDE subscriptions.
 
 It is represented as an ERC-20 Token on the following networks:
 
-| Network             | Contract Address/IBC Denomination                                      | Symbol  |
-|---------------------|------------------------------------------------------------------------|---------|
-| Unification MainNet | Native coin (no contract or IBC denomination)                          | nund    |
-| Gravity Bridge      | `ibc/D157AD8A50DAB0FC4EB95BBE1D9407A590FA2CDEE04C90A76C005089BF76E519` | nund    |
-| Ethereum mainnet    | `0xe9b076b476d8865cdf79d1cf7df420ee397a7f75`                           | FUND    |
-| Polygon mainnet     | `0x1f0145eaC900d75808510190dFC293A09c7A964F`                           | fxFUND  | 
-| Shibarium mainnet   | Coming soon                                                            |         |
-| Sepolia testnet     | `0xAfE70A1985ebDefbDCaeedba045d66091C38E1B1`                           | FUND    |
-| Shibarium testnet   | `0x27Ad57c007fa9Ef6BC4D2846f341e316e0445dEe`                           | FUND    |
+| Network             | Contract Address/IBC Denomination                                      | Symbol |
+|---------------------|------------------------------------------------------------------------|--------|
+| Unification MainNet | Native coin (no contract or IBC denomination)                          | nund   |
+| Gravity Bridge      | `ibc/D157AD8A50DAB0FC4EB95BBE1D9407A590FA2CDEE04C90A76C005089BF76E519` | nund   |
+| Ethereum mainnet    | `0xe9b076b476d8865cdf79d1cf7df420ee397a7f75`                           | FUND   |
+| Polygon mainnet     | `0x1f0145eaC900d75808510190dFC293A09c7A964F`                           | fxFUND | 
+| Shibarium mainnet   | `0xaDA0fA1f9A4Ea8513B3b607EFD31792336c09507`                           | FUND   |
+| Sepolia testnet     | `0xAfE70A1985ebDefbDCaeedba045d66091C38E1B1`                           | FUND   |
+| Shibarium testnet   | `0x27Ad57c007fa9Ef6BC4D2846f341e316e0445dEe`                           | FUND   |
 
 **Community FUND deployments**
 
