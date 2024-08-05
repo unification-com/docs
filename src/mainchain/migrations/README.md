@@ -27,3 +27,4 @@ The following guides are available, covering migrating to `cosmovisr`, and confi
 3. [2-grog Upgrade](2-grog_upgrade.md) - configuring `cosmovisor` for the `2-grog` upgrade
 4. [3-keyleth Upgrade](3-keyleth_upgrade.md) - configuring `cosmovisor` for the `3-keyleth` upgrade
 5. [4-percival Upgrade](4-percival_upgrade.md) - configuring `cosmovisor` for the `4-percival` upgrade
+6. [5-pike Upgrade](5-pike_upgrade.md) - configuring `cosmovisor` for the `5-pike` upgrade
