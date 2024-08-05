@@ -53,6 +53,7 @@ module.exports = {
         'migrations/2-grog_upgrade',
         'migrations/3-keyleth_upgrade',
         'migrations/4-percival_upgrade',
+        'migrations/5-pike_upgrade',
       ]
     },
     {
@@ -99,6 +100,13 @@ module.exports = {
             "ibc/osmosis/",
           ]
         }
+      ]
+    },
+    {
+      title: "Payment Streams",
+      children: [
+        'streams/',
+        'streams/testing'
       ]
     },
     {
