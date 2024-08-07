@@ -1,7 +1,7 @@
 # Network Upgrade: 5-pike
 
 :::warning IMPORTANT
-**TestNet** planned upgrade to `5-pike` in block **13,910,300**
+**TestNet** was successfully upgraded to `5-pike` in block **13,910,300**
 
 **MainNet** upgrade height **TBA**
 :::
