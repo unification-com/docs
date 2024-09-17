@@ -3,7 +3,7 @@
 :::warning IMPORTANT
 **TestNet** was successfully upgraded to `5-pike` in block **13,910,300**
 
-**MainNet** will be upgraded to `5-pike` in block **12,210,000**
+**MainNet** was successfully upgraded to `5-pike` in block **12,210,000**
 :::
 
 :::tip Note
