@@ -24,7 +24,7 @@ The Mainchain binaries can also be built from source.
 
 ### Install Go
 
-**Go 1.16+** is required to build the Mainchain binaries
+**Go 1.22+** is required to build the Mainchain binaries
 
 Install `go` by following the [official docs](https://golang.org/doc/install).
 Once Go is installed, set your `$PATH` environment variable:
@@ -69,18 +69,14 @@ Run the following commands:
 und version --long
 ```
 
-If `und` has been installed correctly, you should see output similar to the following:
+If `und` has been installed correctly, you should see output **similar** to the following:
 
 ```
 name: UndMainchain
 server_name: und
-version: 1.6.3
-commit: 4ce308e65a4a6de0d2d05f88b02584869f6b1c24
-build_tags: netgo
-go: go version go1.18.5 linux/amd64
-build_deps:
-...SNIP...
-cosmos_sdk_version: v0.45.9
+version: 1.9.0
+...
+...snip...
 ```
 
 ### Development

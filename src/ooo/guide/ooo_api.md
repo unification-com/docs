@@ -38,7 +38,9 @@ The data request string should be converted to a `Bytes32` (Hex) value before su
 your smart contract's request function, for example:
 
 ```javascript
+const endpoint = web3.utils.asciiToHex("ETH.USDC.AD.30")
 const endpoint = web3.utils.asciiToHex("BTC.USD.PR.AVI")
+... etc.
 ```
 :::
 
@@ -66,52 +68,57 @@ The currently implemented types are as follows:
 
 ### TYPE: `PR`
 
+::: tip Note
+The `PR` request type uses Finchains to query price data. Finchains has a limited number of supported pairs. For a wider
+range of pairs, use the `AD` endpoint, which queries a larger data set of DEXs.
+:::
+
 Price, calculated using all available exchange data for the selected pair. See `SUBTYPE`s for supported
 query endpoints.
 
 ### TYPE: `AD`
 
-::: tip Note
-This `TYPE` endpoint is currently in __beta__ testing and as such is currently only processed by
-the Rinkeby testnet OoO provider
-:::
+Adhoc data requests for pairs listed on supported DEXs instead of Finchains. The `SUBTYPE` is not required for the
+`AD` endpoint `TYPE`. The slot can however be used to specify the  historical timespan for which to query prices.
 
-Adhoc data requests for pairs not yet supported by Finchains. There are currently no `SUBTYPE`s for `AD` 
-endpoint `TYPE`s.
+By default, the Chauvenet Criterion is used to remove outliers if the returned results contain enough data to do so.
 
 The OoO provider will __attempt__ to query supported DEXs' subgraphs to determine whether the `BASE` and `TARGET` symbols 
-are known to the DEX, and also whether the DEX has a liquidity pool representing the pair. If a pair exists, it will 
-attempt to retrieve the latest price from each DEX before calculating the mean price from all data found.
-
-::: tip Note
-If a DEX is aware of more than one token contract address for a given token symbol, the contract address with the 
-highest transaction count will be used for the query.
-:::
+are known to the DEX, and also whether the DEX has a liquidity pool representing the pair. If a pair exists, 
+and is supported by OoO it will attempt to retrieve the latest price from each DEX before calculating the mean price
+from all data found.
 
 The currently supported DEXs are:
 
-- Uniswap v2
-- Uniswap v3
-- Shibaswap
-- Sushiswap
-- Quickswap
+- Uniswap v2 (Ethereum mainnet)
+- Uniswap v3 (Ethereum mainnet)
+- Shibaswap (Ethereum mainnet)
+- Sushiswap (Ethereum mainnet)
+- Quickswap (Polygon PoS)
+- Pancakeawap v3 (BSC Chain)
+- Honeyswap (Gnosis Chain)
+
+A list of currently supported pairs can be found in the Github repository used by the OoO application to update itself: 
+[https://github.com/unification-com/ooo-adhoc](https://github.com/unification-com/ooo-adhoc)
 
 ::: danger IMPORTANT
 `BASE` and `TARGET` are **CaSe SeNsItIvE** for adhoc queries! `XFUND` is __not__ the same as `xFUND`.
 **Always check your request endpoints, and that at least one DEX supports the pair before sending a data request!**
 :::
 
+The default timespan is 0 minutes. Any integer from 0 to 60 may be used in `SUBTYPE`, with a `0` telling the oracle to 
+only fetch the latest prices. A non-zero value tells the oracle to fetch prices for the past `nn` minutes.
+
 **Example**
 
-The token `JAZZHANDS` is not yet tracked by Finchains, but we'd like to acquire the `WETH` price for `JAZZHANDS`. We know that
-`JAZZHANDS/WETH` pair is listed on Uniswap v2 and Shibaswap, so we can use the query endpoint:
+We know that `xFUND/WETH` pair is listed on Uniswap v2 and Shibaswap. We'd like to know the average price for the last
+30 minutes, so we can use the query endpoint:
 
-`JAZZHANDS.WETH.AD`
+`xFUND.WETH.AD.30`
 
-The OoO provider will pick up the request, and since it is an `AD` endpoint `TYPE`, will try to find the token contract 
-addresses for `JAZZHANDS` and `WETH` instead of querying Finchains' API. From these, it will attempt to discover the 
-pair contract addresses for the respective DEXs. If a DEX supports the pair, it will query the latest price from all supported 
-DEXes, and calculate the mean price from all results.
+The OoO provider will pick up the request, and since it is an `AD` endpoint `TYPE`, will query the prices in known
+DEXs for the last 30 minutes. If a DEX supports the pair, it will query the latest price from all supported 
+DEXs, and calculate the mean price from all results removing outliers using the Chauvenet Criterion.
 
 ### SUBTYPE
 
@@ -263,4 +270,3 @@ Based on the currently implemented API functionality, some examples are as follo
 - `ETH.USD.PR.AVI.24H`: average ETH/USD price, calculated from all supported exchanges
   over the last 24 hours, removing outliers (extremely high/low values) from the calculation.
 - `COOL.WETH.AD`: adhoc request for COOL/WETH pair. Will query DEXs for current price and return the mean price.
-  
