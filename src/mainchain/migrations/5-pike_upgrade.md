@@ -3,7 +3,7 @@
 :::warning IMPORTANT
 **TestNet** was successfully upgraded to `5-pike` in block **13,910,300**
 
-**MainNet** upgrade height **TBA**
+**MainNet** will be upgraded to `5-pike` in block **12,210,000**
 :::
 
 :::tip Note
@@ -56,14 +56,14 @@ The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as
 #### MainNet
 
 **Note:** 1st upgrade path name is `1-init_ibc`
-<CosmovisorDirTree network="mainnet" plan="4-percival" upgraded=false></CosmovisorDirTree>
+<CosmovisorDirTree network="mainnet" plan="5-pike" upgraded=false></CosmovisorDirTree>
 :::
 
 ::: tab TestNet
 #### TestNet
 
 **Note:** 1st upgrade path name is `1-ibc`
-<CosmovisorDirTree network="testnet" plan="5-pike" upgraded=false></CosmovisorDirTree>
+<CosmovisorDirTree network="testnet" plan="5-pike" upgraded=true></CosmovisorDirTree>
 :::
 
 ::::

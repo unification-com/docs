@@ -110,6 +110,14 @@ Install the `4-percival` update:
 
 Check the version output is `1.9.0`.
 
+#### 2.1.6 `und` v1.10.x: `5-pike` update
+
+Install the `5-pike` update:
+
+<InstallUnd version="1.10.1" plan="5-pike"></InstallUnd>
+
+Check the version output is `1.10.1`.
+
 ### 2.2 Create cosmovisor environment file
 
 Create an environment variable file which will load into the `systemd` service, modifying `/FULL/PATH/TO/` as
