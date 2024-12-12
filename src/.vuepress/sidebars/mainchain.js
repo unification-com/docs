@@ -105,8 +105,11 @@ module.exports = {
     {
       title: "Payment Streams",
       children: [
-        'streams/',
-        'streams/testing'
+        // 'streams/',
+        'streams/ui',
+        'streams/cli',
+        'streams/developer-guide-fundjs',
+        'streams/developer-guide-react'
       ]
     },
     {
