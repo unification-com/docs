@@ -19,6 +19,11 @@ Router: [`0x2E9ade949900e19735689686E61BF6338a65B881`](https://www.shibariumscan
 xFUND Token: [`0x77a3840f78e4685afaf9c416b36e6eae6122567b`](https://polygonscan.com/address/0x77a3840f78e4685afaf9c416b36e6eae6122567b)  
 Router: [`0x5E9405888255C142207Ab692C72A8cd6fc85C3A2`](https://polygonscan.com/address/0x5E9405888255C142207Ab692C72A8cd6fc85C3A2)
 
+### QL1 Mainnet
+
+xFUND Token: [`0x0d2FDD551199513D89D64d766E053E6fBC838831`](https://scan.qom.one/address/0x0d2FDD551199513D89D64d766E053E6fBC838831)  
+Router: [`0x2E9ade949900e19735689686E61BF6338a65B881`](https://scan.qom.one/address/0x2E9ade949900e19735689686E61BF6338a65B881)
+
 ## Testnets
 
 ### ETH TestNet (Sepolia)
