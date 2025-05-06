@@ -54,6 +54,7 @@ module.exports = {
         'migrations/3-keyleth_upgrade',
         'migrations/4-percival_upgrade',
         'migrations/5-pike_upgrade',
+        'migrations/6-scanlan_upgrade',
       ]
     },
     {
