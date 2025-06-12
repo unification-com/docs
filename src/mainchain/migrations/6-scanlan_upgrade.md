@@ -1,9 +1,9 @@
 # Network Upgrade: 6-scanlan
 
 :::warning IMPORTANT
-**TestNet** will be upgraded to `6-scanlan` in block **18,359,370**
+**TestNet** was successfully upgraded to `6-scanlan` in block **18,359,370**
 
-**MainNet** TBD
+**MainNet** was successfully upgraded to `6-scanlan` in block **16,475,000**
 :::
 
 :::tip Note
@@ -34,6 +34,11 @@ for a completely automated upgrade.
 directory. Ensure your host has adequate disk space to accommodate the backup. This may add significant time
 to the upgrade process, and as such, the process may take up to 30 minutes before the node comes back online.
 
+:::tip Note
+the following commands assume the `und` home directory is the default location `$HOME/.und_mainchain`.
+Modify directory locations as applicable.
+:::
+
 #### 1. Create the Cosmovisor upgrade plan directory
 
 This will be dependent on how you configured `cosmovisor`, and your actual `.und_mainchain` path:
@@ -44,9 +49,9 @@ mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/6-scanlan/bin
 
 #### 2. Download the latest `und` v1.11.x and add to Cosmovisor's `upgrades` directory
 
-<InstallUnd version="1.11.1" plan="6-scanlan"></InstallUnd>
+<InstallUnd version="1.11.0" plan="6-scanlan"></InstallUnd>
 
-Check the version output is `1.11.1`!
+Check the version output is `1.11.0`!
 
 The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as follows:
 

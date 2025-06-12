@@ -72,11 +72,17 @@ und version --long
 If `und` has been installed correctly, you should see output **similar** to the following:
 
 ```
-name: UndMainchain
-server_name: und
-version: 1.9.0
 ...
 ...snip...
+
+build_tags: netgo ledger
+commit: c4c7046c931642affe626a864bc3ed8e9b3b3605
+cosmos_sdk_version: v0.50.13
+go: go version go1.23.9 linux/amd64
+name: UndMainchain
+server_name: und
+version: 1.11.0
+
 ```
 
 ### Development
