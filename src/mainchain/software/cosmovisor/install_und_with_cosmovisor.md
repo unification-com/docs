@@ -118,6 +118,14 @@ Install the `5-pike` update:
 
 Check the version output is `1.10.1`.
 
+#### 2.1.7 `und` v1.11.x: `6-scanlan` update
+
+Install the `6-scanlan` update:
+
+<InstallUnd version="1.11.0" plan="6-scanlan"></InstallUnd>
+
+Check the version output is `1.11.0`.
+
 ### 2.2 Create cosmovisor environment file
 
 Create an environment variable file which will load into the `systemd` service, modifying `/FULL/PATH/TO/` as
