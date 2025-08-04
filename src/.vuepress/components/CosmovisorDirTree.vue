@@ -28,7 +28,7 @@ export default {
   },
   mounted() {
     const ibcPlan = (this.network === 'testnet') ? '1-ibc' : '1-init_ibc'
-    const plans = [ibcPlan, '2-grog', '3-keyleth', '4-percival', '5-pike', '6-scanlan']
+    const plans = [ibcPlan, '2-grog', '3-keyleth', '4-percival', '5-pike', '6-scanlan', '7-taryon']
 
     for(let i = 0; i < plans.length; i += 1) {
       this.dirs.push(plans[i])
