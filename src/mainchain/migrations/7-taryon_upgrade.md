@@ -1,4 +1,4 @@
-# Network Upgrade: 6-scanlan
+# Network Upgrade: 7-taryon
 
 :::warning IMPORTANT
 **TestNet** will be upgraded to `7-taryon` in block **19,793,940**
