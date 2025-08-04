@@ -125,7 +125,7 @@ module.exports = {
     {
       title: 'Guides',
       children: [
-        'guides/legacy-to-current',
+        // 'guides/legacy-to-current',
         {
           title: 'Cloud Installation',
           children: [
