@@ -55,6 +55,7 @@ module.exports = {
         'migrations/4-percival_upgrade',
         'migrations/5-pike_upgrade',
         'migrations/6-scanlan_upgrade',
+        'migrations/7-taryon_upgrade',
       ]
     },
     {
