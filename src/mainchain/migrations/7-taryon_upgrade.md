@@ -1,9 +1,9 @@
 # Network Upgrade: 7-taryon
 
 :::warning IMPORTANT
-**TestNet** will be upgraded to `7-taryon` in block **19,793,940**
+**TestNet** was successfully upgraded to `7-taryon` in block **19,793,940**
 
-**MainNet** TBD
+**MainNet** will be upgraded to `7-taryon` in block **18,055,500**
 :::
 
 :::tip Note
@@ -68,7 +68,7 @@ The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as
 #### TestNet
 
 **Note:** 1st upgrade path name is `1-ibc`
-<CosmovisorDirTree network="testnet" plan="7-taryon" upgraded=false></CosmovisorDirTree>
+<CosmovisorDirTree network="testnet" plan="7-taryon" upgraded=true></CosmovisorDirTree>
 :::
 
 ::::
