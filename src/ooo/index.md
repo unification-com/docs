@@ -15,7 +15,7 @@ data in your smart contract from the OoO API, and how to run your own provider o
 #### Guides
 
 1. [Quickstart](./guide/quickstart.md) - a quick introduction to getting set up
-2. [Implementation Guide](./guide/README.md) - a complete guide to integration and interaction
+2. [Implementation Guide](./guide/index.md) - a complete guide to integration and interaction
 3. [OoO Data API Guide](./guide/ooo_api.md) - a guide to requesting data from the OoO API
 4. [Running an OoO Data Provider](./guide/run-provider.md) - install, configure and operate your
    own provider oracle

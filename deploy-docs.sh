@@ -3,13 +3,13 @@
 # abort on errors
 set -e
 
-rm -rf src/.vuepress/dist
+rm -rf src/.vitepress/dist
 
 yarn run build
 
-echo "docs.unification.io" > src/.vuepress/dist/CNAME
+echo "docs.unification.io" > src/.vitepress/dist/CNAME
 
-cd src/.vuepress/dist
+cd src/.vitepress/dist
 
 git init
 

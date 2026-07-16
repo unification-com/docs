@@ -1,0 +1,152 @@
+/**
+ * Unification docs theme — aligned with web-wallet's palette (blue #1d6dab primary + gold #f5a623
+ * accent, the legacy Unification brand), light + dark. VitePress toggles dark via a `.dark` class on
+ * <html> — the same mechanism web-wallet uses. Semantic callout colours borrow from DPV.
+ *
+ * Fonts default to Geist with a system fallback; the self-hosted Geist woff2 (@font-face) is a
+ * follow-up (see the docs-overhaul tracker, S6). Until then the chain falls back gracefully.
+ */
+
+:root {
+  --vp-font-family-base: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --vp-font-family-mono: "Geist Mono", ui-monospace, "Cascadia Code", "SF Mono", Menlo, monospace;
+
+  /* Brand — Unification blue ramp */
+  --vp-c-brand-1: #1d6dab;
+  --vp-c-brand-2: #2b7cc0;
+  --vp-c-brand-3: #1d6dab;
+  --vp-c-brand-soft: rgba(29, 109, 171, 0.14);
+  --vp-c-brand-1-rgb: 29, 109, 171;
+
+  /* Gold accent (used sparingly — home/hero, highlights) */
+  --und-c-accent: #f5a623;
+
+  /* Surfaces (light) */
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f4f6fa;
+  --vp-c-bg-soft: #f1f4f9;
+  --vp-c-bg-elv: #ffffff;
+
+  /* Text (light) */
+  --vp-c-text-1: #0b1220;
+  --vp-c-text-2: #5b6878;
+  --vp-c-text-3: #8a95a5;
+
+  /* Borders / dividers (light) */
+  --vp-c-border: #e3e8f0;
+  --vp-c-divider: #e3e8f0;
+  --vp-c-gutter: #e3e8f0;
+
+  /* Semantic callouts (DPV-derived) */
+  --vp-c-tip-1: #1d6dab;
+  --vp-c-tip-soft: rgba(29, 109, 171, 0.14);
+  --vp-c-warning-1: #b45309;
+  --vp-c-warning-soft: rgba(245, 184, 61, 0.16);
+  --vp-c-danger-1: #c43838;
+  --vp-c-danger-soft: rgba(251, 111, 111, 0.16);
+}
+
+.dark {
+  /* Brand — a touch lighter for contrast on dark */
+  --vp-c-brand-1: #5aa0d8;
+  --vp-c-brand-2: #4f9fd6;
+  --vp-c-brand-3: #1d6dab;
+  --vp-c-brand-soft: rgba(90, 160, 216, 0.16);
+  --vp-c-brand-1-rgb: 90, 160, 216;
+
+  /* Surfaces (dark — web-wallet Cosmos dark) */
+  --vp-c-bg: #080c18;
+  --vp-c-bg-alt: #0f1525;
+  --vp-c-bg-soft: #0f1525;
+  --vp-c-bg-elv: #161e33;
+
+  /* Text (dark) */
+  --vp-c-text-1: #f1f5fb;
+  --vp-c-text-2: #a9b4c4;
+  --vp-c-text-3: #6b7688;
+
+  /* Borders / dividers (dark) */
+  --vp-c-border: #232c40;
+  --vp-c-divider: #1c2436;
+  --vp-c-gutter: #05070e;
+
+  --vp-c-tip-1: #5aa0d8;
+  --vp-c-tip-soft: rgba(90, 160, 216, 0.16);
+  --vp-c-warning-1: #f5b83d;
+  --vp-c-warning-soft: rgba(245, 184, 61, 0.14);
+  --vp-c-danger-1: #fb6f6f;
+  --vp-c-danger-soft: rgba(251, 111, 111, 0.14);
+}
+
+/* ─── Navbar branding + left-hugging layout ───────────────────────────── */
+/* Logo-only header (site title hidden in config) — just size the wordmark. */
+.VPNavBarTitle .logo {
+  height: 26px;
+  width: auto;
+}
+
+/* At ≥1440px VitePress switches to a centred max-width layout, adding
+ * ~(viewport − 1376px)/2 of left padding to the sidebar AND the navbar title (≈112px on a 1600px
+ * screen) — that's the "too much left margin" + the title overflowing the sidebar box. Re-apply
+ * VitePress's own known-good 960–1440px alignment at all desktop widths so the sidebar/navbar hug
+ * ~32px from the left. Prose is capped at 688px independently, so this doesn't over-widen content. */
+/* !important is required: VitePress's own ≥1440px rules share our selectors and its component CSS
+ * loads after this file, so an equal-specificity override would lose the cascade. */
+@media (min-width: 1440px) {
+  .VPSidebar {
+    padding-left: 32px !important;
+    width: var(--vp-sidebar-width) !important;
+  }
+  .VPNavBar.has-sidebar .title {
+    padding-left: 32px !important;
+    width: var(--vp-sidebar-width) !important;
+  }
+  .VPNavBar.has-sidebar .content {
+    padding-left: var(--vp-sidebar-width) !important;
+    padding-right: 32px !important;
+  }
+  .VPNavBar.has-sidebar .divider {
+    padding-left: var(--vp-sidebar-width) !important;
+  }
+  /* Content gets the same ≥1440px gutter; drop it so the body sits right after the sidebar
+   * (otherwise the hugged-left sidebar leaves a wide empty column before the content). */
+  .VPContent.has-sidebar {
+    padding-left: var(--vp-sidebar-width) !important;
+  }
+}
+
+/* The navbar bottom is two-tone by default — a light divider under the sidebar column (the title's
+ * border) and a dark `.divider-line` under the content column — which seams/bleeds at the boundary.
+ * Make the content-column line match the sidebar one so the whole navbar bottom is one clean line. */
+.VPNavBar .divider-line {
+  background-color: var(--vp-c-divider) !important;
+}
+
+/* Homepage feature grid (CustomFeatureBlock) — light styling on both themes. */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+.features .feature {
+  border: 1px solid var(--vp-c-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  background: var(--vp-c-bg-soft);
+}
+.features .feature h2 {
+  margin-top: 0;
+  border-bottom: none;
+  color: var(--vp-c-brand-1);
+}
+.features .action-button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  background: var(--vp-c-brand-3);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}

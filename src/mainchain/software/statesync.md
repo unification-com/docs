@@ -14,21 +14,19 @@ Setting this up requires a few more steps
 
 Edit the `[statesync]` section in `.und_mainchain/config.toml` using the following values:
 
-:::: tabs :options="{ useUrlFragment: false }"
+::: tabs
 
-::: tab MainNet
+== MainNet
 ### MainNet
 
 <Statesync network="mainnet" />
-:::
 
-::: tab TestNet
+== TestNet
 ### TestNet
 
 <Statesync network="testnet" />
-:::
 
-::::
+:::
 
 ### 2. Start your node
 

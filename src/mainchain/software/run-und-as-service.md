@@ -10,4 +10,4 @@ The following is a generic \*nix guide, and may need adapting for your particula
 
 Any text editor can be used to create the service configuration file, for example `nano`:
 
-!!!include(mainchain/partials/systemd-service.md)!!!
+<!-- @include: @/mainchain/partials/systemd-service.md -->

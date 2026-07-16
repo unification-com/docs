@@ -43,9 +43,9 @@ Upgrade plan names for `und` v1.6.x:
 The upgrade plan name determines the directory path that `und` v1.6.x will be installed in!
 :::
 
-:::: tabs :options="{ useUrlFragment: false }"
+::: tabs
 
-::: tab MainNet
+== MainNet
 #### MainNet
 
 **Note:** upgrade path name is `1-init_ibc`
@@ -53,9 +53,8 @@ The upgrade plan name determines the directory path that `und` v1.6.x will be in
 ```bash
 mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/1-init_ibc/bin
 ```
-:::
 
-::: tab TestNet
+== TestNet
 #### TestNet
 
 **Note:** upgrade path name is `1-ibc`
@@ -63,45 +62,40 @@ mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/1-init_ibc/bin
 ```bash
 mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/1-ibc/bin
 ```
-:::
 
-::::
+:::
 
 #### 2. Download the latest `und` v1.6.x and add to Cosmovisor's `upgrades` directory
 
-:::: tabs :options="{ useUrlFragment: false }"
+::: tabs
 
-::: tab MainNet
+== MainNet
 ### MainNet
 <InstallUnd version="1.6.3" plan="1-init_ibc"></InstallUnd>
-:::
 
-::: tab TestNet
+== TestNet
 ### TestNet
 <InstallUnd version="1.6.3" plan="1-ibc"></InstallUnd>
-:::
 
-::::
+:::
 
 The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as follows:
 
-:::: tabs :options="{ useUrlFragment: false }"
+::: tabs
 
-::: tab MainNet
+== MainNet
 #### MainNet
 
 **Note:** 1st upgrade path name is `1-init_ibc`
 <CosmovisorDirTree network="mainnet" plan="1-init_ibc" upgraded=false></CosmovisorDirTree>
-:::
 
-::: tab TestNet
+== TestNet
 #### TestNet
 
 **Note:** 1st upgrade path name is `1-ibc`
 <CosmovisorDirTree network="testnet" plan="1-ibc" upgraded=false></CosmovisorDirTree>
-:::
 
-::::
+:::
 
 That's it! Once the upgrade height specified in the governance proposal is reached, Cosmovisor and the `upgrade`
 module will handle the rest automatically.

@@ -1,17 +1,15 @@
 # FUND Network Overview
 
-:::: tabs :options="{ useUrlFragment: false }"
+::: tabs
 
-::: tab MainNet
+== MainNet
 ### MainNet
 
 <Network-Overview network="mainnet" />
-:::
 
-::: tab TestNet
+== TestNet
 ### TestNet
 
 <Network-Overview network="testnet" />
-:::
 
-::::
+:::
