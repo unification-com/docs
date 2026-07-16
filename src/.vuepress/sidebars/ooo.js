@@ -19,7 +19,8 @@ module.exports = {
         'guide/quickstart',
         'guide/implementation',
         'guide/interaction',
-        'guide/ooo_api'
+        'guide/ooo_api',
+        'guide/run-provider'
       ]
     },
     {

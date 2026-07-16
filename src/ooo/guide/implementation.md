@@ -1,11 +1,11 @@
 # OoO Implementation & Integration Guide
 
 This guide will walk you through all the necessary steps to get a fully working (albeit simple)
-smart contract, which can obtain Price data from the Finchains Oracle of Oracles.
+smart contract, which can obtain price data from the Oracle of Oracles (OoO).
 
 This guide will result in something similar to the [Data Consumer Demo](https://github.com/unification-com/data-consumer-demo).
 
-The instructions will outline the steps required to deploy on the Rinkeby testnet, but
+The instructions will outline the steps required to deploy on the Sepolia testnet, but
 will also work with mainnet.
 
 ::: danger IMPORTANT
@@ -273,7 +273,7 @@ Ensure that you have:
 ### 6.1 .env
 
 ::: tip Note
-See [Contract Addresses](../contracts.md) for the latest **Rinkeby** contract address
+See [Contract Addresses](../contracts.md) for the latest **Sepolia** contract address
 required for the `ROUTER_ADDRESS` and `XFUND_ADDRESS` variables.
 :::
 
@@ -295,7 +295,7 @@ XFUND_ADDRESS=
 ### 6.2 truffle-config.js
 
 Edit the `truffle-config.js` file in the root of your project with the following, set up
-for Rinkeby testnet:
+for Sepolia testnet:
 
 ```javascript
 require("dotenv").config()
@@ -319,7 +319,7 @@ module.exports = {
           privateKeys: [ETH_PKEY],
           providerOrUrl: `https://sepolia.infura.io/v3/${INFURA_PROJECT_ID}`
         }),
-      network_id: "5",
+      network_id: "11155111",
       gas: 10000000,
       gasPrice: 10000000000,
       skipDryRun: true,

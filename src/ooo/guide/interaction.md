@@ -8,14 +8,14 @@ ensure you have gone though the [implementation](implementation.md) guide
 and deployed your smart contract before continuing with this guide.
 :::
 
-Run the `truffle` development console, and connect to the Rinkeby testnet:
+Run the `truffle` development console, and connect to the Sepolia testnet:
 
 ```bash
 npx truffle console --network=sepolia
 ```
 
 ::: tip Note
-See [OoO Data API Guide](ooo_api.md) for the latest **Rinkeby** OoO Finchains data
+See [Provider Addresses](../providers.md) for the latest Sepolia OoO data
 provider address, used for the `provider` variable below
 :::
 
@@ -74,16 +74,17 @@ The result should be 0.
 Next, request some data from the provider. Run:
 
 ```bash
-truffle(sepolia)> let endpoint = web3.utils.asciiToHex("BTC.USD.PR.AVI")
+truffle(sepolia)> let endpoint = web3.utils.asciiToHex("WETH.USDC")
 truffle(sepolia)> myDataConsumer.getData(provider, 100000000, endpoint, {from: consumerOwner})
 ```
 
-The first command encodes the data endpoint (the data we want to get) into a bytes32
-value. We are requesting the mean (`PR.AVI`) US dollar (`USD`) price of Bitcoin (`BTC`), with
-outliers (very high or very low) values removed (`AVI` as opposed to `AVG`)
-from the final mean calculation.
+The first command encodes the data endpoint (the pair we want to price) into a bytes32
+value. Here we are requesting the latest mean `WETH/USDC` price, calculated across the
+supported DEXs that list the pair. See the [OoO Data API Guide](ooo_api.md) for the full
+request format, including the optional lookback window.
 
-A full list of supported currency pairs is available from the [Finchains API](https://crypto.finchains.io/api/pairs)
+A full list of supported pairs, DEXs and networks is available from the
+[dex-pair-verify catalogue](https://ooo-dex.unification.io).
 
 It may take a block or two for the request to be fully processed - the provider will listen for
 the request, then submit a Tx with the data to the `Router`, which will forward it to
@@ -117,4 +118,4 @@ truffle(sepolia)> actualPrice.toString()
 ```
 :::
 
-Next - see what data can be requested via the [Finchains OoO API](ooo_api.md).
+Next - see what data can be requested via the [OoO Data API](ooo_api.md).
