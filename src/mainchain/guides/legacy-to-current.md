@@ -32,7 +32,7 @@ Update, e.g.
 sudo apt update -y
 ```
 
-!!!include(mainchain/partials/prerequisites.md)!!!
+<!-- @include: @/mainchain/partials/prerequisites.md -->
 
 ### Download `und` v1.4.8
 
@@ -324,7 +324,7 @@ and continue syncing the chain until it's up-to-date.
 
 First, install `cosmovisor`
 
-!!!include(mainchain/partials/cosmovisor/install_cosmovisor.md)!!!
+<!-- @include: @/mainchain/partials/cosmovisor/install_cosmovisor.md -->
 
 ### Set up cosmovisor directory structure
 
@@ -352,7 +352,7 @@ mv und $HOME/.und_mainchain/cosmovisor/upgrades/1-init_ibc/bin
 Create an environment variable file which will load into the `systemd` service, modifying `/FULL/PATH/TO/` as
 required:
 
-!!!include(mainchain/partials/cosmovisor/cosmovisor_env.md)!!!
+<!-- @include: @/mainchain/partials/cosmovisor/cosmovisor_env.md -->
 
 ### Edit systemd service file
 

@@ -223,7 +223,7 @@ sudo apt install nano jq wget -y
 
 ### Part 4.3: Install the `und` binary
 
-!!!include(mainchain/partials/install-und-binary.md)!!!
+<!-- @include: @/mainchain/partials/install-und-binary.md -->
 
 ## Part 5: Initialising your full node
 
@@ -241,7 +241,7 @@ und init [your_node_tag] --home=/mnt/disks/data/.und_mainchain
 
 ### Download the latest Genesis file.
 
-!!!include(mainchain/partials/download-genesis.md)!!!
+<!-- @include: @/mainchain/partials/download-genesis.md -->
 
 Get the current chain ID from genesis. Make a note of the output, it'll be required in commands later in the guide.
 Command is all on one line:
@@ -252,7 +252,7 @@ $ jq --raw-output '.chain_id' /mnt/disks/data/.und_mainchain/.und_mainchain/conf
 
 ### Get seed nodes
 
-!!!include(mainchain/partials/seed-nodes.md)!!!
+<!-- @include: @/mainchain/partials/seed-nodes.md -->
 
 Next, hit <kbd>Ctrl</kbd>+<kbd>W</kbd>, type `[rpc]` (including the square brackets) and hit return - this will take you
 to the `[rpc]` section of the config file, which begins with:
@@ -290,7 +290,7 @@ further details.
 
 ### Gas Prices
 
-!!!include(mainchain/partials/gas-price.md)!!!
+<!-- @include: @/mainchain/partials/gas-price.md -->
 
 ::: danger IMPORTANT
 keep your `/mnt/disks/data/.und_mainchain/config/node_key.json`
@@ -309,7 +309,7 @@ node, hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the node.
 
 We need to use the nano text editor to create the service configuration. Run:
 
-!!!include(mainchain/partials/systemd-service.md)!!!
+<!-- @include: @/mainchain/partials/systemd-service.md -->
 
 and use <kbd>Ctrl</kbd>+<kbd>C</kbd> to exit the `journalctl` command. You can now log out of your SSH session and und
 will continue running in the background.

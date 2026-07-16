@@ -45,17 +45,15 @@ flag to the `und` command, for example `und start --home $HOME/.und_mainchain_Te
 
 The latest genesis for each network can always be found in their respective Github repos:
 
-:::: tabs :options="{ useUrlFragment: false }"
-::: tab MainNet
+::: tabs
+== MainNet
 #### MainNet
 [https://github.com/unification-com/mainnet/latest](https://github.com/unification-com/mainnet/latest)
-:::
 
-::: tab TestNet
+== TestNet
 #### TestNet
 [https://github.com/unification-com/testnet/latest](https://github.com/unification-com/testnet/latest)
 :::
-::::
 
 ### Download the latest Genesis
 
@@ -66,21 +64,19 @@ directory in the command below if you are using something other than the default
 
 To spin up your new node, download the latest `genesis.json` for the network you would like to join:
 
-:::: tabs :options="{ useUrlFragment: false }"
-::: tab MainNet
+::: tabs
+== MainNet
 #### MainNet
 ```bash
 curl https://raw.githubusercontent.com/unification-com/mainnet/master/latest/genesis.json > $HOME/.und_mainchain/config/genesis.json
 ```
-:::
 
-::: tab TestNet
+== TestNet
 #### TestNet
 ```bash
 curl https://raw.githubusercontent.com/unification-com/testnet/master/latest/genesis.json > $HOME/.und_mainchain/config/genesis.json
 ```
 :::
-::::
 
 ### Get the current Chain ID
 
@@ -98,19 +94,17 @@ jq --raw-output '.chain_id' $HOME/.und_mainchain/config/genesis.json
 
 This will output, for example:
 
-:::: tabs :options="{ useUrlFragment: false }"
-::: tab MainNet
+::: tabs
+== MainNet
 ```
 FUND-MainNet-2
 ```
-:::
 
-::: tab TestNet
+== TestNet
 ```
 FUND-TestNet-2
 ```
 :::
-::::
 
 which can then be passed to your `und` commands:
 
@@ -120,11 +114,11 @@ und query tx FCDFE69F20431B23CF16CAA68C10325EB2E1126FCDF8AD4010CCE927A0808740 --
 
 ## Seed Node Peers
 
-!!!include(mainchain/partials/seed-nodes.md)!!!
+<!-- @include: @/mainchain/partials/seed-nodes.md -->
 
 ## Minimum Gas
 
-!!!include(mainchain/partials/gas-price.md)!!!
+<!-- @include: @/mainchain/partials/gas-price.md -->
 
 ## Running your node
 
@@ -145,7 +139,7 @@ You should see that your node connects to some peers, and after a few seconds be
 
 ### Using `statesync` Snapshots
 
-!!!include(mainchain/partials/statesync.md)!!!
+<!-- @include: @/mainchain/partials/statesync.md -->
 
 ### Checkin the node's status
 
@@ -170,15 +164,13 @@ for `und` can also be set in `$HOME/.und_mainchain/config/client.toml`
 
 Our public block explorers can be found at:
 
-:::: tabs :options="{ useUrlFragment: false }"
-::: tab MainNet
+::: tabs
+== MainNet
 #### MainNet: [https://explorer.unification.io](https://explorer.unification.io)
-:::
 
-::: tab TestNet
+== TestNet
 #### TestNet: [https://explorer-testnet.unification.io](https://explorer-testnet.unification.io)
 :::
-::::
 
 ## TestNet Faucet
 

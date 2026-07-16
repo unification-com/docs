@@ -69,5 +69,5 @@ should see your wallet address in the list of entrants.
 
 The winner will be selected at some point in the future...
 
-In the meantime, check out our [guides](../guide/README.md) on deploying your own VOR-enable smart contract, or the 
+In the meantime, check out our [guides](../guide/index.md) on deploying your own VOR-enable smart contract, or the 
 [Github repo](https://github.com/unification-com/vor-demos) for this demo.

@@ -27,7 +27,7 @@ assumes that the `.und_mainchain` home directory is the default `$HOME/.und_main
 
 ## 1. Download & install cosmovisor
 
-!!!include(mainchain/partials/cosmovisor/install_cosmovisor.md)!!!
+<!-- @include: @/mainchain/partials/cosmovisor/install_cosmovisor.md -->
 
 **Note**: Installing using `go install` as per the official guide will install `cosmovisor` in `$GOPATH/bin` (usually
 `$HOME/go/bin`) not `/usr/local/bin`.

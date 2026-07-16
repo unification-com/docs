@@ -47,23 +47,21 @@ Check the version output is `1.7.x`.
 
 The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as follows:
 
-:::: tabs :options="{ useUrlFragment: false }"
+::: tabs
 
-::: tab MainNet
+== MainNet
 #### MainNet
 
 **Note:** 1st upgrade path name is `1-init_ibc`
 <CosmovisorDirTree network="mainnet" plan="2-grog" upgraded=false></CosmovisorDirTree>
-:::
 
-::: tab TestNet
+== TestNet
 #### TestNet
 
 **Note:** 1st upgrade path name is `1-ibc`
 <CosmovisorDirTree network="testnet" plan="2-grog" upgraded=false></CosmovisorDirTree>
-:::
 
-::::
+:::
 
 That's it! Once the upgrade height specified in the governance proposal is reached, Cosmovisor and the `upgrade`
 module will handle the rest automatically.

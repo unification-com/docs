@@ -2,7 +2,7 @@
 
 :::tip Note
 This guide is for fresh full node installations. For existing nodes migrating to `cosmovisor`, please
-see the [Migrations](../../migrations/README.md) documentation.
+see the [Migrations](../../migrations/index.md) documentation.
 :::
 
 Installing and configuring `cosmovisor` makes managing and maintaining `und` updates & upgrades much simpler.
@@ -18,7 +18,7 @@ to run a full node.
 
 First, download the `und` version for `genesis`:
 
-!!!include(mainchain/partials/cosmovisor/download_und_v1.5.1.md)!!!
+<!-- @include: @/mainchain/partials/cosmovisor/download_und_v1.5.1.md -->
 
 Initialise the node
 
@@ -28,21 +28,21 @@ Initialise the node
 
 **Download `genesis.json`**
 
-!!!include(mainchain/partials/download-genesis.md)!!!
+<!-- @include: @/mainchain/partials/download-genesis.md -->
 
 **Get the seed nodes**
 
-!!!include(mainchain/partials/seed-nodes.md)!!!
+<!-- @include: @/mainchain/partials/seed-nodes.md -->
 
 **Set `gas-prices`**
 
-!!!include(mainchain/partials/gas-price.md)!!!
+<!-- @include: @/mainchain/partials/gas-price.md -->
 
 ## 2. Install & Configure Cosmovisor
 
 Next, install `cosmovisor`
 
-!!!include(mainchain/partials/cosmovisor/install_cosmovisor.md)!!!
+<!-- @include: @/mainchain/partials/cosmovisor/install_cosmovisor.md -->
 
 The latest version of `cosmovisor` is `v1.5.0`
 
@@ -68,21 +68,19 @@ The upgrade plan name determines the directory path that `und` v1.6.x will be in
 
 Install the `1-init_ibc` update:
 
-:::: tabs :options="{ useUrlFragment: false }"
+::: tabs
 
-::: tab MainNet
+== MainNet
 ### MainNet
 
 <InstallUnd version="1.6.3" plan="1-init_ibc"></InstallUnd>
-:::
 
-::: tab TestNet
+== TestNet
 ### TestNet
 
 <InstallUnd version="1.6.3" plan="1-ibc"></InstallUnd>
-:::
 
-::::
+:::
 
 Check the version output is `1.6.3`.
 
@@ -131,7 +129,7 @@ Check the version output is `1.11.0`.
 Create an environment variable file which will load into the `systemd` service, modifying `/FULL/PATH/TO/` as
 required:
 
-!!!include(mainchain/partials/cosmovisor/cosmovisor_env.md)!!!
+<!-- @include: @/mainchain/partials/cosmovisor/cosmovisor_env.md -->
 
 ## 3. Set up the systemd service
 

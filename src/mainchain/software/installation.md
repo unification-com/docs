@@ -10,9 +10,9 @@ If you intend to run a node and/or become a validator, follow the
 
 ## Installing the latest release binaries
 
-!!!include(mainchain/partials/keyring-migration-warning.md)!!!
+<!-- @include: @/mainchain/partials/keyring-migration-warning.md -->
 
-!!!include(mainchain/partials/install-und-binary.md)!!!
+<!-- @include: @/mainchain/partials/install-und-binary.md -->
 
 ## Building from Source
 
@@ -20,7 +20,7 @@ The Mainchain binaries can also be built from source.
 
 ### Prerequisites
 
-!!!include(mainchain/partials/prerequisites.md)!!!
+<!-- @include: @/mainchain/partials/prerequisites.md -->
 
 ### Install Go
 
