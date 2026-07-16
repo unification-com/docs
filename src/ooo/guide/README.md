@@ -9,7 +9,6 @@ This guide is split into two parts:
 2. [Interaction](interaction.md) - how to interact with the system and acquire data in your
    smart contract once it has been deployed.
    
-There is also a guide to the Finchains OoO API:
+There is also a guide to the OoO Data API:
 
-[Finchains OoO Data API Guide](ooo_api.md) - a guide to requesting data from the Finchains
-   OoO API. 
+[OoO Data API Guide](ooo_api.md) - a guide to requesting data from the OoO API.

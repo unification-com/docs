@@ -1,12 +1,11 @@
 # OoO Introduction
 
-This documentation covers the both the xFUND Router and Finchains' OoO (Oracle of Oracles)
+This documentation covers the xFUND Router network and its OoO (Oracle of Oracles) data
 functionality.
 
-There are documentation and guides covering how to integrate the `Consumer` smart contract
-library (required for interacting with the xFUND Router network) into your own smart
-contract and how to interact with the network in order to request and receive data
-in your smart contract from the Finchains OoO API.
+It includes guides covering how to integrate the `Consumer` smart contract library (required for
+interacting with the xFUND Router network) into your own smart contract, how to request and receive
+data in your smart contract from the OoO API, and how to run your own provider oracle.
 
 #### Contract & Provider addresses
 
@@ -17,8 +16,9 @@ in your smart contract from the Finchains OoO API.
 
 1. [Quickstart](./guide/quickstart.md) - a quick introduction to getting set up
 2. [Implementation Guide](./guide/README.md) - a complete guide to integration and interaction
-3. [Finchains OoO Data API Guide](./guide/ooo_api.md) - a guide to requesting data from the Finchains
-   OoO API.
+3. [OoO Data API Guide](./guide/ooo_api.md) - a guide to requesting data from the OoO API
+4. [Running an OoO Data Provider](./guide/run-provider.md) - install, configure and operate your
+   own provider oracle
 
 #### Contract Docs
 

@@ -1,12 +1,15 @@
 # OoO Data API Guide
 
-This guide covers the supported data offered by the Finchains OoO API, which is available
-as a data request via the xFUND Router network.
+This guide covers the data available via the OoO API, requested through the xFUND Router
+network. The going-forward API queries decentralised-exchange (DEX) liquidity pools for a
+pair's price. The legacy Finchains price API (request type `PR`) has been **removed**; `PR`
+requests are now redirected to the DEX path (see [Legacy Finchains API](#legacy-finchains-api-pr)).
 
 ## Data Providers
 
-See [Providers](../providers.md) for a list of Oracles providing data for both Mainnet and Rinkeby, 
-along with their associated fees and wallet addresses.
+See [Providers](../providers.md) for the Oracles providing data on each supported network, along
+with their associated fees and wallet addresses. To run your own provider oracle, see
+[Running an OoO Data Provider](run-provider.md).
 
 ::: tip Note
 OoO data providers may wait for 2 - 3 or more block confirmations before processing a request. Depending
@@ -16,243 +19,116 @@ smart contract from the time your request Tx was received by the provider oracle
 
 ## Introduction
 
-Data is acquired via the OoO API using dot-separated strings to define the desired data - for example
-"Average BTC/USD Price over 24 hours, with outliers removed" would be requested using
-`BTC.USD.PR.AVI.24H`. 
+Data is acquired via the OoO API using dot-separated strings to define the pair to price - for
+example the mean `WETH/USDC` price over the last 30 minutes is requested using `WETH.USDC.30`.
 
 The hex-encoded string is supplied along with the Provider address (as defined above,
-depending on Ethereum network) and the `xFUND` fee as parameters to your smart contract, 
+depending on the network) and the `xFUND` fee as parameters to your smart contract,
 using the [requestdata](implementation.md#_3-1-requestdata) function you defined.
 
-The Finchains OoO Data Provider picks up this request, and supplies the data via the 
+The OoO Data Provider picks up this request, and supplies the data via the
 [recievedata](implementation.md#_3-2-recievedata) function you defined.
 
 ## Request String Format
 
-The request format follows `BASE.TARGET.TYPE.SUBTYPE[.SUPP1][.SUPP2][.SUPP3]`
+The canonical, going-forward request format is:
 
-`BASE`, `TARGET`, and `TYPE` are all required parameters. `SUBTYPE` is required for type `PR`
+`BASE.TARGET[.MINUTES]`
+
+`BASE` and `TARGET` are required. `MINUTES` is an optional AdHoc lookback window (an integer
+from `0` to `60`). Every request of this form is a DEX price query - see
+[DEX price queries](#dex-price-queries) below.
 
 ::: tip NOTE
 The data request string should be converted to a `Bytes32` (Hex) value before submitting it to
 your smart contract's request function, for example:
 
 ```javascript
-const endpoint = web3.utils.asciiToHex("ETH.USDC.AD.30")
-const endpoint = web3.utils.asciiToHex("BTC.USD.PR.AVI")
+const endpoint = web3.utils.asciiToHex("WETH.USDC")
+const endpoint = web3.utils.asciiToHex("WETH.USDC.30")
 ... etc.
 ```
 :::
 
+::: warning DEPRECATED
+The legacy explicit-type forms `BASE.TARGET.AD[.MINUTES]` (DEX/AdHoc) and
+`BASE.TARGET.PR.SUBTYPE[...]` ([Finchains](#legacy-finchains-api-pr)) are still accepted but
+**deprecated**. New consumers should use the suffix-less form above; the `AD`/`PR` parsing will
+be removed once live usage drops to zero. Any trailing fields a DEX query cannot honour (such as
+a leftover Finchains `SUBTYPE`) are ignored, and the price is still returned from the DEX mean.
+:::
+
 ### BASE
 
-The three or four-letter code for the base currency for which the price will be returned, 
-e.g. `BTC` (Bitcoin), `ETH` (Ether) etc.
+The symbol for the base currency for which the price will be returned, e.g. `WETH`, `xFUND`,
+`ETH` etc.
 
 ### TARGET
 
-The three or four-letter code for the target currency in which to return the 
-price, e.g. `GBP`, `USD`
+The symbol for the target currency in which to return the price, e.g. `USDC`, `WETH`, `USD`.
 
-A full list of supported currency `BASE`/`TARGET` pairs is available from
-the [Finchains API](https://crypto.finchains.io/api/pairs). Supported pairs specific
-to each exchange are linked below.
+For DEX queries the supported pairs are those listed by the supported DEXs - see
+[DEX price queries](#dex-price-queries) below.
 
-### TYPE
+## DEX price queries
 
-The code for the data point being requested, for example `PR` etc.
-The currently implemented types are as follows:
+Every canonical request (`BASE.TARGET[.MINUTES]`) is served as a DEX price query. The provider
+__attempts__ to query the supported DEXs' subgraphs to determine whether the `BASE` and `TARGET`
+symbols are known to the DEX, and whether the DEX has a liquidity pool representing the pair. For
+every DEX that lists the pair it retrieves the latest price, then calculates the mean across all
+results, removing outliers with the Chauvenet criterion where there is enough data to do so.
 
-- `PR`
-- `AD`
+The supported DEXs and pairs are curated and published by the
+[dex-pair-verify](https://ooo-dex.unification.io) catalogue, which the provider oracle syncs from.
+They span the major EVM DEX families across several chains — including Uniswap (v2/v3/v4),
+Sushiswap, Shibaswap, Quickswap, Pancakeswap and Honeyswap — as well as non-EVM sources such as
+Osmosis on Cosmos. The catalogue is curated and grows over time, so treat the live browser as the
+source of truth rather than any fixed list here.
 
-### TYPE: `PR`
-
-::: tip Note
-The `PR` request type uses Finchains to query price data. Finchains has a limited number of supported pairs. For a wider
-range of pairs, use the `AD` endpoint, which queries a larger data set of DEXs.
-:::
-
-Price, calculated using all available exchange data for the selected pair. See `SUBTYPE`s for supported
-query endpoints.
-
-### TYPE: `AD`
-
-Adhoc data requests for pairs listed on supported DEXs instead of Finchains. The `SUBTYPE` is not required for the
-`AD` endpoint `TYPE`. The slot can however be used to specify the  historical timespan for which to query prices.
-
-By default, the Chauvenet Criterion is used to remove outliers if the returned results contain enough data to do so.
-
-The OoO provider will __attempt__ to query supported DEXs' subgraphs to determine whether the `BASE` and `TARGET` symbols 
-are known to the DEX, and also whether the DEX has a liquidity pool representing the pair. If a pair exists, 
-and is supported by OoO it will attempt to retrieve the latest price from each DEX before calculating the mean price
-from all data found.
-
-The currently supported DEXs are:
-
-- Uniswap v2 (Ethereum mainnet)
-- Uniswap v3 (Ethereum mainnet)
-- Shibaswap (Ethereum mainnet)
-- Sushiswap (Ethereum mainnet)
-- Quickswap (Polygon PoS)
-- Pancakeawap v3 (BSC Chain)
-- Honeyswap (Gnosis Chain)
-
-A list of currently supported pairs can be found in the Github repository used by the OoO application to update itself: 
-[https://github.com/unification-com/ooo-adhoc](https://github.com/unification-com/ooo-adhoc)
+**Browse the currently supported pairs, DEXs and networks at
+[https://ooo-dex.unification.io](https://ooo-dex.unification.io).**
 
 ::: danger IMPORTANT
-`BASE` and `TARGET` are **CaSe SeNsItIvE** for adhoc queries! `XFUND` is __not__ the same as `xFUND`.
+`BASE` and `TARGET` are **CaSe SeNsItIvE**! `XFUND` is __not__ the same as `xFUND`.
 **Always check your request endpoints, and that at least one DEX supports the pair before sending a data request!**
 :::
 
-The default timespan is 0 minutes. Any integer from 0 to 60 may be used in `SUBTYPE`, with a `0` telling the oracle to 
-only fetch the latest prices. A non-zero value tells the oracle to fetch prices for the past `nn` minutes.
+### `MINUTES`
+
+The optional third field sets the lookback window, as an integer from `0` to `60`. The default
+is `0`, which tells the oracle to fetch only the latest prices. A non-zero value tells the oracle
+to fetch prices over the past `nn` minutes and average them.
 
 **Example**
 
-We know that `xFUND/WETH` pair is listed on Uniswap v2 and Shibaswap. We'd like to know the average price for the last
-30 minutes, so we can use the query endpoint:
+We know the `xFUND/WETH` pair is listed on Uniswap v2 and Shibaswap, and we'd like the mean price
+over the last 30 minutes:
 
-`xFUND.WETH.AD.30`
+`xFUND.WETH.30`
 
-The OoO provider will pick up the request, and since it is an `AD` endpoint `TYPE`, will query the prices in known
-DEXs for the last 30 minutes. If a DEX supports the pair, it will query the latest price from all supported 
-DEXs, and calculate the mean price from all results removing outliers using the Chauvenet Criterion.
+The provider picks up the request, queries the supported DEXs that list the pair for the last 30
+minutes of prices, and returns the mean (outliers removed with the Chauvenet criterion).
 
-### SUBTYPE
-
-Used with `TYPE` endpoint `PR`.
-
-The data sub-type, for example `AVG` (mean), `AVI` (mean with outliers
-removed). Some `TYPE`s, _require_ additional `SUPPN` data in the query. Some may have _optional_ data defined in `SUPPN`.
-
-The currently implemented types are as follows:
-
-- [AVG](#subtype-avg): Mean price calculated from all available exchange Oracles
-- [AVI](#subtype-avi): Mean price using [Median and Interquartile Deviation Method](http://www.mathwords.com/o/outlier.htm) to remove outliers
-- [AVP](#subtype-avp): Mean price with outliers removed using [Peirce's criterion](https://en.wikipedia.org/wiki/Peirce%27s_criterion)
-- [AVC](#subtype-avc): Mean price with outliers removed using [Chauvenet's criterion](https://en.wikipedia.org/wiki/Chauvenet%27s_criterion)
-
-#### SUBTYPE: `AVG`
-
-**Supported `TYPE`s**: `PR`
-
-Average (Mean) price, calculated from all available exchange data for a given time
-period. 
-
-The default timespan is 1 Hour. The following supported timespans can be supplied
-in `SUPP1`:
-
-- `5M`: 5 Minutes
-- `10M`: 10 Minutes
-- `30M`: 30 Minutes
-- `1H`: 1 Hour
-- `2H`: 2 Hours
-- `6H`: 6 Hours
-- `12H`: 12 Hours
-- `24H`: 24 Hours
-- `48H`: 48 Hours
-
-**Examples**
-
-`BTC.USD.PR.AGV` - Mean BTC/USD price from all available exchanges, using data from the last hour  
-`BTC.USD.PR.AGV.30M` - as above, but data from the last 30 minutes
-
-#### SUBTYPE: `AVI`
-
-**Supported `TYPE`s**: `PR`
-
-Average (Mean) price, calculated from all available exchange data for a given time
-period, with outliers (very high or very low values) removed form the calculation
-
-The default timespan is 1 Hour. The following supported timespans can be supplied 
-in `SUPP1`:
-
-- `5M`: 5 Minutes
-- `10M`: 10 Minutes
-- `30M`: 30 Minutes
-- `1H`: 1 Hour
-- `2H`: 2 Hours
-- `6H`: 6 Hours
-- `12H`: 12 Hours
-- `24H`: 24 Hours
-- `48H`: 48 Hours
-
-`BTC.USD.PR.AVI` - Mean BTC/USD price with outliers removed, using data from the last hour  
-`BTC.USD.PR.AVI.30M` - as above, but data from the last 30 minutes
-
-#### SUBTYPE: `AVP`
-
-**Supported `TYPE`s**: `PR`
-
-Mean price with outliers removed using [Peirce's criterion](https://en.wikipedia.org/wiki/Peirce%27s_criterion)
-
-The default timespan is 1 Hour. The following supported timespans can be supplied
-in `SUPP1`:
-
-- `5M`: 5 Minutes
-- `10M`: 10 Minutes
-- `30M`: 30 Minutes
-- `1H`: 1 Hour
-- `2H`: 2 Hours
-- `6H`: 6 Hours
-- `12H`: 12 Hours
-- `24H`: 24 Hours
-- `48H`: 48 Hours
-
-`BTC.USD.PR.AVP` - Mean BTC/USD price with outliers removed, using data from the last hour  
-`BTC.USD.PR.AVP.30M` - as above, but data from the last 30 minutes
-
-#### SUBTYPE: `AVC`
-
-**Supported `TYPE`s**: `PR`
-
-Mean price with outliers removed using [Chauvenet's criterion](https://en.wikipedia.org/wiki/Chauvenet%27s_criterion)
-
-The default timespan is 1 Hour. The following supported timespans can be supplied
-in `SUPP1`:
-
-- `5M`: 5 Minutes
-- `10M`: 10 Minutes
-- `30M`: 30 Minutes
-- `1H`: 1 Hour
-- `2H`: 2 Hours
-- `6H`: 6 Hours
-- `12H`: 12 Hours
-- `24H`: 24 Hours
-- `48H`: 48 Hours
-
-The default value for `dMax` (max standard deviations) is 3. A custom threshold can be
-supplied as an integer value in `SUPP2`.
-
-::: danger Important
-If a custom `dMax` value is required, then **timespan must also be set in `SUPP1`**
+::: tip Legacy `.AD`
+The explicit `BASE.TARGET.AD[.MINUTES]` form (e.g. `xFUND.WETH.AD.30`) is the deprecated alias of
+the canonical form and is still accepted. Prefer the suffix-less form for new integrations.
 :::
 
-`BTC.USD.PR.AVC` - Mean BTC/USD price with outliers removed, using data from the last hour  
-`BTC.USD.PR.AVC.30M` - as above, but data from the last 30 minutes  
-`BTC.USD.PR.AVC.24H.2` - as above, but data from the last 24 hours, with `dMax` of 2
+## Legacy Finchains API (`PR`)
 
-### SUPP1
+::: danger REMOVED
+The Finchains price API (request type `PR`) has been **removed** - Finchains is no longer queried.
 
-Any supplementary request data, e.g. GDX (coinbase) etc. required for `TYPE.SUBTYPE` queries such as `EX.LAT`,
-or timespan values for `AVG` and `AVI` calculations etc.
+For backward compatibility, the provider **lossily redirects** a legacy `BASE.TARGET.PR.SUBTYPE[...]`
+request to the DEX price path on `BASE.TARGET` alone: the Finchains qualifiers (`SUBTYPE`, time
+window, per-exchange filter) are **silently dropped** and the price is served as the
+[DEX mean](#dex-price-queries). If `BASE.TARGET` is not available on any supported DEX, the request
+returns a clear error and is **not** fulfilled.
 
-These are outlined in the respective `TYPE` or `SUBTYPE` definitions above where appropriate.
-
-### SUPP2
-
-Any supplementary request data _in addition_ to `SUPP1`, e.g. `GDX` (coinbase) etc. required
-for comparisons on `TYPE`s.
-
-These are outlined in the respective `TYPE` or `SUBTYPE` definitions above where appropriate.
-
-### SUPP3
-
-Any supplementary request data _in addition_ to `SUPP1` and `SUPP2`.
-
-These are outlined in the respective `TYPE` or `SUBTYPE` definitions above where appropriate.
+**Migrate to the suffix-less form** `BASE.TARGET[.MINUTES]`. The `PR` parsing itself will be removed
+once live usage drops to zero. Note that DEX prices come from on-chain liquidity pools, not the
+former centralised-exchange aggregation, so a redirected price may differ from the old Finchains value.
+:::
 
 ## Return data
 
@@ -261,12 +137,15 @@ decimal removal, and allow integer calculations in smart contracts.
 
 ## Examples
 
-Based on the currently implemented API functionality, some examples are as follows:
+Canonical (going-forward) requests:
 
-- `BTC.GBP.PR.AVG`: average BTC/GBP price, calculated from all supported exchanges over 
-  the last hour.
-- `ETH.USD.PR.AVI`: average ETH/USD price, calculated from all supported exchanges 
-  over the last hour, removing outliers (extremely high/low values) from the calculation.
-- `ETH.USD.PR.AVI.24H`: average ETH/USD price, calculated from all supported exchanges
-  over the last 24 hours, removing outliers (extremely high/low values) from the calculation.
-- `COOL.WETH.AD`: adhoc request for COOL/WETH pair. Will query DEXs for current price and return the mean price.
+- `WETH.USDC`: latest mean WETH/USDC price from all supported DEXs.
+- `WETH.USDC.30`: mean WETH/USDC price over the last 30 minutes.
+- `COOL.WETH`: latest mean COOL/WETH price from all supported DEXs.
+
+Legacy (deprecated) forms:
+
+- `COOL.WETH.AD`: explicit AdHoc alias of `COOL.WETH`.
+- `BTC.GBP.PR.AVG`: a legacy Finchains-shape request - redirected to the DEX path on `BTC.GBP`
+  (qualifiers dropped), or an error if that pair is on no supported DEX.
+- `ETH.USD.PR.AVI.24H`: likewise redirected to the DEX path on `ETH.USD` (qualifiers dropped).

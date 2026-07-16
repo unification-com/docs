@@ -57,7 +57,7 @@ function getData(address _provider, uint256 _fee, bytes32 _data) external return
 }
 ```
 
-7. Deploy. For example, using `truffle`, a very simple migration script for `Rinkeby` testnet
+7. Deploy. For example, using `truffle`, a very simple migration script for `Sepolia` testnet
 may look like:
 
 ```javascript
@@ -86,7 +86,7 @@ This involves:
    Your contract may need periodically topping up with `xFUND`, depending on how you implement
    fee payment.
 
-   **Note**: The `xFUNDMOCK` Token on Rinkeby testnet has a faucet function, `gimme()` which can be used
+   **Note**: The `xFUNDMOCK` Token on Sepolia testnet has a faucet function, `gimme()` which can be used
    to grab some test tokens.
 
 Once these steps have been run through, you will be able to initialise data requests via your

@@ -1,5 +1,8 @@
 # OoO Providers
 
+The addresses below are the Unification Foundation's provider oracles. To run your own provider
+oracle, see [Running an OoO Data Provider](guide/run-provider.md).
+
 ## Unification Foundation
 
 ### Mainnets
