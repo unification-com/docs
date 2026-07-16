@@ -3,7 +3,7 @@
 :::warning IMPORTANT
 **TestNet** was successfully upgraded to `7-taryon` in block **19,793,940**
 
-**MainNet** will be upgraded to `7-taryon` in block **18,055,500**
+**MainNet** was successfully upgraded to `7-taryon` in block **18,055,500**
 :::
 
 :::tip Note
