@@ -143,6 +143,10 @@ export const sidebar = {
         {
           "text": "Network Upgrade: 7-taryon",
           "link": "/mainchain/migrations/7-taryon_upgrade"
+        },
+        {
+          "text": "Network Upgrade: 8-vaxildan",
+          "link": "/mainchain/migrations/8-vaxildan_upgrade"
         }
       ]
     },
