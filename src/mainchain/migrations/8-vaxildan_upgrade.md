@@ -1,7 +1,7 @@
 # Network Upgrade: 8-vaxildan
 
 :::warning IMPORTANT
-**TestNet** is scheduled to upgrade to `8-vaxildan` in block **25,639,870**
+**TestNet** is scheduled to upgrade to `8-vaxildan` in block **25,638,900**
 
 **MainNet** upgrade to follow after the TestNet observation window
 :::
