@@ -29,3 +29,5 @@ The following guides are available, covering migrating to `cosmovisr`, and confi
 5. [4-percival Upgrade](4-percival_upgrade.md) - configuring `cosmovisor` for the `4-percival` upgrade
 6. [5-pike Upgrade](5-pike_upgrade.md) - configuring `cosmovisor` for the `5-pike` upgrade
 7. [6-scanlan Upgrade](6-scanlan_upgrade.md) - configuring `cosmovisor` for the `6-scanlan` upgrade
+8. [7-taryon Upgrade](7-taryon_upgrade.md) - configuring `cosmovisor` for the `7-taryon` upgrade
+9. [8-vaxildan Upgrade](8-vaxildan_upgrade.md) - configuring `cosmovisor` for the `8-vaxildan` upgrade
