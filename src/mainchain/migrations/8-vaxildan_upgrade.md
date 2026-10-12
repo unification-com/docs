@@ -79,9 +79,9 @@ mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/8-vaxildan/bin
 
 #### 2. Download the latest `und` v1.13.x and add to Cosmovisor's `upgrades` directory
 
-<InstallUnd version="1.13.1" plan="8-vaxildan"></InstallUnd>
+<InstallUnd version="1.13.4" plan="8-vaxildan"></InstallUnd>
 
-Check the version output is `1.13.1`!
+Check the version output is `1.13.4`!
 
 The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as follows:
 
