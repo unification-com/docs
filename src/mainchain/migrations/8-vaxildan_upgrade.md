@@ -1,9 +1,14 @@
 # Network Upgrade: 8-vaxildan
 
 :::warning IMPORTANT
-**TestNet** is scheduled to upgrade to `8-vaxildan` in block **25,638,900**
+**MainNet** is scheduled to upgrade to `8-vaxildan` in block **24,172,000**, estimated for
+**Wednesday 28 October 2026, around 12:00 UTC**, subject to the governance vote. The actual time may
+vary by 1 - 2 hours either way.
 
-**MainNet** upgrade to follow after the TestNet observation window
+**Use `und` v1.13.4** for this upgrade.
+
+**TestNet** upgraded to `8-vaxildan` in block **25,638,900** on 11 August 2026, and has been running
+v1.13.4 since 20 August 2026.
 :::
 
 :::tip Note
@@ -64,6 +69,13 @@ for a completely automated upgrade.
 directory. Ensure your host has adequate disk space to accommodate the backup. This may add significant time
 to the upgrade process, and as such, the process may take up to 30 minutes before the node comes back online.
 
+:::tip Skipping the Cosmovisor backup
+If you keep your own backups, you can skip Cosmovisor's by setting `UNSAFE_SKIP_BACKUP=true` in
+Cosmovisor's environment, so that your node comes back online quickly. Blocks resume once validators
+holding more than two thirds of the voting power are back online, so a quick restart from every validator
+keeps the halt short.
+:::
+
 :::tip Note
 the following commands assume the `und` home directory is the default location `$HOME/.und_mainchain`.
 Modify directory locations as applicable.
@@ -79,9 +91,9 @@ mkdir -p $HOME/.und_mainchain/cosmovisor/upgrades/8-vaxildan/bin
 
 #### 2. Download the latest `und` v1.13.x and add to Cosmovisor's `upgrades` directory
 
-<InstallUnd version="1.13.0" plan="8-vaxildan"></InstallUnd>
+<InstallUnd version="1.13.4" plan="8-vaxildan"></InstallUnd>
 
-Check the version output is `1.13.0`!
+Check the version output is `1.13.4`!
 
 The directory structure for `$HOME/.und_mainchain/cosmovisor` should now look as follows:
 
