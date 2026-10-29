@@ -24,7 +24,7 @@ The Mainchain binaries can also be built from source.
 
 ### Install Go
 
-**Go 1.22+** is required to build the Mainchain binaries
+**Go 1.26.5+** is required to build the Mainchain binaries
 
 Install `go` by following the [official docs](https://golang.org/doc/install).
 Once Go is installed, set your `$PATH` environment variable:
@@ -76,12 +76,12 @@ If `und` has been installed correctly, you should see output **similar** to the 
 ...snip...
 
 build_tags: netgo ledger
-commit: c4c7046c931642affe626a864bc3ed8e9b3b3605
-cosmos_sdk_version: v0.50.13
-go: go version go1.23.9 linux/amd64
+commit: 9f7768905f4ad443d170c7ccc5405ff172fe941c
+cosmos_sdk_version: v0.54.4
+go: go version go1.26.5 linux/amd64
 name: UndMainchain
 server_name: und
-version: 1.11.0
+version: 1.13.4
 
 ```
 

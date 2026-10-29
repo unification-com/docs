@@ -1,9 +1,8 @@
 # Network Upgrade: 8-vaxildan
 
-:::warning IMPORTANT
-**MainNet** is scheduled to upgrade to `8-vaxildan` in block **24,172,000**, estimated for
-**Wednesday 28 October 2026, around 12:00 UTC**, subject to the governance vote. The actual time may
-vary by 1 - 2 hours either way.
+:::info
+**MainNet** upgraded to `8-vaxildan` in block **24,172,000** on Wednesday 28 October 2026 at 15:24 UTC,
+following governance proposal 32.
 
 **Use `und` v1.13.4** for this upgrade.
 
